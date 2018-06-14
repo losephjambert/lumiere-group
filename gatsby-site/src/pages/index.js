@@ -9,22 +9,9 @@ const Profile = ({data}) => (
     <p>Now go build something great.</p>
     <Link to="/page-2/">Go to page 2</Link>
     <div>
-      <div
-        style={{
-          display: `flex`,
-          alignItems: `center`
-        }}
-      >
-        <div>
-          {data.profilePhoto.resolutions.src && (
-            <Img
-              style={{ margin: 0 }}
-            />
-          )}
-        </div>
-        <div style={{ flex: 1 }}>{data.name}</div>
-        <div style={{ flex: 1 }}>{data.profileDescription.profileDescription}</div>
-      </div>
+      <div>{data.name}</div>
+      <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
+      <div>{data.profileDescription.profileDescription}</div>
     </div>
   </div>
 )
@@ -33,7 +20,6 @@ const Profile = ({data}) => (
 class IndexPage extends React.Component{
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
-    console.log(data);
   
     return(
       <Profile data={data}/>
