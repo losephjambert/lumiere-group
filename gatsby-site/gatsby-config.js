@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'Lumiere Group',
+    footerTitle: 'Lumiere Group Footer Content',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

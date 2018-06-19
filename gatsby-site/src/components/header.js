@@ -1,33 +1,22 @@
 import React from 'react'
 import Link from 'gatsby-link'
 
+// Header Component
+// height: 92px;
+// always fixed
+// menu trigger left (component) onClick activate menu component
+// mail trigger right (component) onClick activate mail component
+
+
 const Header = ({ siteTitle }) => (
-  <div
-    style={{
-      background: 'rebeccapurple',
-      marginBottom: '1.45rem',
-    }}
-  >
-    <div
-      style={{
-        margin: '0 auto',
-        maxWidth: 960,
-        padding: '1.45rem 1.0875rem',
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to="/"
-          style={{
-            color: 'white',
-            textDecoration: 'none',
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </div>
+<div>
+  <h1>
+    <Link to="/">
+      {siteTitle}
+    </Link>
+  </h1>
+</div>
+
 )
 
 export default Header
