@@ -1,8 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Carousel from '../components/carousel'
+import Menu from '../components/menu'
 
 const Profile = ({data}) => (
   <div>
+    <Menu/>
     <h1>Get up now get down.</h1>
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
@@ -12,6 +15,7 @@ const Profile = ({data}) => (
       <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
       <div>{data.profileDescription.profileDescription}</div>
     </div>
+    <Carousel/>
   </div>
 )
 
