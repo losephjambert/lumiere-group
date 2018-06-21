@@ -1,5 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
+
 import Carousel from '../components/carousel'
 import Menu from '../components/menu'
 
@@ -21,11 +22,40 @@ const Profile = ({data}) => (
 
 
 class IndexPage extends React.Component{
+  
+  constructor(props) {
+    super(props);
+    this.state = {
+      showMenu: false,
+    }
+  }
+
+  toggleMenu = (e) => {
+    this.setState(prevState => ({
+      showMenu: !prevState.showMenu
+    }))
+  }
+
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
+    const {showMenu} = this.state;
   
     return(
-      <Profile data={data}/>
+      <div>
+        <Menu 
+          visible={showMenu}
+          toggleMenu={this.toggleMenu}/>
+        <h1>Get up now get down.</h1>
+        <p>Welcome to your new Gatsby site.</p>
+        <p>Now go build something great.</p>
+        <Link to="/page-2/">Go to page 2</Link>
+        <div>
+          <div>{data.name}</div>
+          <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
+          <div>{data.profileDescription.profileDescription}</div>
+        </div>
+        <Carousel/>
+      </div>
     )
 
   }
