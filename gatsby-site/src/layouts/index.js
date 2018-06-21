@@ -2,8 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
-import Footer from '../components/footer'
 import Styled, {injectGlobal} from 'styled-components'
 import Media from '../components/mediaQueries'
 import Dimensions from '../styles/styleVariables'
@@ -64,11 +62,7 @@ const Layout = ({ children, data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <div>
-      {children()}
-    </div>
-    <Footer footerTitle={data.site.siteMetadata.footerTitle} />
+    {children()}
   </div>
 )
 
@@ -79,7 +73,7 @@ Layout.propTypes = {
 export default Layout
 
 export const query = graphql`
-  query SiteTitleQuery {
+  query MetadataQuery {
     site {
       siteMetadata {
         title

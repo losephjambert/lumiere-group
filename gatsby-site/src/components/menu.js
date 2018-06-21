@@ -26,10 +26,10 @@ const Container = styled.div`
   transition: transform 300ms ease-in-out;
   transform-origin: center;
   ${props =>
-    !props.visible ?
-    `animation: ${hideMenu} 300ms linear forwards;`
+    !props.active ?
+    `animation: ${hideMenu} 300ms ease-in-out forwards;`
     :
-    `animation: ${showMenu} 2s linear forwards;`
+    `animation: ${showMenu} 300ms ease-in-out forwards;`
   }
 
   .test{
@@ -118,8 +118,8 @@ const ContactInfo = styled.p`
 // required:
 //    list of items to display
 
-const Menu = ({ visible, toggleMenu }) => (
-  <Container visible={visible}>
+const Menu = ({ active, toggleMenu }) => (
+  <Container active={active}>
     <SVGContainer source={Logo} className="test" />
     <StyleButton onClick={(e)=>toggleMenu(e)}>
       <SVGContainer

@@ -1,10 +1,14 @@
 import React from 'react'
-import Styled from 'styled-components'
+import Styled, {css} from 'styled-components'
 
 const HamburgerStyle = Styled.div`
-width: 60px;
-height: 45px;
+top: 1.5rem;
+left: 1.5rem;
+width: 2.8rem;
+height: 3rem;
 position: relative;
+z-index: 9999;
+display: inline-flex;
 transform: rotate(0deg);
 transition: .5s ease-in-out;
 cursor: pointer;
@@ -12,57 +16,56 @@ cursor: pointer;
 span{
   display: block;
   position: absolute;
-  height: 9px;
+  height: .4rem;
   width: 100%;
-  background: #d3531a;
-  border-radius: 9px;
+  background: white;
   opacity: 1;
   left: 0;
-  transform: rotate(0deg);
-  transition: .25s ease-in-out;
+  transform: rotate(0deg) translate3d(0,0,);
+  transition: 250ms ease-in-out;
 }
 
 span:nth-child(1) {
-  top: 0px;
+  top: 0rem;
+  ${props => !props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
+
 }
 
 span:nth-child(2),span:nth-child(3) {
-  top: 18px;
+  top: 1.3rem;
+  ${props => props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
 }
 
 span:nth-child(4) {
-  top: 36px;
+  bottom: 0rem;
+  ${props => !props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
+
 }
 
-.open span:nth-child(1) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
-
-.open span:nth-child(2) {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
-}
-
-.open span:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-  -moz-transform: rotate(-45deg);
-  -o-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-}
-
-.open span:nth-child(4) {
-  top: 18px;
-  width: 0%;
-  left: 50%;
-}
+${props =>
+  props.active && css`
+  span:nth-child(1) {
+    transform: translate3d(0,1.3rem,0);
+    opacity: 0;
+  }
+  
+  span:nth-child(2) {
+    transform: rotate(45deg);
+  }
+  
+  span:nth-child(3) {
+    transform: rotate(-45deg);
+  }
+  
+  span:nth-child(4) {
+    transform: translate3d(0,-1.3rem,0);
+    opacity: 0;
+  }
+  `}
 `
 
-const Hamburger = ({ /*Hamburger Metadata*/ }) => (
-  <HamburgerStyle>
+const Hamburger = ({ active }) => (
+  <HamburgerStyle active={active}>
     <span></span>
     <span></span>
     <span></span>

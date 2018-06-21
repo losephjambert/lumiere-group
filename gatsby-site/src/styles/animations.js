@@ -18,13 +18,11 @@ export const hideMenu = keyframes`
 `;
 
 export const showMenu = keyframes`
-  0% {
-    transform: scale(.5);
-    opacity: .5;
-  }
+0% {
+  opacity: 0;
+}
 
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
+100% {
+  opacity: 1;
+}
 `;

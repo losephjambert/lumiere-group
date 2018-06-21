@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 
 import Carousel from '../components/carousel'
 import Menu from '../components/menu'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const Profile = ({data}) => (
   <div>
@@ -34,6 +36,7 @@ class IndexPage extends React.Component{
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }))
+    console.log('togglemenu')
   }
 
   render(){
@@ -42,8 +45,11 @@ class IndexPage extends React.Component{
   
     return(
       <div>
+        <Header
+          active={showMenu}
+          toggleMenu={this.toggleMenu}/>
         <Menu 
-          visible={showMenu}
+          active={showMenu}
           toggleMenu={this.toggleMenu}/>
         <h1>Get up now get down.</h1>
         <p>Welcome to your new Gatsby site.</p>
@@ -55,6 +61,7 @@ class IndexPage extends React.Component{
           <div>{data.profileDescription.profileDescription}</div>
         </div>
         <Carousel/>
+        <Footer/>
       </div>
     )
 

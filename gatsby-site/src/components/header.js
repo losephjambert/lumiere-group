@@ -27,9 +27,11 @@ const StyledHeader = Styled.header`
 `
 
 
-const Header = ({ siteTitle }) => (
+const Header = ({ active, toggleMenu }) => (
   <StyledHeader>
-    <Hamburger />
+    <span onClick={(e)=>toggleMenu(e)}>
+      <Hamburger active={active}/>
+    </span>
   </StyledHeader>
 
 )
