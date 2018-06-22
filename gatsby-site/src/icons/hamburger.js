@@ -14,7 +14,7 @@ const HamburgerStyle = Styled.div`
 top: 0;
 width: 2.7rem;
 height: 2.1rem;
-z-index: 9999;
+z-index: 99;
 display: inline-flex;
 transform: rotate(0deg);
 transition: 250ms ease-in-out;

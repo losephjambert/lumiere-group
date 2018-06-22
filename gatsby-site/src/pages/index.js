@@ -42,6 +42,7 @@ class IndexPage extends React.Component{
     this.setState(prevState => ({
       showContactOverlay: !prevState.showContactOverlay
     }))
+    console.log('toggle contact overlay')
   }
 
   render(){

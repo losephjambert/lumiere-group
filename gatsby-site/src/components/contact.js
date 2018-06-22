@@ -3,6 +3,8 @@ import Link from 'gatsby-link'
 import Styled, {css} from 'styled-components'
 import Colors from '../styles/colors'
 import {hideMenu, showMenu} from '../styles/animations'
+import SVGContainer from '../components/svg-loader'
+import CloseButton from '../artwork/close-button.svg'
 
 // Contact Component
 // displays a contact form users can interact with to send a message to the company
@@ -19,7 +21,7 @@ const {
 
 const StyleContainer = Styled.div`
 position: fixed;
-z-index: 100;
+z-index: 99;
 top: 0;
 right: 0;
 bottom: 0;
@@ -41,12 +43,23 @@ ${props =>
 }
 `
 
-const Contact = ({ active }) => (
+const StyledSVGContainer = Styled(SVGContainer)`
+	width: 2.4rem;
+	position: absolute;
+	z-index: 99;
+	right: 2.4rem;
+	top: 3.1rem;
+`
+
+const Contact = ({ active, toggleContactOverlay }) => (
 <StyleContainer active={active}>
-    <form action="">
+	<span onClick={(e)=>toggleContactOverlay(e)}>
+		<StyledSVGContainer source={CloseButton} className='close-button' /> 
+  </span>  
+		<form action="">
         <input type="text"/>
         <input type="text"/>
-        <input type="textarea"/>
+        <textarea name="message" cols="30" rows="10"></textarea>
         <input type="submit"/>
     </form>
 </StyleContainer>

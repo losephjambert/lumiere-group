@@ -73,7 +73,7 @@ const Header = ({ active, toggleMenu, showContactOverlay, toggleContactOverlay }
         className='header-mail-icon' />   
     </span>
     <Menu active={active}/>
-    <Contact active={showContactOverlay}/>
+    <Contact active={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>
   </StyledHeader>
 
 )

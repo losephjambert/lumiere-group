@@ -9,7 +9,7 @@ import {hideMenu, showMenu} from '../styles/animations'
 
 const Container = styled.div`
   position: fixed;
-  z-index: 100;
+  z-index: 98;
   top: 0;
   right: 0;
   bottom: 0;
