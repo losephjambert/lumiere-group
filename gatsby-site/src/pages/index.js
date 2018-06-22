@@ -2,7 +2,6 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import Carousel from '../components/carousel'
-import Menu from '../components/menu'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
@@ -29,6 +28,7 @@ class IndexPage extends React.Component{
     super(props);
     this.state = {
       showMenu: false,
+      showContactOverlay: false
     }
   }
 
@@ -36,21 +36,25 @@ class IndexPage extends React.Component{
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }))
-    console.log('togglemenu')
+  }
+
+  toggleContactOverlay = (e) => {
+    this.setState(prevState => ({
+      showContactOverlay: !prevState.showContactOverlay
+    }))
   }
 
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
-    const {showMenu} = this.state;
+    const {showMenu, showContactOverlay} = this.state;
   
     return(
       <div>
         <Header
           active={showMenu}
-          toggleMenu={this.toggleMenu}/>
-        <Menu 
-          active={showMenu}
-          toggleMenu={this.toggleMenu}/>
+          showContactOverlay={showContactOverlay}
+          toggleMenu={this.toggleMenu}
+          toggleContactOverlay={this.toggleContactOverlay}/>
         <h1>Get up now get down.</h1>
         <p>Welcome to your new Gatsby site.</p>
         <p>Now go build something great.</p>

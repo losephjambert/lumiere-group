@@ -5,7 +5,6 @@ import Media from './mediaQueries'
 
 import SVGContainer from '../components/svg-loader'
 import Logo from '../artwork/menu-logo.svg'
-import close from '../artwork/close-button.svg'
 import {hideMenu, showMenu} from '../styles/animations'
 
 const Container = styled.div`
@@ -20,7 +19,6 @@ const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  overflow: scroll;
   padding: 0 0 0em;
 
   transition: transform 300ms ease-in-out;
@@ -32,16 +30,19 @@ const Container = styled.div`
     `animation: ${showMenu} 300ms ease-in-out forwards;`
   }
 
-  .test{
+  .menu-logo{
     svg{
       min-width: 17rem;
       margin: 1.8em 0 7.5em;
       ${Media.forMediumPhonesUp`
-        min-width: 19.2rem;      
+      min-width: 19.2rem;      
       `}
     }
     g{
       stroke: white;
+    }
+    .logo-shapes{
+      stroke: none;
     }
   }
 
@@ -60,26 +61,16 @@ const Container = styled.div`
     }
   }
 `
-const StyleButton = styled.button`
-  position: absolute;
-  padding: 0;
-  top: 1.8rem;
-  right: 1.8rem;
-  border: none;
-  background-color: transparent;
-  &:focus{
-    outline: none;
-  }
-`
 
 const MenuItems = styled.ul`
   width: 90%;
+  max-width: 57.2rem;
   margin-bottom: 7.5em;
 `
 
 const Item = styled.li`
   color: white;
-  font-size: 2rem;
+  font-size: 2.8rem;
   list-style-type: none;
   border-top: .1em solid white;
   width: 100%;
@@ -100,7 +91,7 @@ const Item = styled.li`
 
 const ContactInfo = styled.p`
   color: white;
-  font-size: 1.2rem;
+  font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
   width: 90%;
@@ -118,14 +109,9 @@ const ContactInfo = styled.p`
 // required:
 //    list of items to display
 
-const Menu = ({ active, toggleMenu }) => (
+const Menu = ({ active }) => (
   <Container active={active}>
-    <SVGContainer source={Logo} className="test" />
-    <StyleButton onClick={(e)=>toggleMenu(e)}>
-      <SVGContainer
-        source={close}
-        className="close"/>
-    </StyleButton>
+    <SVGContainer source={Logo} className="menu-logo" />
     <MenuItems>
       <Item>About</Item>
       <Item>Team</Item>

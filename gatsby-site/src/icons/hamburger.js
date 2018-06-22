@@ -1,45 +1,51 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
+import Colors from '../styles/colors'
+
+const {
+  blueBackground ,
+  yellowBackground ,
+  hoverColor ,
+  white ,
+  black
+} = Colors
 
 const HamburgerStyle = Styled.div`
-top: 1.5rem;
-left: 1.5rem;
-width: 2.8rem;
-height: 3rem;
-position: relative;
+top: 0;
+width: 2.7rem;
+height: 2.1rem;
 z-index: 9999;
 display: inline-flex;
 transform: rotate(0deg);
-transition: .5s ease-in-out;
+transition: 250ms ease-in-out;
 cursor: pointer;
+&:hover > span{
+  background-color: ${hoverColor};
+}
 
 span{
   display: block;
   position: absolute;
-  height: .4rem;
+  height: 3pt;
   width: 100%;
-  background: white;
   opacity: 1;
   left: 0;
   transform: rotate(0deg) translate3d(0,0,);
-  transition: 250ms ease-in-out;
+  transition: inherit;
+  ${props =>
+    props.active ? `background-color: ${white};` : `background-color: ${black};`}
 }
 
 span:nth-child(1) {
   top: 0rem;
-  ${props => !props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
-
 }
 
 span:nth-child(2),span:nth-child(3) {
-  top: 1.3rem;
-  ${props => props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
+  top: .85rem;
 }
 
 span:nth-child(4) {
   bottom: 0rem;
-  ${props => !props.active ? 'transition-delay: 250ms' : 'transition-delay: 0ms;'}
-
 }
 
 ${props =>
@@ -64,8 +70,10 @@ ${props =>
   `}
 `
 
-const Hamburger = ({ active }) => (
-  <HamburgerStyle active={active}>
+const Hamburger = ({ active, clickHandler }) => (
+  <HamburgerStyle
+    onClick={(e)=>clickHandler(e)}
+    active={active}>
     <span></span>
     <span></span>
     <span></span>

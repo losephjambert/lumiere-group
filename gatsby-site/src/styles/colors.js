@@ -3,7 +3,7 @@ const Colors = {
   yellowBackground:  '#f9f3d9' ,
   hoverColor:        '#1588fc' ,
   white:             '#FCFCFC' ,
-  black:             '#0C0C0C' ,
+  black:             '#231F20' ,
 }
 
 export default Colors
