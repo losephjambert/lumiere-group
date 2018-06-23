@@ -25,7 +25,7 @@ const {
 } = Colors
 
 const StyledHeader = Styled.header`
-  height: ${Dimensions.headerSpaceSmall};
+  height: ${Dimensions.headerSpaceBig};
   width: 100%;
   background-color: ${white};
   position: fixed;
@@ -35,12 +35,6 @@ const StyledHeader = Styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 1.8rem;
-  ${Media.forMediumPhonesUp`
-    height: ${Dimensions.headerSpaceMedium};
-  `}
-  ${Media.forBigPhonesUp`
-    height: ${Dimensions.headerSpaceBig};
-  `}
   .header-logo{
     position: relative;
     left: 2.6pt;
