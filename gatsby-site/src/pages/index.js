@@ -65,7 +65,7 @@ class IndexPage extends React.Component{
           <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
           <div>{data.profileDescription.profileDescription}</div>
         </div>
-        <Carousel/>
+        <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu}/>
         <Footer/>
       </div>
     )
