@@ -54,8 +54,11 @@ const StyledHeader = Styled.header`
     }
   }
   .header-mail-icon{
+    cursor: pointer;
     svg{
       width: 3.4rem;
+      position: relative;
+      top: 2px;
     }
   }
 `

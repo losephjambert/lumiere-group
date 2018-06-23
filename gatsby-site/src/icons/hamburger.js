@@ -26,7 +26,7 @@ cursor: pointer;
 span{
   display: block;
   position: absolute;
-  height: 3pt;
+  height: 2.1pt;
   width: 100%;
   opacity: 1;
   left: 0;

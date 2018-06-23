@@ -44,11 +44,12 @@ ${props =>
 `
 
 const StyledSVGContainer = Styled(SVGContainer)`
-	width: 2.4rem;
-	position: absolute;
-	z-index: 99;
-	right: 2.4rem;
-	top: 3.1rem;
+width: 2.4rem;
+position: absolute;
+z-index: 99;
+right: 2.4rem;
+top: 3.4rem;
+cursor: pointer;
 `
 
 const Contact = ({ active, toggleContactOverlay }) => (
