@@ -2,10 +2,18 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
 import Media from './mediaQueries'
-
+import Colors from '../styles/colors'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../artwork/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
+
+const {
+  blueBackground ,
+  yellowBackground ,
+  hoverColor ,
+  white ,
+  black
+} = Colors
 
 const Container = styled.div`
   position: fixed;
@@ -43,6 +51,7 @@ const Container = styled.div`
     }
     .logo-shapes{
       stroke: none;
+      fill: ${white};
     }
   }
 

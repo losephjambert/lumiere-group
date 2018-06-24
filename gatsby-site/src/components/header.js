@@ -62,7 +62,8 @@ const Header = ({ active, toggleMenu, showContactOverlay, toggleContactOverlay }
   <StyledHeader active={active}>
       <Hamburger
         active={active}
-        clickHandler={toggleMenu}/>
+        clickHandler={toggleMenu}
+        showContactOverlay={showContactOverlay}/>
     <SVGContainer source={Logo} className='header-logo' />   
     <span  onClick={(e)=>toggleContactOverlay(e)}>
       <SVGContainer

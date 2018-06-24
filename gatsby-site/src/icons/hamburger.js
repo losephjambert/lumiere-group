@@ -19,6 +19,10 @@ display: inline-flex;
 transform: rotate(0deg);
 transition: 250ms ease-in-out;
 cursor: pointer;
+${props =>
+  props.showContactOverlay && css`
+    opacity: 0;
+  `}
 &:hover > span{
   background-color: ${hoverColor};
 }
@@ -70,10 +74,11 @@ ${props =>
   `}
 `
 
-const Hamburger = ({ active, clickHandler }) => (
+const Hamburger = ({ active, clickHandler, showContactOverlay }) => (
   <HamburgerStyle
     onClick={(e)=>clickHandler(e)}
-    active={active}>
+    active={active}
+    showContactOverlay={showContactOverlay}>
     <span></span>
     <span></span>
     <span></span>
