@@ -104,6 +104,7 @@ const ContactInfo = styled.p`
   display: flex;
   justify-content: space-around;
   width: 90%;
+  max-width: 38.4rem;
   font-family: Europa Regular Italic;
   
   ._divider{

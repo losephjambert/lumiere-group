@@ -29,6 +29,7 @@ const StyledHeader = Styled.header`
   width: 100%;
   background-color: ${white};
   position: fixed;
+  z-index: 20;
   top: 0;
   left: 0;
   display: flex;

@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import SVGContainer from '../components/svg-loader'
+import Styled from 'styled-components'
 
 // Colection Component
 // receives a collection of metadata pertaining to a particular subject
@@ -7,13 +9,18 @@ import Link from 'gatsby-link'
 // required:
 //    array of collection objects that contain a collection image and collection name
 
-const Collection = ({ /*Collection Metadata*/ }) => (
+const TeamSVGContainer = Styled(SVGContainer)`
+
+`
+
+const Collection = ({ heading, collectionItems }) => (
 <div>
-    <ul> {/* onClick activate modal and populate it with the metadata from the clicked collection item */}
-        <li>item 1</li>
-        <li>item 2</li>
-        <li>item 2</li>
-    </ul>
+  <TeamSVGContainer source={heading} className="collection-header" />
+  <ul> {/* onClick activate modal and populate it with the metadata from the clicked collection item */}
+      <li>item 1</li>
+      <li>item 2</li>
+      <li>item 2</li>
+  </ul>
 </div>
 
 )

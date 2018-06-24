@@ -17,7 +17,7 @@ const {
   black
 } = Colors
 
-const ControlSize = 3.5
+const ControlSize = 2.5
 const ControlPadding = 1
 
 const SharedSliderControlStyles = `
@@ -27,19 +27,19 @@ const SharedSliderControlStyles = `
   border-top: ${ControlSize}rem solid transparent;
   border-bottom: ${ControlSize}rem solid transparent;
   transition: 250ms;
-  opacity: 0;
+  opacity: 1;
   cursor: pointer;
 `
 
 const PreviousSlideControl = Styled.span`
   ${SharedSliderControlStyles}
-  border-right: ${ControlSize}rem solid ${white};
+  border-right: ${ControlSize*2}rem solid ${white};
   transform: translate3d(${ControlPadding}rem,0,0);
 `
 
 const NextSlideControl = Styled.span`
   ${SharedSliderControlStyles}
-  border-left: ${ControlSize}rem solid ${white};
+  border-left: ${ControlSize*2}rem solid ${white};
   transform: translate3d(-${ControlPadding}rem,0,0);
 `
 
