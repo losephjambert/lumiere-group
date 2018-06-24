@@ -43,13 +43,7 @@ injectGlobal`
   }
 
   body{
-    padding-top: ${Dimensions.headerSpaceSmall};
-    ${Media.forMediumPhonesUp`
-      padding-top: ${Dimensions.headerSpaceMedium};
-    `}
-    ${Media.forBigPhonesUp`
-      padding-top: ${Dimensions.headerSpaceBig};
-    `}
+    padding-top: ${Dimensions.headerSpaceBig};
   }
 `
 

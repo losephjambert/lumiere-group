@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import Carousel from '../components/carousel'
+import About from '../components/about'
 import Header from '../components/header'
 import Footer from '../components/footer'
 
@@ -56,10 +57,7 @@ class IndexPage extends React.Component{
           showContactOverlay={showContactOverlay}
           toggleMenu={this.toggleMenu}
           toggleContactOverlay={this.toggleContactOverlay}/>
-        <h1>Get up now get down.</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
+        <About />
         <div>
           <div>{data.name}</div>
           <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
