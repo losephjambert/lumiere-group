@@ -37,6 +37,8 @@ const Profile = ({data}) => (
 )
 
 const TeamCollectionItems = []
+const TeamCollectionTheme = {}
+const ServicesCollectionTheme = {}
 const ServicesCollectionItems = []
 
 const AppContainer = Styled.div`
@@ -89,9 +91,11 @@ class IndexPage extends React.Component{
           <About />
           <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu}/>
           <Collection
+            theme={TeamCollectionTheme}
             heading={TeamHeading}
             collectionItems={TeamCollectionItems} />
           <Collection
+            theme={ServicesCollectionTheme}
             heading={ServicesHeading}
             collectionItems={ServicesCollectionItems} />
           <Footer/>

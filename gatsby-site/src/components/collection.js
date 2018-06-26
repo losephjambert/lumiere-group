@@ -9,19 +9,25 @@ import Styled from 'styled-components'
 // required:
 //    array of collection objects that contain a collection image and collection name
 
-const TeamSVGContainer = Styled(SVGContainer)`
-
+const CollectionSVGContainer = Styled(SVGContainer)`
+  svg{
+    height: 4.6rem;
+  }
 `
 
-const Collection = ({ heading, collectionItems }) => (
-<div>
-  <TeamSVGContainer source={heading} className="collection-header" />
+const CollectionContainer = Styled.div`
+  min-height: 100vh;
+`
+
+const Collection = ({ heading, collectionItems, theme }) => (
+<CollectionContainer>
+  <CollectionSVGContainer source={heading} className="collection-header" />
   <ul> {/* onClick activate modal and populate it with the metadata from the clicked collection item */}
       <li>item 1</li>
       <li>item 2</li>
       <li>item 2</li>
   </ul>
-</div>
+</CollectionContainer>
 
 )
 
