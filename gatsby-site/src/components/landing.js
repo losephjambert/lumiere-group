@@ -1,6 +1,6 @@
 import React from 'react'
 import SVGContainer from '../components/svg-loader'
-import LandingLogo from '../artwork/landing-logo.svg'
+import LandingLogo from '../assets/landing-logo.svg'
 import Styled from 'styled-components'
 import Dimensions from '../styles/styleVariables'
 
@@ -22,6 +22,9 @@ const LogoSVGContainer = Styled(SVGContainer)`
     width: 31.4rem;
     position: relative;
     top: -4.5rem;
+    .landing-logo-svg{
+      fill: black;
+    }
   }
 `
 

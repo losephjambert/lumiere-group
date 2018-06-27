@@ -3,9 +3,9 @@ import Link from 'gatsby-link'
 import Styled, {css} from 'styled-components'
 import Colors from '../styles/colors'
 import {hideMenu, showMenu} from '../styles/animations'
-import CloseButton from '../artwork/close-button.svg'
+import CloseButton from '../assets/close-button.svg'
 import SVGContainer from '../components/svg-loader'
-import ContactHeader from '../artwork/contact.svg'
+import ContactHeader from '../assets/contact.svg'
 import Dimensions from '../styles/styleVariables'
 
 // Contact Component

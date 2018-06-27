@@ -9,8 +9,8 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 import Landing from '../components/landing'
 import Collection from '../components/collection'
-import TeamHeading from '../artwork/team.svg'
-import ServicesHeading from '../artwork/services.svg'
+import TeamHeading from '../assets/team.svg'
+import ServicesHeading from '../assets/services.svg'
 
 const {
   blueBackground ,

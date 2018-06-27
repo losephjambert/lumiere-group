@@ -7,8 +7,8 @@ import Menu from '../components/menu'
 import Contact from '../components/contact'
 import Colors from '../styles/colors'
 import SVGContainer from '../components/svg-loader'
-import Logo from '../artwork/header-logo.svg'
-import MailIcon from '../artwork/mail-icon.svg'
+import Logo from '../assets/header-logo.svg'
+import MailIcon from '../assets/mail-icon.svg'
 
 // Header Component
 // height: 92px;

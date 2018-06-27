@@ -1,6 +1,6 @@
 import React from 'react'
 import SVGContainer from '../components/svg-loader'
-import AboutHeader from '../artwork/about.svg'
+import AboutHeader from '../assets/about.svg'
 import Styled from 'styled-components'
 import Colors from '../styles/colors'
 

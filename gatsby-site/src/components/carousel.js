@@ -66,7 +66,7 @@ const CarouselComponent = ({ showMenu, showContactOverlay }) => (
     autoplay={true}
     autoplayInterval={5000}
     speed={500}
-    renderBottomCenterControls={false}
+    renderBottomCenterControls={ () => false }
     renderCenterLeftControls={({ previousSlide }) => (
       <PreviousSlideControl onClick={previousSlide} />
     )}
