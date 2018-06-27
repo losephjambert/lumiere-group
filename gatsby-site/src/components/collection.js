@@ -2,6 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import SVGContainer from '../components/svg-loader'
 import Styled from 'styled-components'
+import Colors from '../styles/colors'
 
 // Colection Component
 // receives a collection of metadata pertaining to a particular subject
@@ -9,9 +10,21 @@ import Styled from 'styled-components'
 // required:
 //    array of collection objects that contain a collection image and collection name
 
+const {
+  blueBackground ,
+  yellowBackground ,
+  hoverColor ,
+  white ,
+  black
+} = Colors
+
 const CollectionSVGContainer = Styled(SVGContainer)`
   svg{
     height: 4.6rem;
+    .services-svg,
+    .about-svg{
+      fill: ${black};
+    }
   }
 `
 
