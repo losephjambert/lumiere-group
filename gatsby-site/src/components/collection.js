@@ -19,6 +19,10 @@ const {
 } = Colors
 
 const CollectionSVGContainer = Styled(SVGContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 13.6rem auto 8.4rem;
   svg{
     height: 4.6rem;
     .services-svg,
