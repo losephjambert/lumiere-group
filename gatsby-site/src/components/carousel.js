@@ -27,7 +27,7 @@ const SharedSliderControlStyles = `
   border-top: ${ControlSize}rem solid transparent;
   border-bottom: ${ControlSize}rem solid transparent;
   transition: 250ms;
-  opacity: 1;
+  opacity: 0;
   cursor: pointer;
 `
 
@@ -66,6 +66,7 @@ const CarouselComponent = ({ showMenu, showContactOverlay }) => (
     autoplay={true}
     autoplayInterval={5000}
     speed={500}
+    heightMode={'first'}
     renderBottomCenterControls={ () => false }
     renderCenterLeftControls={({ previousSlide }) => (
       <PreviousSlideControl onClick={previousSlide} />
