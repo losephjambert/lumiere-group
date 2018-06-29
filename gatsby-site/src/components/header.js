@@ -40,6 +40,8 @@ const StyledHeader = Styled.header`
     position: relative;
     left: 2.6pt;
     top: 1.25pt;
+    transition: 200ms;
+    opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     & > svg > g > g > .cls-1{
       fill: ${black};
     }
@@ -59,8 +61,10 @@ const StyledHeader = Styled.header`
 `
 
 
-const Header = ({ active, toggleMenu, showContactOverlay, toggleContactOverlay }) => (
-  <StyledHeader active={active}>
+const Header = ({ showHeaderLogo, active, toggleMenu, showContactOverlay, toggleContactOverlay }) => (
+  <StyledHeader
+    showHeaderLogo={showHeaderLogo}
+    active={active}>
       <Hamburger
         active={active}
         clickHandler={toggleMenu}

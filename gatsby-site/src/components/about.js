@@ -29,6 +29,9 @@ const HeaderSVGContainer = Styled(SVGContainer)`
 const StyledSection = Styled.section`
   padding: 13.6rem 0;
   background-color: ${blueBackground};
+  display: flex;
+  flex-flow: column wrap;
+  align-items: center;
 `
 
 const BodyCopy = Styled.p`

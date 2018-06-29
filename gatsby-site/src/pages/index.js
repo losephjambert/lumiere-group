@@ -105,11 +105,12 @@ class IndexPage extends React.Component{
 
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
-    const {showMenu, showContactOverlay} = this.state;
+    const {showHeaderLogo, showMenu, showContactOverlay} = this.state;
   
     return(
       <AppContainer>
         <Header
+          showHeaderLogo={showHeaderLogo}
           active={showMenu}
           showContactOverlay={showContactOverlay}
           toggleMenu={this.toggleMenu}
