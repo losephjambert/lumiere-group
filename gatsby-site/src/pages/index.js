@@ -76,10 +76,9 @@ class IndexPage extends React.Component{
   }
 
   toggleHeaderLogo = () => {
-    // this.setState(prevState => ({
-    //   showHeaderLogo: !prevState.showHeaderLogo
-    // }))
-    console.log('toggle the damn logo bool')
+    this.setState(prevState => ({
+      showHeaderLogo: !prevState.showHeaderLogo
+    }))
   }
   
   handleScroll = (e) =>{
@@ -91,14 +90,17 @@ class IndexPage extends React.Component{
   handleThrottle = (e) =>{
     const scrollDistance=window.scrollY
     this.lastScrollTop=scrollDistance
-    if (scrollDistance >= this.windowHeight) {
-      window.removeEventListener('scroll', (e)=>this.handleScroll(e))
+    if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
+      this.toggleHeaderLogo()
+      }
+    if (scrollDistance <= this.windowHeight && this.state.showHeaderLogo) {
       this.toggleHeaderLogo()
     }
   }
 
   componentDidMount(){
-    window.addEventListener('scroll', (e)=>this.handleScroll(e) )
+    console.log('componentDidMount')
+    window.addEventListener('scroll', (e)=>this.handleScroll(e))
   }
 
   render(){
