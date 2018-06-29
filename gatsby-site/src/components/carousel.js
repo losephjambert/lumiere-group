@@ -74,13 +74,13 @@ const CarouselComponent = ({ showMenu, showContactOverlay }) => (
     renderCenterRightControls={({ nextSlide }) => (
       <NextSlideControl onClick={nextSlide} />
     )}>
-    <img src="http://fillmurray.com/1000/600&text=slide1" />
-    <img src="http://fillmurray.com/1000/600&text=slide2" />
-    <img src="http://fillmurray.com/1000/600&text=slide3" />
-    <img src="http://fillmurray.com/1000/600&text=slide4" />
-    <img src="http://fillmurray.com/1000/600&text=slide5" />
-    <img src="http://fillmurray.com/1000/600&text=slide6" />
-    <img src="http://fillmurray.com/1000/600&text=slide7" />
+    <img src="http://via.placeholder.com/1000/600&text=slide1" />
+    <img src="http://via.placeholder.com/1000/600&text=slide2" />
+    <img src="http://via.placeholder.com/1000/600&text=slide3" />
+    <img src="http://via.placeholder.com/1000/600&text=slide4" />
+    <img src="http://via.placeholder.com/1000/600&text=slide5" />
+    <img src="http://via.placeholder.com/1000/600&text=slide6" />
+    <img src="http://via.placeholder.com/1000/600&text=slide7" />
   </StyledCarousel>
 )
 

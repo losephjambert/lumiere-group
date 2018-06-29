@@ -52,27 +52,53 @@ const ContentContainer = Styled.div`
   background-color: ${white};
 `
 
-
 class IndexPage extends React.Component{
   
   constructor(props) {
     super(props);
     this.state = {
       showMenu: false,
-      showContactOverlay: false
+      showContactOverlay: false,
+      showHeaderLogo: false
     }
   }
 
-  toggleMenu = (e) => {
+  toggleMenu = () => {
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
     }))
   }
 
-  toggleContactOverlay = (e) => {
+  toggleContactOverlay = () => {
     this.setState(prevState => ({
       showContactOverlay: !prevState.showContactOverlay
     }))
+  }
+
+  toggleHeaderLogo = () => {
+    // this.setState(prevState => ({
+    //   showHeaderLogo: !prevState.showHeaderLogo
+    // }))
+    console.log('toggle the damn logo bool')
+  }
+  
+  handleScroll = (e) =>{
+    requestAnimationFrame((e)=>this.handleThrottle(e))
+  }
+
+  lastScrollTop=0
+  windowHeight = window.innerHeight
+  handleThrottle = (e) =>{
+    const scrollDistance=window.scrollY
+    this.lastScrollTop=scrollDistance
+    if (scrollDistance >= this.windowHeight) {
+      window.removeEventListener('scroll', (e)=>this.handleScroll(e))
+      this.toggleHeaderLogo()
+    }
+  }
+
+  componentDidMount(){
+    window.addEventListener('scroll', (e)=>this.handleScroll(e) )
   }
 
   render(){
