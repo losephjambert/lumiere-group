@@ -1,6 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Styled from 'styled-components'
+import Styled, {ThemeProvider} from 'styled-components'
 import Colors from '../styles/colors'
 
 import Carousel from '../components/carousel'
@@ -11,6 +11,10 @@ import Landing from '../components/landing'
 import Collection from '../components/collection'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
+import rinaImage from '../assets/rina.jpg'
+import leleImage from '../assets/lele.jpg'
+import erinImage from '../assets/erin.jpg'
+import carousel from '../assets/carousel-1.jpg'
 
 const {
   blueBackground ,
@@ -36,11 +40,57 @@ const Profile = ({data}) => (
   </div>
 )
 
-const TeamCollectionItems = []
-const TeamCollectionTheme = {}
-const ServicesCollectionTheme = {}
-const ServicesCollectionItems = []
+const TeamCollectionItems = [
+  {
+    image: rinaImage,
+    title: 'Rina Luzius',
+    description: 'Managing Principle | Art Collection Consultant'
+  },
+  {
+    image: erinImage,
+    title: 'Erin Weible',
+    description: 'Managing Principle | Art Collection Consultant'
+  },
+  {
+    image: leleImage,
+    title: 'Lele Barnett',
+    description: 'Managing Principle | Art Collection Consultant'
+  }
+]
+const ServicesCollectionItems = [
+  {
+    image: rinaImage,
+    title: 'Rina Luzius',
+    description: 'Managing Principle | Art Collection Consultant'
+  },
+  {
+    image: erinImage,
+    title: 'Erin Weible',
+    description: 'Managing Principle | Art Collection Consultant'
+  },
+  {
+    image: leleImage,
+    title: 'Lele Barnett',
+    description: 'Managing Principle | Art Collection Consultant'
+  },
+  {
+    image: leleImage,
+    title: 'Lele Barnett',
+    description: 'Managing Principle | Art Collection Consultant'
+  }
+]
+const TeamCollectionTheme = {
+  backgroundColor: yellowBackground,
+  color: black,
+  columns: 3
 
+}
+const ServicesCollectionTheme = {
+  backgroundColor: black,
+  color: white,
+  columns: 4
+
+}
 const AppContainer = Styled.div`
   padding-top: 100vh;
   background-color: ${white};
@@ -59,10 +109,12 @@ class IndexPage extends React.Component{
     this.state = {
       showMenu: false,
       showContactOverlay: false,
-      showHeaderLogo: false
+      showHeaderLogo: false,
+      showCollectionItemOverlay: false
     }
   }
 
+  // State Controllers
   toggleMenu = () => {
     this.setState(prevState => ({
       showMenu: !prevState.showMenu
@@ -80,14 +132,22 @@ class IndexPage extends React.Component{
       showHeaderLogo: !prevState.showHeaderLogo
     }))
   }
-  
-  handleScroll = (e) =>{
-    requestAnimationFrame((e)=>this.handleThrottle(e))
+
+  toggleCollectionItemOverlay = () => {
+    this.setState(prevState => ({
+      showCollectionItemOverlay: !prevState.showCollectionItemOverlay
+    }))
+  }
+
+
+  // Scroll Handler
+  handleDebounce = (e) =>{
+    requestAnimationFrame((e)=>this.handleScroll(e))
   }
 
   lastScrollTop=0
   windowHeight = window.innerHeight
-  handleThrottle = (e) =>{
+  handleScroll = (e) =>{
     const scrollDistance=window.scrollY
     this.lastScrollTop=scrollDistance
     if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
@@ -98,14 +158,15 @@ class IndexPage extends React.Component{
     }
   }
 
+  // Component Lifecycle Events
   componentDidMount(){
     console.log('componentDidMount')
-    window.addEventListener('scroll', (e)=>this.handleScroll(e))
+    window.addEventListener('scroll', (e)=>this.handleDebounce(e))
   }
 
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
-    const {showHeaderLogo, showMenu, showContactOverlay} = this.state;
+    const {showHeaderLogo, showMenu, showContactOverlay, showCollectionItemOverlay} = this.state;
   
     return(
       <AppContainer>
@@ -120,10 +181,14 @@ class IndexPage extends React.Component{
           <About />
           <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu}/>
           <Collection
+            toggleCollectionItemOverlay={this.toggleCollectionItemOverlay}
+            showCollectionItemOverlay={showCollectionItemOverlay}
             theme={TeamCollectionTheme}
             heading={TeamHeading}
             collectionItems={TeamCollectionItems} />
           <Collection
+            toggleCollectionItemOverlay={this.toggleCollectionItemOverlay}
+            showCollectionItemOverlay={showCollectionItemOverlay}
             theme={ServicesCollectionTheme}
             heading={ServicesHeading}
             collectionItems={ServicesCollectionItems} />
