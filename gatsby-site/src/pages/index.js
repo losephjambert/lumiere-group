@@ -1,8 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
-import Styled, {ThemeProvider} from 'styled-components'
+import Styled from 'styled-components'
 import Colors from '../styles/colors'
-
 import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
@@ -11,6 +9,7 @@ import Landing from '../components/landing'
 import Collection from '../components/collection'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
+import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 
 const {
@@ -46,7 +45,8 @@ class IndexPage extends React.Component{
       showMenu: false,
       showContactOverlay: false,
       showHeaderLogo: false,
-      showCollectionItemOverlay: false
+      showModal: false,
+      modalContent: {}
     }
   }
 
@@ -69,12 +69,18 @@ class IndexPage extends React.Component{
     }))
   }
 
-  toggleCollectionItemOverlay = () => {
-    this.setState(prevState => ({
-      showCollectionItemOverlay: !prevState.showCollectionItemOverlay
-    }))
+  toggleModal = (payload) => {
+    if (payload) {      
+      this.setState(prevState => ({
+        showModal: !prevState.showModal,
+        modalContent: payload 
+      }))
+    } else{
+      this.setState(prevState => ({
+        showModal: !prevState.showModal
+      }))
+    }
   }
-
 
   // Scroll Handler
   handleDebounce = (e) =>{
@@ -101,10 +107,11 @@ class IndexPage extends React.Component{
 
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node;
-    const {showHeaderLogo, showMenu, showContactOverlay, showCollectionItemOverlay} = this.state;
+    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent} = this.state;
   
     return(
       <AppContainer>
+        {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal}/>}
         <Header
           showHeaderLogo={showHeaderLogo}
           active={showMenu}
@@ -116,14 +123,14 @@ class IndexPage extends React.Component{
           <About />
           <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu} images={CarouselImages}/>
           <Collection
-            toggleCollectionItemOverlay={this.toggleCollectionItemOverlay}
-            showCollectionItemOverlay={showCollectionItemOverlay}
+            toggleModal={this.toggleModal}
+            showModal={showModal}
             theme={TeamCollectionTheme}
             heading={TeamHeading}
             collectionItems={TeamCollectionItems} />
           <Collection
-            toggleCollectionItemOverlay={this.toggleCollectionItemOverlay}
-            showCollectionItemOverlay={showCollectionItemOverlay}
+            toggleModal={this.toggleModal}
+            showModal={showModal}
             theme={ServicesCollectionTheme}
             heading={ServicesHeading}
             collectionItems={ServicesCollectionItems} />

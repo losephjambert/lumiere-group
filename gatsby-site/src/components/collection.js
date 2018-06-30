@@ -2,7 +2,6 @@ import React from 'react'
 import SVGContainer from '../components/svg-loader'
 import Styled from 'styled-components'
 import Colors from '../styles/colors'
-import Modal from './modal'
 
 // Colection Component
 // receives a collection of metadata pertaining to a particular subject
@@ -37,8 +36,8 @@ const CollectionContainer = Styled.div`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  background-color: ${props => props.theme.backgroundColor}
-  color: ${props => props.theme.color}
+  background-color: ${props => props.theme.backgroundColor};
+  color: ${props => props.theme.color};
 `
 
 const CollectionItemContainer = Styled.ul`
@@ -54,25 +53,29 @@ const CollectionItem = Styled.li`
   align-items: center;
 `
 
-const CollectionItemImage = Styled.button`
-  background-image: ${props => `url(${props.image})`};
-  background-size: cover;
-  background-position: center center;
-  height: 30rem;
-  width: 30rem;
-  border-radius: 100%;
-  filter: grayscale(1);
-  mix-blend-mode: multiply;
-  cursor: pointer;
-  transition: 200ms;
+const CollectionItemButton = Styled.button`
   border: none;
+  background-color: transparent;
+  cursor: pointer;
+  filter: grayscale(1);
+  transition: 200ms;
   &:focus{
     outline: none;
-    filter: grayscale(0);
   }
   &:hover{
     filter: grayscale(0);
   }
+`
+
+const CollectionItemImage = Styled.div`
+  background-image: ${props => `url(${props.image})`};
+  background-size: cover;
+  background-position: center center;
+  background-color: ${props => props.theme.backgroundColor};
+  background-blend-mode: multiply;
+  height: 30rem;
+  width: 30rem;
+  border-radius: 100%;
 `
 
 const CollectionItemTitle = Styled.div`
@@ -84,16 +87,18 @@ const CollectionItemDescription = Styled.div`
 `
 
 
-const Collection = ({ toggleCollectionItemOverlay, showCollectionItemOverlay, heading, collectionItems, theme }) => (
+const Collection = ({ toggleCollectionItemOverlay, toggleModal, heading, collectionItems, theme }) => (
   
   <CollectionContainer theme={theme}>
     <CollectionSVGContainer source={heading} className="collection-header" />
-    <CollectionItemContainer> {/* onClick activate modal and populate it with the metadata from the clicked collection item */}
+    <CollectionItemContainer>
       {collectionItems.map((item, i) =>
         <CollectionItem theme={theme} key={i} id={i}>
-          <CollectionItemImage image={item.image}  onClick={(e)=>toggleCollectionItemOverlay(e)}/>
-          <CollectionItemTitle>{item.title}</CollectionItemTitle>
-          <CollectionItemTitle>{item.description}</CollectionItemTitle>
+          <CollectionItemButton onClick={()=>toggleModal(item)}>
+            <CollectionItemImage theme={theme} image={item.image}/>
+            <CollectionItemTitle>{item.title}</CollectionItemTitle>
+            <CollectionItemTitle>{item.subtitle}</CollectionItemTitle>
+          </CollectionItemButton>
         </CollectionItem>
       )}
     </CollectionItemContainer>

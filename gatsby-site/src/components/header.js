@@ -69,11 +69,11 @@ const Header = ({ showHeaderLogo, active, toggleMenu, showContactOverlay, toggle
         active={active}
         clickHandler={toggleMenu}
         showContactOverlay={showContactOverlay}/>
-    <SVGContainer source={Logo} className='header-logo' />   
+    <SVGContainer source={Logo} className='header-logo' />
     <span  onClick={(e)=>toggleContactOverlay(e)}>
       <SVGContainer
         source={MailIcon}
-        className='header-mail-icon' />   
+        className='header-mail-icon' />
     </span>
     <Menu active={active}/>
     <Contact active={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>

@@ -16,39 +16,46 @@ export const TeamCollectionItems = [
   {
     image: rinaImage,
     title: 'Rina Luzius',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: erinImage,
     title: 'Erin Weible',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: leleImage,
     title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
 ]
 export const ServicesCollectionItems = [
   {
     image: rinaImage,
     title: 'Rina Luzius',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: erinImage,
     title: 'Erin Weible',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: leleImage,
     title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: leleImage,
     title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
+    subtitle: 'Managing Principle | Art Collection Consultant',
+    description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
 ]
 export const TeamCollectionTheme = {
