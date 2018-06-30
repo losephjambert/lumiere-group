@@ -45,11 +45,7 @@ const NextSlideControl = Styled.span`
 
 const StyledCarousel = Styled(Carousel)`
   ${props=>
-    props.showMenu && css`
-      z-index: -10;
-    `}
-  ${props=>
-    props.showContactOverlay && css`
+    props.showMenu || props.showContactOverlay && css`
       z-index: -10;
     `}
   &:hover ${PreviousSlideControl},

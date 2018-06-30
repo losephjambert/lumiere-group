@@ -17,7 +17,7 @@ export const hideMenu = keyframes`
   }
   `;
   
-  export const showMenu = keyframes`
+export const showMenu = keyframes`
   0% {
     transform: translate3d(-100vw,0,0);
     opacity: 0;

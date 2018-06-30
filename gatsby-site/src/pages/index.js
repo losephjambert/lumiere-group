@@ -11,10 +11,7 @@ import Landing from '../components/landing'
 import Collection from '../components/collection'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
-import rinaImage from '../assets/rina.jpg'
-import leleImage from '../assets/lele.jpg'
-import erinImage from '../assets/erin.jpg'
-import carousel from '../assets/carousel-1.jpg'
+import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 
 const {
   blueBackground ,
@@ -40,57 +37,6 @@ const Profile = ({data}) => (
   </div>
 )
 
-const TeamCollectionItems = [
-  {
-    image: rinaImage,
-    title: 'Rina Luzius',
-    description: 'Managing Principle | Art Collection Consultant'
-  },
-  {
-    image: erinImage,
-    title: 'Erin Weible',
-    description: 'Managing Principle | Art Collection Consultant'
-  },
-  {
-    image: leleImage,
-    title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
-  }
-]
-const ServicesCollectionItems = [
-  {
-    image: rinaImage,
-    title: 'Rina Luzius',
-    description: 'Managing Principle | Art Collection Consultant'
-  },
-  {
-    image: erinImage,
-    title: 'Erin Weible',
-    description: 'Managing Principle | Art Collection Consultant'
-  },
-  {
-    image: leleImage,
-    title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
-  },
-  {
-    image: leleImage,
-    title: 'Lele Barnett',
-    description: 'Managing Principle | Art Collection Consultant'
-  }
-]
-const TeamCollectionTheme = {
-  backgroundColor: yellowBackground,
-  color: black,
-  columns: 3
-
-}
-const ServicesCollectionTheme = {
-  backgroundColor: black,
-  color: white,
-  columns: 4
-
-}
 const AppContainer = Styled.div`
   padding-top: 100vh;
   background-color: ${white};
@@ -160,7 +106,6 @@ class IndexPage extends React.Component{
 
   // Component Lifecycle Events
   componentDidMount(){
-    console.log('componentDidMount')
     window.addEventListener('scroll', (e)=>this.handleDebounce(e))
   }
 
@@ -179,7 +124,7 @@ class IndexPage extends React.Component{
         <Landing />
         <ContentContainer>
           <About />
-          <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu}/>
+          <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu} images={CarouselImages}/>
           <Collection
             toggleCollectionItemOverlay={this.toggleCollectionItemOverlay}
             showCollectionItemOverlay={showCollectionItemOverlay}

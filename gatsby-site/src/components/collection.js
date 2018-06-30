@@ -8,7 +8,7 @@ import Modal from './modal'
 // receives a collection of metadata pertaining to a particular subject
 // then organizes that metadata in a list
 // required:
-//    array of collection objects that contain a collection image and collection name
+//    array of collection objects that contain image, title, subtitle, and description
 
 const {
   blueBackground ,
