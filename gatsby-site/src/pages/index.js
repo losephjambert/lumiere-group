@@ -23,17 +23,7 @@ const {
 
 const Profile = ({data}) => (
   <div>
-    <Menu/>
-    <h1>Get up now get down.</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <Link to="/page-2/">Go to page 2</Link>
-    <div>
-      <div>{data.name}</div>
-      <div> <img src={data.profilePhoto.resolutions.src} alt="Profile Photo" /> </div>
-      <div>{data.profileDescription.profileDescription}</div>
-    </div>
-    <Carousel/>
+
   </div>
 )
 
