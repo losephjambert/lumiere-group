@@ -54,7 +54,7 @@ const StyledCarousel = Styled(Carousel)`
   }
 `
 
-const CarouselComponent = ({ showMenu, showContactOverlay }) => (
+const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
   <StyledCarousel
     showContactOverlay={showContactOverlay}
     showMenu={showMenu}
@@ -70,13 +70,9 @@ const CarouselComponent = ({ showMenu, showContactOverlay }) => (
     renderCenterRightControls={({ nextSlide }) => (
       <NextSlideControl onClick={nextSlide} />
     )}>
-    <img src="http://via.placeholder.com/1000/600&text=slide1" />
-    <img src="http://via.placeholder.com/1000/600&text=slide2" />
-    <img src="http://via.placeholder.com/1000/600&text=slide3" />
-    <img src="http://via.placeholder.com/1000/600&text=slide4" />
-    <img src="http://via.placeholder.com/1000/600&text=slide5" />
-    <img src="http://via.placeholder.com/1000/600&text=slide6" />
-    <img src="http://via.placeholder.com/1000/600&text=slide7" />
+    {images.map((image, i) =>
+      <img src={image.image} key={i} alt={image.altText} />
+    )}
   </StyledCarousel>
 )
 

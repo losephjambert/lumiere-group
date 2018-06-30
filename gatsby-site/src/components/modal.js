@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 // Modal Component
 // displays modal content for a particular item from a collection

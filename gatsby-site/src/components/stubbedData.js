@@ -65,5 +65,16 @@ export const ServicesCollectionTheme = {
 }
 
 export const CarouselImages = [
-  CarouselImage1
+  {
+    image: CarouselImage1,
+    altText: 'The Managing Partners in their Studio'
+  },
+  {
+    image: CarouselImage1,
+    altText: 'The Managing Partners in their Studio'
+  },
+  {
+    image: CarouselImage1,
+    altText: 'The Managing Partners in their Studio'
+  },
 ]
