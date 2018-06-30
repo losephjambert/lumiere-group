@@ -94,7 +94,7 @@ const Collection = ({ toggleCollectionItemOverlay, toggleModal, heading, collect
     <CollectionItemContainer>
       {collectionItems.map((item, i) =>
         <CollectionItem theme={theme} key={i} id={i}>
-          <CollectionItemButton onClick={()=>toggleModal(item)}>
+          <CollectionItemButton onClick={()=>toggleModal(item, theme)}>
             <CollectionItemImage theme={theme} image={item.image}/>
             <CollectionItemTitle>{item.title}</CollectionItemTitle>
             <CollectionItemTitle>{item.subtitle}</CollectionItemTitle>

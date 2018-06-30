@@ -46,7 +46,10 @@ class IndexPage extends React.Component{
       showContactOverlay: false,
       showHeaderLogo: false,
       showModal: false,
-      modalContent: {}
+      modalContent: {
+        content: {},
+        theme: {}
+      }
     }
   }
 
@@ -69,11 +72,14 @@ class IndexPage extends React.Component{
     }))
   }
 
-  toggleModal = (payload) => {
-    if (payload) {      
+  toggleModal = (payload, theme) => {
+    if (payload && theme) {      
       this.setState(prevState => ({
         showModal: !prevState.showModal,
-        modalContent: payload 
+        modalContent: {
+          content: payload,
+          theme: theme
+        } 
       }))
     } else{
       this.setState(prevState => ({

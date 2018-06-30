@@ -36,7 +36,7 @@ const StyledSVGContainer = Styled(SVGContainer)`
 	top: 2.25rem;
 	left: 5.8rem;
 	cursor: pointer;
-	background-color: salmon;
+  svg > g > g > line.close-button-elements{stroke: white;}
 `
 
 const Modal = ({ active, data, toggleModal }) => (
@@ -46,10 +46,10 @@ const Modal = ({ active, data, toggleModal }) => (
   </span>
   <ul>
     <li>
-      <img src={data.image}/>
+      <img src={data.content.image}/>
     </li>
-    <li>{data.title}</li>
-    <li>{data.description}</li>
+    <li>{data.content.title}</li>
+    <li>{data.content.description}</li>
   </ul>
 </ModalContainer>
 
