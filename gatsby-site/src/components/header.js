@@ -36,18 +36,19 @@ const StyledHeader = Styled.header`
   align-items: center;
   justify-content: space-between;
   padding: 0 1.8rem;
+  transition: 200ms;
   .header-logo{
     position: relative;
     left: 2.6pt;
     top: 1.25pt;
-    transition: 200ms;
+    transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     & > svg > g > g > .cls-1{
       fill: ${black};
     }
     svg{
       width: 5.6rem;
-      transition: 200ms;
+      transition: inherit;
     }
   }
   .header-mail-icon{
@@ -58,11 +59,16 @@ const StyledHeader = Styled.header`
       top: 2px;
     }
   }
+  ${props =>
+    props.showModal && css`
+      transform: translate3d(0,-${Dimensions.headerSpaceBig},0);
+  `}
 `
 
 
-const Header = ({ showHeaderLogo, active, toggleMenu, showContactOverlay, toggleContactOverlay }) => (
+const Header = ({ showHeaderLogo, active, toggleMenu, showContactOverlay, toggleContactOverlay, showModal }) => (
   <StyledHeader
+    showModal={showModal}
     showHeaderLogo={showHeaderLogo}
     active={active}>
       <Hamburger

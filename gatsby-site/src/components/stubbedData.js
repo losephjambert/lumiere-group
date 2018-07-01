@@ -61,12 +61,14 @@ export const ServicesCollectionItems = [
 export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
-  columns: 3
+  columns: 3,
+  blend: true
 }
 export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,
-  columns: 4
+  columns: 4,
+  blend: false
 
 }
 

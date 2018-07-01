@@ -119,6 +119,7 @@ class IndexPage extends React.Component{
       <AppContainer>
         {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal}/>}
         <Header
+          showModal={showModal}
           showHeaderLogo={showHeaderLogo}
           active={showMenu}
           showContactOverlay={showContactOverlay}
