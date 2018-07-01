@@ -1,6 +1,6 @@
 import React from 'react'
 import SVGContainer from '../components/svg-loader'
-import Styled from 'styled-components'
+import Styled, {css} from 'styled-components'
 import Colors from '../styles/colors'
 
 // Colection Component
@@ -42,7 +42,7 @@ const CollectionContainer = Styled.div`
 
 const CollectionItemContainer = Styled.ul`
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: repeat(${props => props.theme.columns}, 1fr);
       grid-template-rows: auto; 
       grid-column-gap: 6rem;
 `
@@ -59,7 +59,6 @@ const CollectionItemButton = Styled.button`
       background-color: transparent;
       cursor: pointer;
       color: inherit;
-      transition: 200ms;
       &:focus{
         outline: none;
       }
@@ -70,11 +69,13 @@ const CollectionItemButton = Styled.button`
       background-size: cover;
       background-position: center center;
       background-color: ${props => props.theme.main};
+      background-repeat: no-repeat;
       ${props => props.theme.blend && 'background-blend-mode: multiply;'}
-      height: 30rem;
-      width: 30rem;
+      transition: 200ms;
+      height: ${props => props.theme.size};
+      width: ${props => props.theme.size};
       border-radius: 100%;
-      margin: 0 0 3.2rem;
+      margin: 0 auto 3.2rem;
       filter: grayscale(1);
       &:hover{
         filter: grayscale(0);
@@ -103,7 +104,7 @@ const Collection = ({ toggleCollectionItemOverlay, toggleModal, heading, collect
   
   <CollectionContainer theme={theme}>
     <CollectionSVGContainer source={heading} className="collection-header" />
-    <CollectionItemContainer>
+    <CollectionItemContainer theme={theme}>
       {collectionItems.map((item, i) =>
         <CollectionItem theme={theme} key={i} id={i}>
           <CollectionItemButton onClick={()=>toggleModal(item, theme)}>

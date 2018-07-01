@@ -1,8 +1,12 @@
+import Colors from '../styles/colors'
 import rinaImage from '../assets/rina.jpg'
 import leleImage from '../assets/lele.jpg'
 import erinImage from '../assets/erin.jpg'
-import Colors from '../styles/colors'
 import CarouselImage1 from '../assets/carousel-1.jpg'
+import engagement from '../assets/management-and-engagement.svg'
+import curation from '../assets/curatorial-services.svg'
+import collections from '../assets/collections-management-and-registration.svg'
+import lifecycle from '../assets/art-lifecycle.svg'
 
 const {
   blueBackground ,
@@ -34,25 +38,25 @@ export const TeamCollectionItems = [
 ]
 export const ServicesCollectionItems = [
   {
-    image: rinaImage,
+    image: engagement,
     title: 'Rina Luzius',
     subtitle: 'Managing Principle | Art Collection Consultant',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
-    image: erinImage,
+    image: curation,
     title: 'Erin Weible',
     subtitle: 'Managing Principle | Art Collection Consultant',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
-    image: leleImage,
+    image: collections,
     title: 'Lele Barnett',
     subtitle: 'Managing Principle | Art Collection Consultant',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
-    image: leleImage,
+    image: lifecycle,
     title: 'Lele Barnett',
     subtitle: 'Managing Principle | Art Collection Consultant',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
@@ -62,13 +66,15 @@ export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
   columns: 3,
-  blend: true
+  blend: true,
+  size: '30rem'
 }
 export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,
   columns: 4,
-  blend: false
+  blend: false,
+  size: '13.5rem'
 
 }
 
