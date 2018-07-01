@@ -59,14 +59,13 @@ export const ServicesCollectionItems = [
   }
 ]
 export const TeamCollectionTheme = {
-  backgroundColor: yellowBackground,
-  color: black,
+  main: yellowBackground,
+  inverse: black,
   columns: 3
-
 }
 export const ServicesCollectionTheme = {
-  backgroundColor: black,
-  color: white,
+  main: black,
+  inverse: yellowBackground,
   columns: 4
 
 }
