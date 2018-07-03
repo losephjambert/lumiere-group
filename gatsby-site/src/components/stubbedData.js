@@ -36,6 +36,7 @@ export const TeamCollectionItems = [
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
 ]
+
 export const ServicesCollectionItems = [
   {
     image: engagement,
@@ -62,6 +63,7 @@ export const ServicesCollectionItems = [
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
 ]
+
 export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
@@ -69,6 +71,7 @@ export const TeamCollectionTheme = {
   blend: true,
   size: '30rem'
 }
+
 export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,

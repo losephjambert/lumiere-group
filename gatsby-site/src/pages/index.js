@@ -1,16 +1,17 @@
 import React from 'react'
-import Styled from 'styled-components'
+import Styled, {ThemeProvider} from 'styled-components'
 import Colors from '../styles/colors'
 import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Landing from '../components/landing'
-import Collection from '../components/collection'
+import TeamMember from '../components/teamMember'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
+import ServiceItem from '../components/serviceItem';
 
 const {
   blueBackground ,
@@ -19,12 +20,6 @@ const {
   white ,
   black
 } = Colors
-
-const Profile = ({data}) => (
-  <div>
-
-  </div>
-)
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -128,19 +123,26 @@ class IndexPage extends React.Component{
         <Landing />
         <ContentContainer>
           <About />
-          <Carousel showContactOverlay={showContactOverlay} showMenu={showMenu} images={CarouselImages}/>
-          <Collection
-            toggleModal={this.toggleModal}
-            showModal={showModal}
-            theme={TeamCollectionTheme}
-            heading={TeamHeading}
-            collectionItems={TeamCollectionItems} />
-          <Collection
-            toggleModal={this.toggleModal}
-            showModal={showModal}
-            theme={ServicesCollectionTheme}
-            heading={ServicesHeading}
-            collectionItems={ServicesCollectionItems} />
+          <Carousel
+            showContactOverlay={showContactOverlay}
+            showMenu={showMenu}
+            images={CarouselImages}/>
+          <ThemeProvider theme={TeamCollectionTheme}>
+            <TeamMember
+              theme={TeamCollectionTheme}
+              toggleModal={this.toggleModal}
+              showModal={showModal}
+              heading={TeamHeading}
+              collectionItems={TeamCollectionItems} />
+          </ThemeProvider>
+          <ThemeProvider theme={ServicesCollectionTheme}>
+            <ServiceItem
+              toggleModal={this.toggleModal}
+              showModal={showModal}
+              theme={ServicesCollectionTheme}
+              heading={ServicesHeading}
+              collectionItems={ServicesCollectionItems} />
+            </ThemeProvider>
           <Footer/>
         </ContentContainer>
       </AppContainer>
