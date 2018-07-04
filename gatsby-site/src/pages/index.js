@@ -6,12 +6,12 @@ import About from '../components/about'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Landing from '../components/landing'
-import TeamMember from '../components/teamMember'
+import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
-import ServiceItem from '../components/serviceItem';
+import ServiceItems from '../components/serviceItems';
 
 const {
   blueBackground ,
@@ -128,7 +128,7 @@ class IndexPage extends React.Component{
             showMenu={showMenu}
             images={CarouselImages}/>
           <ThemeProvider theme={TeamCollectionTheme}>
-            <TeamMember
+            <TeamMembers
               theme={TeamCollectionTheme}
               toggleModal={this.toggleModal}
               showModal={showModal}
@@ -136,7 +136,7 @@ class IndexPage extends React.Component{
               collectionItems={TeamCollectionItems} />
           </ThemeProvider>
           <ThemeProvider theme={ServicesCollectionTheme}>
-            <ServiceItem
+            <ServiceItems
               toggleModal={this.toggleModal}
               showModal={showModal}
               theme={ServicesCollectionTheme}

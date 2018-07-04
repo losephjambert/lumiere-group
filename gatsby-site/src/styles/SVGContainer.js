@@ -18,10 +18,6 @@ const CollectionSVGContainer = Styled(SVGContainer)`
   svg{
     height: 4.6rem;
   }  
-  svg > .services-svg,
-  svg > .about-svg{
-    fill: ${black};
-  }
 `
 
 export default CollectionSVGContainer

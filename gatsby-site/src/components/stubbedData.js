@@ -68,7 +68,6 @@ export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
   columns: 3,
-  blend: true,
   size: '30rem'
 }
 
@@ -76,7 +75,6 @@ export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,
   columns: 4,
-  blend: false,
   size: '13.5rem'
 
 }
