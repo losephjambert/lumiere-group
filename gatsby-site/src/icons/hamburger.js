@@ -17,7 +17,7 @@ height: 2.1rem;
 z-index: 99;
 display: inline-flex;
 transform: rotate(0deg);
-transition: 250ms ease-in-out;
+transition: ${props => props.theme.transition};
 cursor: pointer;
 ${props =>
   props.showContactOverlay && css`

@@ -31,23 +31,23 @@ export const CollectionItem = Styled.li`
   flex-flow: column wrap;
   align-items: center;
   color: ${props => props.theme.inverse};
-  transition: 200ms;
-  &:hover{
-    color: ${hoverColor};
-  }
-`
-
-export const CollectionItemButton = Styled.button`
+  `
+  
+  export const CollectionItemButton = Styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
   color: inherit;
+  transition: ${props => props.theme.transition};
   &:focus{
     outline: none;
   }
-`
-
-export const CollectionItemImage = Styled.div`
+  &:hover{
+    color: ${hoverColor};
+  }
+  `
+  
+  export const CollectionItemImage = Styled.div`
   background-image: ${props => `url(${props.image})`};
   background-size: cover;
   background-position: center center;
@@ -56,5 +56,17 @@ export const CollectionItemImage = Styled.div`
   height: ${props => props.theme.size};
   width: ${props => props.theme.size};
   margin: 0 auto 3.2rem;
-  transition: 200ms;
+  transition: inherit;
+`
+
+export const CollectionItemTitle = Styled.h3`
+  font-family: Europa Bold;
+  font-size: 1.6rem;
+  color: inherit;
+`
+
+export const CollectionItemSubtitle = Styled.h4`
+  font-family: Europa Bold;
+  font-size: 1.2rem;
+  color: inherit;
 `

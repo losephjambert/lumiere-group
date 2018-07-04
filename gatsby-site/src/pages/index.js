@@ -32,6 +32,10 @@ const ContentContainer = Styled.div`
   background-color: ${white};
 `
 
+const GlobalTheme = {
+  transition: '250ms ease-in-out',
+}
+
 class IndexPage extends React.Component{
   
   constructor(props) {
@@ -111,41 +115,43 @@ class IndexPage extends React.Component{
     const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent} = this.state;
   
     return(
-      <AppContainer>
-        {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal}/>}
-        <Header
-          showModal={showModal}
-          showHeaderLogo={showHeaderLogo}
-          active={showMenu}
-          showContactOverlay={showContactOverlay}
-          toggleMenu={this.toggleMenu}
-          toggleContactOverlay={this.toggleContactOverlay}/>
-        <Landing />
-        <ContentContainer>
-          <About />
-          <Carousel
+      <ThemeProvider theme={GlobalTheme}>
+        <AppContainer>
+          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal}/>}
+          <Header
+            showModal={showModal}
+            showHeaderLogo={showHeaderLogo}
+            active={showMenu}
             showContactOverlay={showContactOverlay}
-            showMenu={showMenu}
-            images={CarouselImages}/>
-          <ThemeProvider theme={TeamCollectionTheme}>
-            <TeamMembers
-              theme={TeamCollectionTheme}
-              toggleModal={this.toggleModal}
-              showModal={showModal}
-              heading={TeamHeading}
-              collectionItems={TeamCollectionItems} />
-          </ThemeProvider>
-          <ThemeProvider theme={ServicesCollectionTheme}>
-            <ServiceItems
-              toggleModal={this.toggleModal}
-              showModal={showModal}
-              theme={ServicesCollectionTheme}
-              heading={ServicesHeading}
-              collectionItems={ServicesCollectionItems} />
+            toggleMenu={this.toggleMenu}
+            toggleContactOverlay={this.toggleContactOverlay}/>
+          <Landing />
+          <ContentContainer>
+            <About />
+            <Carousel
+              showContactOverlay={showContactOverlay}
+              showMenu={showMenu}
+              images={CarouselImages}/>
+            <ThemeProvider theme={TeamCollectionTheme}>
+              <TeamMembers
+                theme={TeamCollectionTheme}
+                toggleModal={this.toggleModal}
+                showModal={showModal}
+                heading={TeamHeading}
+                collectionItems={TeamCollectionItems} />
             </ThemeProvider>
-          <Footer/>
-        </ContentContainer>
-      </AppContainer>
+            <ThemeProvider theme={ServicesCollectionTheme}>
+              <ServiceItems
+                toggleModal={this.toggleModal}
+                showModal={showModal}
+                theme={ServicesCollectionTheme}
+                heading={ServicesHeading}
+                collectionItems={ServicesCollectionItems} />
+              </ThemeProvider>
+            <Footer/>
+          </ContentContainer>
+        </AppContainer>
+      </ThemeProvider>
     )
 
   }
