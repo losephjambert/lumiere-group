@@ -3,19 +3,6 @@ import SVGContainer from '../components/svg-loader'
 import LandingLogo from '../assets/landing-logo.svg'
 import Styled from 'styled-components'
 import Dimensions from '../styles/styleVariables'
-import Colors from '../styles/colors'
-
-// Landing Component
-// displays landing page content
-// displays logo component inside it
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const LogoSVGContainer = Styled(SVGContainer)`
   display: flex;
@@ -32,7 +19,7 @@ const LogoSVGContainer = Styled(SVGContainer)`
     position: relative;
     top: -4.5rem;
     .landing-logo-svg{
-      fill: ${black};
+      fill: ${props=>props.theme.black};
     }
   }
 `

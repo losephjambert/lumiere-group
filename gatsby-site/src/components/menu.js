@@ -1,19 +1,9 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled, { css } from 'styled-components'
-import Media from './mediaQueries'
-import Colors from '../styles/colors'
+import Media from '../styles/mediaQueries'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const Container = styled.div`
   position: fixed;
@@ -22,7 +12,7 @@ const Container = styled.div`
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: black;
+  background-color: ${props=>props.theme.black};
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -47,11 +37,11 @@ const Container = styled.div`
       `}
     }
     g{
-      stroke: white;
+      stroke: ${props=>props.theme.white};
     }
     .logo-shapes{
       stroke: none;
-      fill: ${white};
+      fill: ${props=>props.theme.white};
     }
   }
 
@@ -63,7 +53,7 @@ const Container = styled.div`
       min-width: 2rem;
     }
     svg > g > g > line{
-      stroke: white;
+      stroke: ${props=>props.theme.white};
     }
     &:hover{
       cursor: pointer;
@@ -78,17 +68,17 @@ const MenuItems = styled.ul`
 `
 
 const Item = styled.li`
-  color: white;
+  color: ${props=>props.theme.white};
   font-size: 2.8rem;
   list-style-type: none;
-  border-top: .1em solid white;
+  border-top: .1em solid ${props=>props.theme.white};
   width: 100%;
   text-align: center;
   padding: 1em 0;
   margin: 0 auto;
   font-family: Europa Regular;
   &:nth-last-of-type(1){
-    border-bottom: .1em solid white;
+    border-bottom: .1em solid ${props=>props.theme.white};
   }
   &:hover{
     cursor: pointer;
@@ -99,7 +89,7 @@ const Item = styled.li`
 `
 
 const ContactInfo = styled.p`
-  color: white;
+  color: ${props=>props.theme.white};
   font-size: 1.8rem;
   display: flex;
   justify-content: space-around;
@@ -111,13 +101,6 @@ const ContactInfo = styled.p`
     font-family: Europa Regular;
   }
 `
-
-// Menu Component
-// displays a list of items that are passed into it
-// each item onClick will transport user to that location on the site
-// has 'X' onClick to close
-// required:
-//    list of items to display
 
 const Menu = ({ active }) => (
   <Container active={active}>

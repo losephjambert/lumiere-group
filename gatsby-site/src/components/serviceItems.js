@@ -1,15 +1,6 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import Colors from '../styles/colors'
 import CollectionSVGContainer from '../styles/SVGContainer'
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
       
 const CollectionContainer = Styled.div`
       min-height: 100vh;
@@ -34,7 +25,7 @@ const CollectionItem = Styled.li`
       color: ${props => props.theme.inverse};
       transition: 200ms;
       &:hover{
-        color: ${hoverColor};
+        color: ${props=>props.theme.hoverColor};
       }
 `
 

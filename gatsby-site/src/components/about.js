@@ -2,18 +2,6 @@ import React from 'react'
 import SVGContainer from '../components/svg-loader'
 import AboutHeader from '../assets/about.svg'
 import Styled from 'styled-components'
-import Colors from '../styles/colors'
-
-// About Component
-// displays content about the company
-
-const {
-    blueBackground ,
-    yellowBackground ,
-    hoverColor ,
-    white ,
-    black
-  } = Colors
 
 const HeaderSVGContainer = Styled(SVGContainer)`
   margin: 0 0 8.4rem 0;
@@ -28,7 +16,7 @@ const HeaderSVGContainer = Styled(SVGContainer)`
 
 const StyledSection = Styled.section`
   padding: 13.6rem 0;
-  background-color: ${blueBackground};
+  background-color: ${props => props.theme.blueBackground};
   display: flex;
   flex-flow: column wrap;
   align-items: center;

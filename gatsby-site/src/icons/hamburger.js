@@ -1,14 +1,5 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import Colors from '../styles/colors'
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const HamburgerStyle = Styled.div`
 top: 0;
@@ -24,7 +15,7 @@ ${props =>
     opacity: 0;
   `}
 &:hover > span{
-  background-color: ${hoverColor};
+  background-color: ${props => props.theme.hoverColor};
 }
 
 span{
@@ -37,7 +28,7 @@ span{
   transform: rotate(0deg) translate3d(0,0,);
   transition: inherit;
   ${props =>
-    props.active ? `background-color: ${white};` : `background-color: ${black};`}
+    props.active ? `background-color: ${props.theme.white};` : `background-color: ${props.theme.black};`}
 }
 
 span:nth-child(1) {

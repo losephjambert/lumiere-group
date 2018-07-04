@@ -1,6 +1,5 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import Colors from '../styles/colors'
 import CollectionSVGContainer from '../styles/SVGContainer'
 import {
   CollectionContainer,
@@ -10,14 +9,6 @@ import {
   CollectionItemImage,
   CollectionItemTitle,
   CollectionItemSubtitle } from '../styles/CollectionItemStyles';
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
   &:hover ${CollectionItemImage}{

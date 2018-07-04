@@ -1,21 +1,6 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Carousel from 'nuka-carousel'
 import Styled, {css} from 'styled-components'
-import Colors from '../styles/colors'
-
-
-// Landing Component
-// displays landing page content
-// displays logo component inside it
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const ControlSize = 2.5
 const ControlPadding = 1
@@ -33,13 +18,13 @@ const SharedSliderControlStyles = `
 
 const PreviousSlideControl = Styled.span`
   ${SharedSliderControlStyles}
-  border-right: ${ControlSize*2}rem solid ${white};
+  border-right: ${ControlSize*2}rem solid ${props => props.theme.white};
   transform: translate3d(${ControlPadding}rem,0,0);
 `
 
 const NextSlideControl = Styled.span`
   ${SharedSliderControlStyles}
-  border-left: ${ControlSize*2}rem solid ${white};
+  border-left: ${ControlSize*2}rem solid ${props => props.theme.white};
   transform: translate3d(-${ControlPadding}rem,0,0);
 `
 

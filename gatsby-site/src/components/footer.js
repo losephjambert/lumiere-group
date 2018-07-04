@@ -1,19 +1,12 @@
 import React from 'react'
-import Link from 'gatsby-link'
-
-// Footer Component
-// min-height: 100vh;
-// always fixed
-// scroll to reveal
 
 const Footer = ({ footerTitle }) => (
-<div>
-  <h1>
-    <Link to="/">
+
+  <div>
+    <h1>
       {footerTitle}
-    </Link>
-  </h1>
-</div>
+    </h1>
+  </div>
 
 )
 

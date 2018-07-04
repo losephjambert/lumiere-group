@@ -1,4 +1,4 @@
-import {css, styled} from 'styled-components'
+import {css} from 'styled-components'
 
 const sizes = {
   forMediumPhonesUp: 360,

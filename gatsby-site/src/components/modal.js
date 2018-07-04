@@ -4,14 +4,6 @@ import {hideMenu, showMenu} from '../styles/animations'
 import CloseButton from '../assets/close-button.svg'
 import SVGContainer from '../components/svg-loader'
 
-// Modal Component
-// displays modal content for a particular item from a collection
-// has button 'X' onClick to fade out and unmount
-// required:
-//    collection item image
-//    collection item name
-//    collection item description
-
 const ModalContainer = Styled.div`
       position: fixed;
       top: 0;

@@ -1,25 +1,10 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Styled, {css} from 'styled-components'
-import Colors from '../styles/colors'
 import {hideMenu, showMenu} from '../styles/animations'
 import CloseButton from '../assets/close-button.svg'
 import SVGContainer from '../components/svg-loader'
 import ContactHeader from '../assets/contact.svg'
 import Dimensions from '../styles/styleVariables'
-
-// Contact Component
-// displays a contact form users can interact with to send a message to the company
-// form submit onClick sends email to company
-// has 'X' onClick to close
-
-const {
-    blueBackground ,
-    yellowBackground ,
-    hoverColor ,
-    white ,
-    black
-  } = Colors
 
 const StyleContainer = Styled.div`
 	position: fixed;
@@ -28,7 +13,7 @@ const StyleContainer = Styled.div`
 	right: 0;
 	bottom: 0;
 	left: 0;
-	background-color: ${blueBackground};
+	background-color: ${props => props.theme.blueBackground};
 	display: flex;
 	flex-direction: column;
 	align-items: center;
@@ -55,8 +40,8 @@ const StyledSVGContainer = Styled(SVGContainer)`
 	right: 2.25rem;
 	top: -5.8rem;
 	cursor: pointer;
-	background-color: ${white};
-	box-shadow: 0 0 0 1rem ${white};
+	background-color: ${props => props.theme.white};
+	box-shadow: 0 0 0 1rem ${props => props.theme.white};
 `
 
 const Label = Styled.label`
@@ -66,10 +51,10 @@ const Label = Styled.label`
 	font-size: 1.8rem;
 `
 
-const SharedInputStyles = `
+const SharedInputStyles = css`
 	display: block;
-	border: .15rem solid ${black};
 	background-color: transparent;
+	border: .15rem solid ${props => props.theme.black};
 `
 
 const Input = Styled.input`
@@ -87,8 +72,8 @@ const Submit = Styled.input`
 	font-size: 1.6rem;
 	&:focus{
 		outline: none;
-		border-color: ${hoverColor};
-		color: ${hoverColor};
+		border-color: ${props => props.theme.hoverColor};
+		color: ${props => props.theme.hoverColor};
 	}
 `
 

@@ -34,6 +34,11 @@ const ContentContainer = Styled.div`
 
 const GlobalTheme = {
   transition: '250ms ease-in-out',
+  blueBackground ,
+  yellowBackground ,
+  hoverColor ,
+  white ,
+  black
 }
 
 class IndexPage extends React.Component{

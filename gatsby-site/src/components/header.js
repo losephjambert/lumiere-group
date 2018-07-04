@@ -1,33 +1,17 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import Media from '../components/mediaQueries'
 import Dimensions from '../styles/styleVariables'
 import Hamburger from '../icons/hamburger'
 import Menu from '../components/menu'
 import Contact from '../components/contact'
-import Colors from '../styles/colors'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
 
-// Header Component
-// height: 92px;
-// always fixed
-// menu trigger left (component) onClick activate menu component
-// mail trigger right (component) onClick activate mail component
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
-
 const StyledHeader = Styled.header`
   height: ${Dimensions.headerSpaceBig};
   width: 100%;
-  background-color: ${white};
+  background-color: ${props=>props.theme.white};
   position: fixed;
   z-index: 20;
   top: 0;
@@ -44,7 +28,7 @@ const StyledHeader = Styled.header`
     transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     & > svg > g > g > .cls-1{
-      fill: ${black};
+      fill: ${props=>props.theme.black};
     }
     svg{
       width: 5.6rem;

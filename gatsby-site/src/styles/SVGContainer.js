@@ -1,14 +1,5 @@
 import Styled from 'styled-components'
 import SVGContainer from '../components/svg-loader'
-import Colors from './colors'
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 const CollectionSVGContainer = Styled(SVGContainer)`
   display: flex;
