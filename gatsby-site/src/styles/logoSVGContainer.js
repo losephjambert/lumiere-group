@@ -11,7 +11,7 @@ const LogoSVGContainer = Styled(SVGContainer)`
     svg{
       width: ${props.size};
       height: ${props.size};
-      g > g > .cls-1{
+      g > g > .header-logo-svg{
         fill: ${props.theme.main};
       }
     }
