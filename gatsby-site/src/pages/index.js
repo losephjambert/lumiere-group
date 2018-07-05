@@ -1,6 +1,5 @@
 import React from 'react'
 import Styled, {ThemeProvider} from 'styled-components'
-import Colors from '../styles/colors'
 import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
@@ -12,39 +11,25 @@ import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems';
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
+import GlobalTheme from '../styles/globalTheme'
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
-  background-color: ${white};
+  position: relative;
+  top: ${props=>props.theme.headerSpaceBig};
+  background-color: ${props=>props.theme.white};
 `
 
 const ContentContainer = Styled.div`
   position: relative;
   z-index: 10;
-  background-color: ${white};
+  background-color: ${props=>props.theme.white};
 `
-
-const GlobalTheme = {
-  transition: '250ms ease-in-out',
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-}
 
 class IndexPage extends React.Component{
   
   constructor(props) {
-    super(props);
+    super(props)
     this.state = {
       showMenu: false,
       showContactOverlay: false,
@@ -92,11 +77,18 @@ class IndexPage extends React.Component{
     }
   }
 
+  // Key Press Handler
+  handleKeyPress = (e) => {
+    if(e.key == 'Escape' || e.key == 'Esc' || e.key == 'escape' || e.key == 'esc'){
+      this.toggleModal()
+    }
+  }
+
   // Scroll Handler
   handleDebounce = (e) =>{
     requestAnimationFrame((e)=>this.handleScroll(e))
   }
-
+  
   lastScrollTop=0
   windowHeight = window.innerHeight
   handleScroll = (e) =>{
@@ -104,7 +96,7 @@ class IndexPage extends React.Component{
     this.lastScrollTop=scrollDistance
     if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
       this.toggleHeaderLogo()
-      }
+    }
     if (scrollDistance <= this.windowHeight && this.state.showHeaderLogo) {
       this.toggleHeaderLogo()
     }
@@ -122,7 +114,7 @@ class IndexPage extends React.Component{
     return(
       <ThemeProvider theme={GlobalTheme}>
         <AppContainer>
-          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal}/>}
+          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} handleKeyPress={this.handleKeyPress}/>}
           <Header
             showModal={showModal}
             showHeaderLogo={showHeaderLogo}

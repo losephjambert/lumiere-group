@@ -1,14 +1,4 @@
-import React from 'react'
 import Styled from 'styled-components'
-import Colors from './colors'
-
-const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
-  black
-} = Colors
 
 export const CollectionContainer = Styled.div`
   min-height: 100vh;
@@ -43,7 +33,7 @@ export const CollectionItem = Styled.li`
     outline: none;
   }
   &:hover{
-    color: ${hoverColor};
+    color: ${props=>props.theme.hoverColor};
   }
   `
   

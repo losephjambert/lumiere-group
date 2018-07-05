@@ -2,7 +2,6 @@ import React from 'react'
 import SVGContainer from '../components/svg-loader'
 import LandingLogo from '../assets/landing-logo.svg'
 import Styled from 'styled-components'
-import Dimensions from '../styles/styleVariables'
 
 const LogoSVGContainer = Styled(SVGContainer)`
   display: flex;
@@ -10,7 +9,7 @@ const LogoSVGContainer = Styled(SVGContainer)`
   align-items: center;
   position: fixed;
   z-index: 0;
-  top: ${Dimensions.headerSpaceBig};
+  top: ${props=>props.theme.headerSpaceBig};
   right: 0;
   left: 0;
   height: 100vh;

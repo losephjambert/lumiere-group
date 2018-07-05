@@ -1,4 +1,4 @@
-import Colors from '../styles/colors'
+import {Colors} from '../styles/styleVariables'
 import rinaImage from '../assets/rina.jpg'
 import leleImage from '../assets/lele.jpg'
 import erinImage from '../assets/erin.jpg'

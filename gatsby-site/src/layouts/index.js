@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Styled, {injectGlobal} from 'styled-components'
+import Styled, {injectGlobal, ThemeProvider} from 'styled-components'
 import Dimensions from '../styles/styleVariables'
 
 import Regular from '../fonts/EuropaRegular.otf'
@@ -39,10 +39,6 @@ injectGlobal`
   @font-face {
     font-family: 'Europa Bold Italic';
     src: url(${BoldItalic});
-  }
-
-  body{
-    padding-top: ${Dimensions.headerSpaceBig};
   }
 `
 

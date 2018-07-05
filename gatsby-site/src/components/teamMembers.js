@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import CollectionSVGContainer from '../styles/SVGContainer'
+import CollectionSVGContainer from '../styles/collectionSVGContainer'
 import {
   CollectionContainer,
   CollectionList,
@@ -8,7 +8,7 @@ import {
   CollectionItemButton,
   CollectionItemImage,
   CollectionItemTitle,
-  CollectionItemSubtitle } from '../styles/CollectionItemStyles';
+  CollectionItemSubtitle } from '../styles/collectionItemStyles';
 
 const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
   &:hover ${CollectionItemImage}{

@@ -4,12 +4,11 @@ import {hideMenu, showMenu} from '../styles/animations'
 import CloseButton from '../assets/close-button.svg'
 import SVGContainer from '../components/svg-loader'
 import ContactHeader from '../assets/contact.svg'
-import Dimensions from '../styles/styleVariables'
 
 const StyleContainer = Styled.div`
 	position: fixed;
 	z-index: 99;
-	top: ${Dimensions.headerSpaceBig};
+	top: ${props=>props.theme.headerSpaceBig};
 	right: 0;
 	bottom: 0;
 	left: 0;
@@ -30,7 +29,7 @@ const StyleContainer = Styled.div`
 
 const ContactSVGHeader = Styled(SVGContainer)`
 	width: 30rem;
-	margin-top: ${Dimensions.headerSpaceBig};
+	margin-top: ${props=>props.theme.headerSpaceBig};
 `
 
 const StyledSVGContainer = Styled(SVGContainer)`

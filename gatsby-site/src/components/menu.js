@@ -1,6 +1,5 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Media from '../styles/mediaQueries'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
@@ -18,21 +17,20 @@ const Container = styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 0 0 0em;
-
-  transition: transform 300ms ease-in-out;
+  transition: transform ${props=>props.theme};
   transform-origin: center;
   ${props =>
     !props.active ?
-    `animation: ${hideMenu} 300ms ease-in-out forwards;`
+    `animation: ${hideMenu} ${props.theme.transition} forwards;`
     :
-    `animation: ${showMenu} 300ms ease-in-out forwards;`
+    `animation: ${showMenu} ${props.theme.transition} forwards;`
   }
 
   .menu-logo{
     svg{
       min-width: 17rem;
       margin: 1.8em 0 7.5em;
-      ${Media.forMediumPhonesUp`
+      ${props=>props.theme.forMediumPhonesUp`
       min-width: 19.2rem;      
       `}
     }
@@ -83,7 +81,7 @@ const Item = styled.li`
   &:hover{
     cursor: pointer;
   }
-  ${Media.forMediumPhonesUp`
+  ${props=>props.theme.forMediumPhonesUp`
     padding: 1.4em 0;    
   `}
 `

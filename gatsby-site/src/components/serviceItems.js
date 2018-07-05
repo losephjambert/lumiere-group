@@ -1,6 +1,6 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import CollectionSVGContainer from '../styles/SVGContainer'
+import CollectionSVGContainer from '../styles/collectionSVGContainer'
       
 const CollectionContainer = Styled.div`
       min-height: 100vh;

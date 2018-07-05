@@ -1,6 +1,5 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-import Dimensions from '../styles/styleVariables'
 import Hamburger from '../icons/hamburger'
 import Menu from '../components/menu'
 import Contact from '../components/contact'
@@ -9,7 +8,7 @@ import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
 
 const StyledHeader = Styled.header`
-  height: ${Dimensions.headerSpaceBig};
+  height: ${props=>props.theme.headerSpaceBig};
   width: 100%;
   background-color: ${props=>props.theme.white};
   position: fixed;
@@ -45,7 +44,7 @@ const StyledHeader = Styled.header`
   }
   ${props =>
     props.showModal && css`
-      transform: translate3d(0,-${Dimensions.headerSpaceBig},0);
+      transform: translate3d(0,-${props=>props.theme.headerSpaceBig},0);
   `}
 `
 
