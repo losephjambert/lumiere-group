@@ -40,31 +40,28 @@ export const TeamCollectionItems = [
 export const ServicesCollectionItems = [
   {
     image: engagement,
-    title: 'Rina Luzius',
-    subtitle: 'Managing Principle | Art Collection Consultant',
+    title: 'Project Management and Engagement',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: curation,
-    title: 'Erin Weible',
-    subtitle: 'Managing Principle | Art Collection Consultant',
+    title: 'Curatorial Services',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: collections,
-    title: 'Lele Barnett',
-    subtitle: 'Managing Principle | Art Collection Consultant',
+    title: 'Collections Management and Registration',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: lifecycle,
-    title: 'Lele Barnett',
-    subtitle: 'Managing Principle | Art Collection Consultant',
+    title: 'Art Lifecycle',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
 ]
 
 export const TeamCollectionTheme = {
+  type: 'team',
   main: yellowBackground,
   inverse: black,
   columns: 3,
@@ -72,11 +69,11 @@ export const TeamCollectionTheme = {
 }
 
 export const ServicesCollectionTheme = {
+  type: 'services',
   main: black,
   inverse: yellowBackground,
   columns: 4,
   size: '13.5rem'
-
 }
 
 export const CarouselImages = [

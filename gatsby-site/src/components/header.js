@@ -23,7 +23,7 @@ const StyledHeader = Styled.header`
   .header-logo{
     position: relative;
     left: 2.6pt;
-    top: 1.25pt;
+    top: .1rem;
     transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     & > svg > g > g > .cls-1{

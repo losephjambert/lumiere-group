@@ -23,7 +23,7 @@ export const CollectionItem = Styled.li`
   color: ${props => props.theme.inverse};
   `
   
-  export const CollectionItemButton = Styled.button`
+export const CollectionItemButton = Styled.button`
   border: none;
   background-color: transparent;
   cursor: pointer;
@@ -37,9 +37,8 @@ export const CollectionItem = Styled.li`
   }
   `
   
-  export const CollectionItemImage = Styled.div`
+export const CollectionItemImage = Styled.div`
   background-image: ${props => `url(${props.image})`};
-  background-size: cover;
   background-position: center center;
   background-color: ${props => props.theme.main};
   background-repeat: no-repeat;

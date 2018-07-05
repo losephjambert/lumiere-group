@@ -10,8 +10,10 @@ import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
-import ServiceItems from '../components/serviceItems';
+import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
+
+// if (typeof window === 'undefined') { global.window = {} }
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -25,6 +27,7 @@ const ContentContainer = Styled.div`
   z-index: 10;
   background-color: ${props=>props.theme.white};
 `
+
 
 class IndexPage extends React.Component{
   
@@ -77,15 +80,6 @@ class IndexPage extends React.Component{
     }
   }
 
-  // Key Press Handler
-  handleKeyPress = (e) => {
-    console.log(e)
-    if(e.key == 'Escape' || e.key == 'Esc' || e.key == 'escape' || e.key == 'esc'){
-      this.toggleModal()
-      console.log('escape!')
-    }
-  }
-
   // Scroll Handler
   handleDebounce = (e) =>{
     requestAnimationFrame((e)=>this.handleScroll(e))
@@ -95,6 +89,7 @@ class IndexPage extends React.Component{
   windowHeight = window.innerHeight
   handleScroll = (e) =>{
     const scrollDistance=window.scrollY
+
     this.lastScrollTop=scrollDistance
     if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
       this.toggleHeaderLogo()
@@ -103,15 +98,15 @@ class IndexPage extends React.Component{
       this.toggleHeaderLogo()
     }
   }
-
+  
   // Component Lifecycle Events
   componentDidMount(){
     window.addEventListener('scroll', (e)=>this.handleDebounce(e))
   }
 
   render(){
-    const data = this.props.data.allContentfulTest.edges[0].node;
-    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent} = this.state;
+    const data = this.props.data.allContentfulTest.edges[0].node
+    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent} = this.state
   
     return(
       <ThemeProvider theme={GlobalTheme}>
@@ -124,7 +119,7 @@ class IndexPage extends React.Component{
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
             toggleContactOverlay={this.toggleContactOverlay}/>
-          <Landing />
+          <Landing show={showHeaderLogo}/>
           <ContentContainer>
             <About />
             <Carousel
@@ -147,8 +142,8 @@ class IndexPage extends React.Component{
                 heading={ServicesHeading}
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
-            <Footer/>
           </ContentContainer>
+          <Footer/>
         </AppContainer>
       </ThemeProvider>
     )

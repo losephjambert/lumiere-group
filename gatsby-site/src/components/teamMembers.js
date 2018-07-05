@@ -19,6 +19,7 @@ const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
 const TeamMemberImage = Styled(CollectionItemImage)`
   border-radius: 100%;
   background-blend-mode: multiply;
+  background-size: cover;
   filter: grayscale(1);
 `
 
