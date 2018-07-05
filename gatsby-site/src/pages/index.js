@@ -13,7 +13,7 @@ import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, Servi
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
 
-// if (typeof window === 'undefined') { global.window = {} }
+if (typeof window === 'undefined') { global.window = {} }
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -38,6 +38,7 @@ class IndexPage extends React.Component{
       showContactOverlay: false,
       showHeaderLogo: false,
       showModal: false,
+      showFooter: false,
       modalContent: {
         content: {},
         theme: {}
@@ -80,6 +81,13 @@ class IndexPage extends React.Component{
     }
   }
 
+  toggleFooter = () => {
+    this.setState(prevState => ({
+      showFooter: !prevState.showFooter
+    }))
+    console.log('toggle footer')
+  }
+
   // Scroll Handler
   handleDebounce = (e) =>{
     requestAnimationFrame((e)=>this.handleScroll(e))
@@ -89,6 +97,17 @@ class IndexPage extends React.Component{
   windowHeight = window.innerHeight
   handleScroll = (e) =>{
     const scrollDistance=window.scrollY
+    let scrollY = window.scrollY
+    let visible = document.documentElement.clientHeight
+    let pageHeight = document.documentElement.scrollHeight
+    let bottomOfPage = visible + scrollY === pageHeight
+    let showFooterContent = scrollY + visible > pageHeight - visible/2
+    if (showFooterContent && !this.state.showFooter) {
+      this.toggleFooter()
+    }
+    if (!showFooterContent && this.state.showFooter) {
+      this.toggleFooter()
+    }
 
     this.lastScrollTop=scrollDistance
     if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
@@ -106,7 +125,7 @@ class IndexPage extends React.Component{
 
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node
-    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent} = this.state
+    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent, showFooter} = this.state
   
     return(
       <ThemeProvider theme={GlobalTheme}>
@@ -143,7 +162,7 @@ class IndexPage extends React.Component{
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
           </ContentContainer>
-          <Footer/>
+          <Footer showFooter={showFooter}/>
         </AppContainer>
       </ThemeProvider>
     )

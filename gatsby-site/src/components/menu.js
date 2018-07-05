@@ -1,10 +1,10 @@
 import React from 'react'
-import styled, { css } from 'styled-components'
+import Styled, { css } from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
 
-const Container = styled.div`
+const Container = Styled.div`
   position: fixed;
   z-index: 98;
   top: 0;
@@ -59,13 +59,13 @@ const Container = styled.div`
   }
 `
 
-const MenuItems = styled.ul`
+const MenuItems = Styled.ul`
   width: 90%;
   max-width: 57.2rem;
   margin-bottom: 7.5em;
 `
 
-const Item = styled.li`
+const Item = Styled.li`
   color: ${props=>props.theme.white};
   font-size: 2.8rem;
   list-style-type: none;
@@ -86,7 +86,7 @@ const Item = styled.li`
   `}
 `
 
-const ContactInfo = styled.p`
+const ContactInfo = Styled.p`
   color: ${props=>props.theme.white};
   font-size: 1.8rem;
   display: flex;

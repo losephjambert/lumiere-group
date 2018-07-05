@@ -26,7 +26,7 @@ const StyledHeader = Styled.header`
     top: .1rem;
     transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
-    & > svg > g > g > .cls-1{
+    & > svg > g > g > .header-logo-svg{
       fill: ${props=>props.theme.black};
     }
     svg{
