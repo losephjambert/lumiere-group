@@ -79,8 +79,10 @@ class IndexPage extends React.Component{
 
   // Key Press Handler
   handleKeyPress = (e) => {
+    console.log(e)
     if(e.key == 'Escape' || e.key == 'Esc' || e.key == 'escape' || e.key == 'esc'){
       this.toggleModal()
+      console.log('escape!')
     }
   }
 

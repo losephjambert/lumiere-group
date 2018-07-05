@@ -101,35 +101,39 @@ const ModalImage = Styled.div`
       align-items: center;
       padding: 0 5rem;
 `
-export default class Modal extends React.Component{
 
-  componentDidMount(){
-    window.addEventListener('keydown', (e)=>this.props.handleKeyPress(e))
+const Modal = ({
+  active,
+  toggleModal,
+  handleKeyPress,
+  data: {
+    theme,
+    content: {
+      image,
+      title,
+      subtitle,
+      description
+    }
   }
-  componentWillUnmount(){
-    window.removeEventListener('keydown', (e)=>this.props.handleKeyPress(e))
-  }
+}) => (
+<ModalContainer active={active} theme={theme} onKeyUp={(e)=>handleKeyPress(e)}>
+  <span onClick={()=>toggleModal()}>
+    <StyledSVGContainer source={CloseButton} className='close-button' theme={theme}/> 
+  </span>
+  <ContentContainer>
+    <ModalItem theme={theme}>
+      <ModalImage image={image} />
+    </ModalItem>
+    <ModalItem>
+      <ModalText>
+        <li>{title && title}</li>
+        <li>{subtitle && subtitle}</li>
+        <li>{description && description}</li>
+      </ModalText>
+    </ModalItem>
+  </ContentContainer>
+</ModalContainer>
 
-  render(){
-    const { active, data, toggleModal, handleKeyPress } = this.props
-    return (
-      <ModalContainer active={active} theme={data.theme} onKeyDown={(e)=>handleKeyPress(e)}>
-        <span onClick={()=>toggleModal()}>
-          <StyledSVGContainer source={CloseButton} className='close-button' theme={data.theme}/> 
-        </span>
-        <ContentContainer>
-          <ModalItem theme={data.theme}>
-            <ModalImage image={data.content.image} />
-          </ModalItem>
-          <ModalItem>
-            <ModalText>
-              <li>{data.content.title}</li>
-              <li>{data.content.description}</li>
-            </ModalText>
-          </ModalItem>
-        </ContentContainer>
-      </ModalContainer>
-    )
-  }
+)
 
-}
+export default Modal
