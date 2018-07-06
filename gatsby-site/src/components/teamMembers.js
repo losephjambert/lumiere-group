@@ -13,12 +13,15 @@ import {
 const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
   &:hover ${CollectionItemImage}{
     filter: grayscale(0);
+    background-blend-mode: unset;
+    mix-blend-mode: unset;
   }
 `
 
 const TeamMemberImage = Styled(CollectionItemImage)`
   border-radius: 100%;
   background-blend-mode: multiply;
+  mix-blend-mode: multiply;
   background-size: cover;
   filter: grayscale(1);
 `
