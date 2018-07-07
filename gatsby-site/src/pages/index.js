@@ -12,6 +12,9 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
+import ScrollTest from '../components/scrollTest'
+import { withScroll, withWindow } from 'react-window-decorators'
+import ScrollManager from 'window-scroll-manager'
 
 if (typeof window === 'undefined') { global.window = {} }
 
@@ -120,7 +123,7 @@ class IndexPage extends React.Component{
   
   // Component Lifecycle Events
   componentDidMount(){
-    window.addEventListener('scroll', (e)=>this.handleDebounce(e))
+    // window.addEventListener('window-scroll', (e)=>this.handleScroll(e))
   }
 
   render(){
@@ -133,7 +136,8 @@ class IndexPage extends React.Component{
           {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} handleKeyPress={this.handleKeyPress}/>}
           <Header
             showModal={showModal}
-            showHeaderLogo={showHeaderLogo}
+            // showHeaderLogo={showHeaderLogo}
+            showHeaderLogo={this.props.scrollPositionY >= this.props.dimensions.height}
             active={showMenu}
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
@@ -162,7 +166,7 @@ class IndexPage extends React.Component{
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
           </ContentContainer>
-          <Footer showFooter={showFooter}/>
+          <Footer showFooter={showFooter} scrollPositionY={this.props.scrollPositionY}/>
         </AppContainer>
       </ThemeProvider>
     )
@@ -170,7 +174,7 @@ class IndexPage extends React.Component{
   }
 }
 
-export default IndexPage
+export default withWindow(withScroll(IndexPage))
 
 export const pageQuery = graphql`
   query PageQuery {

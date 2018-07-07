@@ -2,9 +2,10 @@ import React from 'react'
 import Styled from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
-import { withScroll, withWindow } from 'react-window-decorators';
-import windowManager from 'react-window-decorators/lib/window-manager';
-
+import { withScroll, withWindow } from 'react-window-decorators'
+import windowManager from 'react-window-decorators/lib/window-manager'
+import ScrollManager from 'window-scroll-manager'
+import ScrollTest from './scrollTest'
 
 const FooterContainer = Styled.div`
   display: flex;
@@ -48,25 +49,6 @@ const FooterContainer = Styled.div`
 class Footer extends React.Component{
 
   componentDidMount(){
-    ;(function() {
-      var pageHeight = 0;
-  
-      function findHighestNode(nodesList) {
-          for (var i = nodesList.length - 1; i >= 0; i--) {
-              if (nodesList[i].scrollHeight && nodesList[i].clientHeight) {
-                  var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight);
-                  pageHeight = Math.max(elHeight, pageHeight);
-              }
-              if (nodesList[i].childNodes.length) findHighestNode(nodesList[i].childNodes);
-          }
-      }
-  
-      findHighestNode(document.documentElement.childNodes);
-  
-      // The entire page height is found
-      console.log('Page height is', pageHeight);
-      console.log(pageHeight - (document.documentElement.clientHeight + ( document.documentElement.scrollHeight - document.documentElement.offsetHeight ) ) )
-    })();
   }
 
   render(){
@@ -86,4 +68,4 @@ class Footer extends React.Component{
   }
 }
 
-export default withWindow(withScroll(Footer))
+export default Footer
