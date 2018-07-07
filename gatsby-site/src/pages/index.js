@@ -12,9 +12,7 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import ScrollTest from '../components/scrollTest'
-import { withScroll, withWindow } from 'react-window-decorators'
-import ScrollManager from 'window-scroll-manager'
+import {scrollManager} from '../components/scrollTest'
 
 if (typeof window === 'undefined') { global.window = {} }
 
@@ -136,8 +134,8 @@ class IndexPage extends React.Component{
           {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} handleKeyPress={this.handleKeyPress}/>}
           <Header
             showModal={showModal}
-            // showHeaderLogo={showHeaderLogo}
-            showHeaderLogo={this.props.scrollPositionY >= this.props.dimensions.height}
+            showHeaderLogo={showHeaderLogo}
+            showHeaderLogo={this.props.scrollPositionY >= this.windowHeight}
             active={showMenu}
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
@@ -174,7 +172,7 @@ class IndexPage extends React.Component{
   }
 }
 
-export default withWindow(withScroll(IndexPage))
+export default scrollManager(IndexPage)
 
 export const pageQuery = graphql`
   query PageQuery {
