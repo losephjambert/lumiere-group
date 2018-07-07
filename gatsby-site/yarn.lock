@@ -4858,6 +4858,10 @@ is-tar@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-tar/-/is-tar-1.0.0.tgz#2f6b2e1792c1f5bb36519acaa9d65c0d26fe853d"
 
+is-touch-device@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/is-touch-device/-/is-touch-device-1.0.1.tgz#9a2fd59f689e9a9bf6ae9a86924c4ba805a42eab"
+
 is-typedarray@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/is-typedarray/-/is-typedarray-1.0.0.tgz#e479c80858df0c1b11ddda6940f96011fcda4a9a"
@@ -7477,6 +7481,14 @@ react-side-effect@^1.1.0:
     exenv "^1.2.1"
     shallowequal "^1.0.1"
 
+react-window-decorators@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/react-window-decorators/-/react-window-decorators-1.0.0.tgz#13e600ccc70601452852f3798f10c0bf9f9d3a77"
+  dependencies:
+    is-touch-device "^1.0.1"
+    prop-types "^15.5.8"
+    window-scroll-manager "^1.0.1"
+
 react@15.3:
   version "15.3.2"
   resolved "https://registry.yarnpkg.com/react/-/react-15.3.2.tgz#a7bccd2fee8af126b0317e222c28d1d54528d09e"
@@ -9652,6 +9664,10 @@ widest-line@^2.0.0:
   resolved "https://registry.yarnpkg.com/widest-line/-/widest-line-2.0.0.tgz#0142a4e8a243f8882c0233aa0e0281aa76152273"
   dependencies:
     string-width "^2.1.1"
+
+window-scroll-manager@^1.0.1:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/window-scroll-manager/-/window-scroll-manager-1.1.0.tgz#d08755418ddeb90c6cde34a8cd27f50986475801"
 
 window-size@0.1.0:
   version "0.1.0"

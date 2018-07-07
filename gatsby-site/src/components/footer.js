@@ -2,6 +2,9 @@ import React from 'react'
 import Styled from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
+import { withScroll, withWindow } from 'react-window-decorators';
+import windowManager from 'react-window-decorators/lib/window-manager';
+
 
 const FooterContainer = Styled.div`
   display: flex;
@@ -42,19 +45,45 @@ const FooterContainer = Styled.div`
   }
 `
 
-const Footer = ({ showFooter }) => (
+class Footer extends React.Component{
 
-  <FooterContainer>
-    <FooterSVG source={Border} showFooter={showFooter}/>
-    <ContactInfo showFooter={showFooter}>
-      <span>info@thelumieregroup.com</span>
-      <span className="_divider">|</span>
-      <span>206.323.9827</span>
-      <span className="_divider">|</span>
-      <span>Contact</span>
-    </ContactInfo>
-  </FooterContainer>
+  componentDidMount(){
+    ;(function() {
+      var pageHeight = 0;
+  
+      function findHighestNode(nodesList) {
+          for (var i = nodesList.length - 1; i >= 0; i--) {
+              if (nodesList[i].scrollHeight && nodesList[i].clientHeight) {
+                  var elHeight = Math.max(nodesList[i].scrollHeight, nodesList[i].clientHeight);
+                  pageHeight = Math.max(elHeight, pageHeight);
+              }
+              if (nodesList[i].childNodes.length) findHighestNode(nodesList[i].childNodes);
+          }
+      }
+  
+      findHighestNode(document.documentElement.childNodes);
+  
+      // The entire page height is found
+      console.log('Page height is', pageHeight);
+      console.log(pageHeight - (document.documentElement.clientHeight + ( document.documentElement.scrollHeight - document.documentElement.offsetHeight ) ) )
+    })();
+  }
 
-)
+  render(){
+    const {showFooter} = this.props
+    return(
+      <FooterContainer>
+        <FooterSVG source={Border} showFooter={showFooter}/>
+        <ContactInfo showFooter={showFooter}>
+          <span>info@thelumieregroup.com</span>
+          <span className="_divider">|</span>
+          <span>206.323.9827</span>
+          <span className="_divider">|</span>
+          <span>Contact { Math.trunc(this.props.scrollPositionY) }</span>
+        </ContactInfo>
+      </FooterContainer>
+    )
+  }
+}
 
-export default Footer
+export default withWindow(withScroll(Footer))

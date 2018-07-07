@@ -11,7 +11,7 @@ import {
   CollectionItemSubtitle } from '../styles/collectionItemStyles'
 
 const ServiceCollectionContainer = Styled(CollectionContainer)`
-  min-height: auto;
+  min-height: 75vh;
   margin-bottom: 100vh;
 `
 
