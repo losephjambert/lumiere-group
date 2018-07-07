@@ -85,7 +85,6 @@ class IndexPage extends React.Component{
     this.setState(prevState => ({
       showFooter: !prevState.showFooter
     }))
-    console.log('toggle footer')
   }
 
   // Scroll Handler

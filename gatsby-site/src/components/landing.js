@@ -3,11 +3,23 @@ import SVGContainer from '../components/svg-loader'
 import LandingLogo from '../assets/landing-logo.svg'
 import Styled from 'styled-components'
 
-const LogoSVGContainer = Styled(SVGContainer)`
+const Container = Styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: fixed;
+  z-index: ${props=>props.show ? 1 : -10};
+  top: ${props=>props.theme.headerSpaceBig};
+  right: 0;
+  left: 0;
+  height: 100vh;
+`
+
+const LogoSVGContainer = Styled(SVGContainer)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
   z-index: ${props=>props.show ? 1 : -10};
   top: ${props=>props.theme.headerSpaceBig};
   right: 0;
@@ -24,10 +36,9 @@ const LogoSVGContainer = Styled(SVGContainer)`
 `
 
 const Landing = ({ show }) => (
-<div>
-  <LogoSVGContainer source={LandingLogo} className='landing-logo' show={!show}/>
-</div>
-
+  <Container show={!show}>
+      <LogoSVGContainer source={LandingLogo} className='landing-logo' show={!show}/>
+  </Container>
 )
 
 export default Landing

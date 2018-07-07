@@ -17,11 +17,11 @@ const FooterContainer = Styled.div`
 `
   
   const FooterSVG = Styled(SVGContainer)`
-  transition: 250ms;
+  // transition: 250ms;
   max-width: 70rem;
   height: 42.5rem;
   margin: 0 0 5.4rem;
-  opacity: ${props=>props.showFooter ? 1 : 0};
+  // opacity: ${props=>props.showFooter ? 1 : 0};
   svg{
     max-width: 70rem;
     height: 100%;
@@ -29,8 +29,8 @@ const FooterContainer = Styled.div`
 `
   
   const ContactInfo = Styled.p`
-  transition: 250ms;
-  opacity: ${props=>props.showFooter ? 1 : 0};
+  // transition: 250ms;
+  // opacity: ${props=>props.showFooter ? 1 : 0};
   color: ${props=>props.theme.black};
   font-size: 1.8rem;
   display: flex;
@@ -42,19 +42,48 @@ const FooterContainer = Styled.div`
   }
 `
 
-const Footer = ({ showFooter }) => (
+class Footer extends React.Component{
+  constructor(props){
+    super(props)
+    this.state = {
+    }
+    this.scroll_pos = null
+  }
 
-  <FooterContainer>
-    <FooterSVG source={Border} showFooter={showFooter}/>
-    <ContactInfo showFooter={showFooter}>
-      <span>info@thelumieregroup.com</span>
-      <span className="_divider">|</span>
-      <span>206.323.9827</span>
-      <span className="_divider">|</span>
-      <span>Contact</span>
-    </ContactInfo>
-  </FooterContainer>
+  handleDebounce = (e) => {
+    requestAnimationFrame((e)=>this.trackScroll(e))
+  }
 
-)
+  trackScroll = (e) => {
+    this.scroll_pos = window.scrollY
+    if (this.props.showFooter) {
+      console.log(this.scroll_pos)
+    }
+  }
+
+  componentDidMount(){
+    window.addEventListener('scroll', (e) => this.handleDebounce(e))
+  }
+
+  componentWillUnMount(){
+    window.removeEventListener('scroll', (e) => this.handleDebounce(e))
+  }
+
+  render(){
+    const {showFooter} = this.props
+    return(
+      <FooterContainer>
+        <FooterSVG source={Border}/>
+        <ContactInfo>
+          <span>info@thelumieregroup.com</span>
+          <span className="_divider">|</span>
+          <span>206.323.9827</span>
+          <span className="_divider">|</span>
+          <span>Contact</span>
+        </ContactInfo>
+      </FooterContainer>
+    )
+  }
+}
 
 export default Footer
