@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled from 'styled-components'
+import { Transition, animated } from 'react-spring'
 
 const LoaderContainer = Styled.div`
     position: fixed;
