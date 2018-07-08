@@ -2,7 +2,7 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
-import {scrollManager, windowManager} from './scrollTest'
+import {scrollManager, windowManager} from './eventManager'
 
 const FooterContainer = Styled.footer`
   display: flex;

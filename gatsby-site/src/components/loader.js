@@ -1,13 +1,20 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Styled from 'styled-components'
 
-// Logo Component
-// animates logo on site load
+const LoaderContainer = Styled.div`
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: salmon;
+`
 
 const Logo = ({ /*Logo Metadata*/ }) => (
-<div>
+<LoaderContainer>
     logo animation. body movin? css? animate on scroll?
-</div>
+</LoaderContainer>
 
 )
 

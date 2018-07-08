@@ -12,7 +12,6 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import {scrollManager} from '../components/scrollTest'
 
 const AppContainer = Styled.div`
   padding-top: 100vh;

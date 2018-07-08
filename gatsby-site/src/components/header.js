@@ -6,7 +6,7 @@ import Contact from '../components/contact'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
-import {scrollManager, windowManager} from './scrollTest'
+import {scrollManager, windowManager} from './eventManager'
 
 const StyledHeader = Styled.header`
   height: ${props=>props.theme.headerSpaceBig};
