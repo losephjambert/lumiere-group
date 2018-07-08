@@ -38,7 +38,6 @@ const TeamMemberModalImage = Styled(ModalImage)`
 const Modal = ({
   active,
   toggleModal,
-  handleKeyPress,
   data: {
     theme,
     content: {

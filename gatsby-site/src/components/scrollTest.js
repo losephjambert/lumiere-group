@@ -17,9 +17,6 @@ export const scrollManager = (Component) => {
       this.state={
         scrollYPosition: 0
       }
-      this.data={
-        scrollYPosition: 0
-      }
     }
 
     scrollManager = (e) =>{
@@ -27,9 +24,9 @@ export const scrollManager = (Component) => {
     }
 
     handleScroll = (e) => {
-      this.setState({
-        scrollYPosition: window.scrollY
-      })
+      this.setState(prevState => ({
+        scrollYPosition: prevState.scrollYPosition + (window.scrollY - prevState.scrollYPosition)
+      }))
     }
 
     componentDidMount(){
@@ -42,7 +39,7 @@ export const scrollManager = (Component) => {
 
     render(){
       return(
-        <Component {...this.data} {...this.state} {...this.props} {...this.newProps} />
+        <Component {...this.state} {...this.props} {...this.newProps} />
       )
     }
   }
@@ -53,30 +50,53 @@ export const windowManager = (Component) => {
     constructor(props){
       super(props)
       this.state={
-        width: 0,
-        height: 0,
-        landscape: false,
-        portrait: false
+        dimensions: {
+          width: 0,
+          height: 0,
+          scrollHeight: 0,
+          landscape: false,
+          portrait: false
+        }
       }
     }
 
-    scrollManager = (e) =>{
-      requestAnimationFrame((e)=>this.handleScroll(e))
+    resizeManager = (e) =>{
+      requestAnimationFrame((e)=>this.handleResize(e))
     }
 
-    handleScroll = (e) => {
-      console.log(`scroll test decorator: ${window.scrollY}`)
-      this.setState({
-        scrollYPosition: window.scrollY
-      })
+    handleResize = (e) => {
+      console.log(`resize test decorator: `)
+    }
+
+    getInitialDimensions = () => {
+
+      let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
+      let calcWidth = window.innerWidth
+      let calcHeight = window.innerHeight
+      let calcLandscape = width > height
+      let calcPortrait = !landscape
+
+      const {width, height, landscape, portrait, scrollHeight} = this.state.dimensions
+
+      this.setState(prevState => ({
+        width: calcWidth,
+        height: calcHeight,
+        landscape: calcLandscape,
+        portrait: calcPortrait,
+        scrollHeight: calcScrollHeight
+      }))
     }
 
     componentDidMount(){
-      window.addEventListener('scroll', (e) => this.scrollManager(e))
+
+      // window.addEventListener('resize', (e) => this.resizeManager(e))
+      window.onload = () => {
+        this.getInitialDimensions()
+      }
     }
     
     componentWillUnmount(){
-      window.removeEventListener('scroll', (e) => this.scrollManager(e))
+      // window.removeEventListener('resize', (e) => this.resizeManager(e))
     }
 
     render(){

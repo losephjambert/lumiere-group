@@ -14,7 +14,6 @@ const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
   &:hover ${CollectionItemImage}{
     filter: grayscale(0);
     background-blend-mode: unset;
-    mix-blend-mode: unset;
   }
 `
 

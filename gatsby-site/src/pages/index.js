@@ -12,8 +12,7 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-
-if (typeof window === 'undefined') { global.window = {} }
+import {scrollManager} from '../components/scrollTest'
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -28,17 +27,15 @@ const ContentContainer = Styled.div`
   background-color: ${props=>props.theme.white};
 `
 
-
 class IndexPage extends React.Component{
   
   constructor(props) {
     super(props)
+    this.windowHeight
     this.state = {
       showMenu: false,
       showContactOverlay: false,
-      showHeaderLogo: false,
       showModal: false,
-      showFooter: false,
       modalContent: {
         content: {},
         theme: {}
@@ -81,65 +78,21 @@ class IndexPage extends React.Component{
     }
   }
 
-  toggleFooter = () => {
-    this.setState(prevState => ({
-      showFooter: !prevState.showFooter
-    }))
-    console.log('toggle footer')
-  }
-
-  // Scroll Handler
-  handleDebounce = (e) =>{
-    requestAnimationFrame((e)=>this.handleScroll(e))
-  }
-  
-  lastScrollTop=0
-  windowHeight = window.innerHeight
-  handleScroll = (e) =>{
-    const scrollDistance=window.scrollY
-    let scrollY = window.scrollY
-    let visible = document.documentElement.clientHeight
-    let pageHeight = document.documentElement.scrollHeight
-    let bottomOfPage = visible + scrollY === pageHeight
-    let showFooterContent = scrollY + visible > pageHeight - visible/2
-    if (showFooterContent && !this.state.showFooter) {
-      this.toggleFooter()
-    }
-    if (!showFooterContent && this.state.showFooter) {
-      this.toggleFooter()
-    }
-
-    this.lastScrollTop=scrollDistance
-    if (scrollDistance >= this.windowHeight && !this.state.showHeaderLogo){
-      this.toggleHeaderLogo()
-    }
-    if (scrollDistance <= this.windowHeight && this.state.showHeaderLogo) {
-      this.toggleHeaderLogo()
-    }
-  }
-  
-  // Component Lifecycle Events
-  componentDidMount(){
-    // window.addEventListener('window-scroll', (e)=>this.handleScroll(e))
-  }
-
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node
-    const {showHeaderLogo, showMenu, showContactOverlay, showModal, modalContent, showFooter} = this.state
+    const {showMenu, showContactOverlay, showModal, modalContent} = this.state
   
     return(
       <ThemeProvider theme={GlobalTheme}>
         <AppContainer>
-          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} handleKeyPress={this.handleKeyPress}/>}
+          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />}
           <Header
             showModal={showModal}
-            showHeaderLogo={showHeaderLogo}
-            showHeaderLogo={this.props.scrollPositionY >= this.windowHeight}
             active={showMenu}
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
-            toggleContactOverlay={this.toggleContactOverlay}/>
-          <Landing show={showHeaderLogo}/>
+            toggleContactOverlay={this.toggleContactOverlay} />
+          <Landing />
           <ContentContainer>
             <About />
             <Carousel
@@ -150,20 +103,18 @@ class IndexPage extends React.Component{
               <TeamMembers
                 theme={TeamCollectionTheme}
                 toggleModal={this.toggleModal}
-                showModal={showModal}
                 heading={TeamHeading}
                 collectionItems={TeamCollectionItems} />
             </ThemeProvider>
             <ThemeProvider theme={ServicesCollectionTheme}>
               <ServiceItems
                 toggleModal={this.toggleModal}
-                showModal={showModal}
                 theme={ServicesCollectionTheme}
                 heading={ServicesHeading}
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
           </ContentContainer>
-          <Footer showFooter={showFooter} scrollPositionY={this.props.scrollPositionY}/>
+          <Footer />
         </AppContainer>
       </ThemeProvider>
     )

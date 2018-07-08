@@ -1,28 +1,34 @@
 import React from 'react'
-import Styled from 'styled-components'
+import Styled, {css} from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
-import {scrollManager} from './scrollTest'
+import {scrollManager, windowManager} from './scrollTest'
 
-const FooterContainer = Styled.div`
+const FooterContainer = Styled.footer`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-flow: column nowrap;
   position: fixed;
-  z-index: -1;
+  z-index: ${props => props.showFooter ? 2 : 0};
   top: ${props=>props.theme.headerSpaceBig};
   bottom: 0;
+  transition: .5s;
   width: 100%;
   background-color: ${props=>props.theme.white};
+  ${props => props.showFooter && css`
+    ${FooterSVG},
+    ${ContactInfo}{
+      opacity: 1 !important;
+    }
+  `}
 `
   
   const FooterSVG = Styled(SVGContainer)`
-  transition: 250ms;
   max-width: 70rem;
   height: 42.5rem;
   margin: 0 0 5.4rem;
-  opacity: ${props=>props.showFooter ? 1 : 0};
+  opacity: 0;
   svg{
     max-width: 70rem;
     height: 100%;
@@ -30,8 +36,7 @@ const FooterContainer = Styled.div`
 `
   
   const ContactInfo = Styled.p`
-  transition: 250ms;
-  opacity: ${props=>props.showFooter ? 1 : 0};
+  opacity: 0;
   color: ${props=>props.theme.black};
   font-size: 1.8rem;
   display: flex;
@@ -43,27 +48,19 @@ const FooterContainer = Styled.div`
   }
 `
 
-class Footer extends React.Component{
+const Footer = ( {scrollYPosition, scrollHeight, height } ) => (
 
-  componentDidMount(){
-    console.log(document.documentElement.scrollHeight - 1000)
-  }
-
-  render(){
-    const {showFooter} = this.props
-    return(
-      <FooterContainer>
-        <FooterSVG source={Border} showFooter={this.props.scrollYPosition > document.documentElement.scrollHeight - 1000}/>
-        <ContactInfo showFooter={this.props.scrollYPosition > document.documentElement.scrollHeight - 1000}>
+      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height/2)} scrollHeight={scrollHeight}>
+        <FooterSVG source={Border} />
+        <ContactInfo>
           <span>info@thelumieregroup.com</span>
           <span className="_divider">|</span>
           <span>206.323.9827</span>
           <span className="_divider">|</span>
-          <span>Contact { Math.trunc(this.props.scrollPositionY) }</span>
+          <span>Contact { Math.trunc(scrollYPosition) }</span>
         </ContactInfo>
       </FooterContainer>
-    )
-  }
-}
 
-export default scrollManager(Footer)
+)
+
+export default windowManager(scrollManager(Footer))
