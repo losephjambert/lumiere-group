@@ -2,10 +2,7 @@ import React from 'react'
 import Styled from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
-import { withScroll, withWindow } from 'react-window-decorators'
-import windowManager from 'react-window-decorators/lib/window-manager'
-import ScrollManager from 'window-scroll-manager'
-import ScrollTest from './scrollTest'
+import {scrollManager} from './scrollTest'
 
 const FooterContainer = Styled.div`
   display: flex;
@@ -49,14 +46,15 @@ const FooterContainer = Styled.div`
 class Footer extends React.Component{
 
   componentDidMount(){
+    console.log(document.documentElement.scrollHeight - 1000)
   }
 
   render(){
     const {showFooter} = this.props
     return(
       <FooterContainer>
-        <FooterSVG source={Border} showFooter={showFooter}/>
-        <ContactInfo showFooter={showFooter}>
+        <FooterSVG source={Border} showFooter={this.props.scrollYPosition > document.documentElement.scrollHeight - 1000}/>
+        <ContactInfo showFooter={this.props.scrollYPosition > document.documentElement.scrollHeight - 1000}>
           <span>info@thelumieregroup.com</span>
           <span className="_divider">|</span>
           <span>206.323.9827</span>
@@ -68,4 +66,4 @@ class Footer extends React.Component{
   }
 }
 
-export default Footer
+export default scrollManager(Footer)

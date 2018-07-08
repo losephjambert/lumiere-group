@@ -11,10 +11,13 @@ import React from 'react'
 */
 
 export const scrollManager = (Component) => {
-  return class ScrollTest extends React.Component{
+  return class ScrollManager extends React.Component{
     constructor(props){
       super(props)
       this.state={
+        scrollYPosition: 0
+      }
+      this.data={
         scrollYPosition: 0
       }
     }
@@ -24,7 +27,6 @@ export const scrollManager = (Component) => {
     }
 
     handleScroll = (e) => {
-      console.log(`scroll test decorator: ${window.scrollY}`)
       this.setState({
         scrollYPosition: window.scrollY
       })
@@ -40,14 +42,14 @@ export const scrollManager = (Component) => {
 
     render(){
       return(
-        <Component {...this.state} {...this.props} {...this.newProps} />
+        <Component {...this.data} {...this.state} {...this.props} {...this.newProps} />
       )
     }
   }
 }
 
 export const windowManager = (Component) => {
-  return class ScrollTest extends React.Component{
+  return class WindowManager extends React.Component{
     constructor(props){
       super(props)
       this.state={

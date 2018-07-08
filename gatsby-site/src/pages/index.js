@@ -12,7 +12,6 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import {scrollManager} from '../components/scrollTest'
 
 if (typeof window === 'undefined') { global.window = {} }
 
@@ -172,7 +171,7 @@ class IndexPage extends React.Component{
   }
 }
 
-export default scrollManager(IndexPage)
+export default IndexPage
 
 export const pageQuery = graphql`
   query PageQuery {
