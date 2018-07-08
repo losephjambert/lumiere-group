@@ -48,9 +48,9 @@ const FooterContainer = Styled.footer`
   }
 `
 
-const Footer = ( {scrollYPosition, scrollHeight, height } ) => (
+const Footer = ( {scrollYPosition, dimensions:{scrollHeight, height} } ) => (
 
-      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height/2)} scrollHeight={scrollHeight}>
+      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height/2)} >
         <FooterSVG source={Border} />
         <ContactInfo>
           <span>info@thelumieregroup.com</span>

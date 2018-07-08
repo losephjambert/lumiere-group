@@ -1,15 +1,5 @@
 import React from 'react'
 
-/*
-***** To Do
-
-***** 1. Finish scrollManager decorator so that it passes down relevant props using RequestAnimationFrame
-*****     props: {scrollPositionY: int}
-
-***** 2. Write windowManager decorator that passes down window dimension props using RequestAnimationFrame
-*****     props: {width: int, height: int, portrait: bool, landscape: bool}
-*/
-
 export const scrollManager = (Component) => {
   return class ScrollManager extends React.Component{
     constructor(props){
@@ -25,7 +15,8 @@ export const scrollManager = (Component) => {
 
     handleScroll = (e) => {
       this.setState(prevState => ({
-        scrollYPosition: prevState.scrollYPosition + (window.scrollY - prevState.scrollYPosition)
+        // scrollYPosition: Math.trunc( prevState.scrollYPosition + (window.scrollY - prevState.scrollYPosition) )
+        scrollYPosition: Math.trunc(window.scrollY)
       }))
     }
 
@@ -60,43 +51,46 @@ export const windowManager = (Component) => {
       }
     }
 
+    resizeTimeout
     resizeManager = (e) =>{
-      requestAnimationFrame((e)=>this.handleResize(e))
+      if ( !this.resizeTimeout ) {
+          this.resizeTimeout = setTimeout( (e) => {
+          this.resizeTimeout = null
+          requestAnimationFrame((e)=>this.handleResize(e))
+         }, 1000)
+      }
     }
 
     handleResize = (e) => {
-      console.log(`resize test decorator: `)
+      this.getDimensions()
     }
 
-    getInitialDimensions = () => {
+    getDimensions = () => {
 
       let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
       let calcWidth = window.innerWidth
       let calcHeight = window.innerHeight
-      let calcLandscape = width > height
-      let calcPortrait = !landscape
-
-      const {width, height, landscape, portrait, scrollHeight} = this.state.dimensions
+      let calcLandscape = calcWidth > calcHeight
+      let calcPortrait = !calcLandscape
 
       this.setState(prevState => ({
-        width: calcWidth,
-        height: calcHeight,
-        landscape: calcLandscape,
-        portrait: calcPortrait,
-        scrollHeight: calcScrollHeight
+        dimensions:{
+          width: calcWidth,
+          height: calcHeight,
+          landscape: calcLandscape,
+          portrait: calcPortrait,
+          scrollHeight: calcScrollHeight
+        }
       }))
     }
 
     componentDidMount(){
-
-      // window.addEventListener('resize', (e) => this.resizeManager(e))
-      window.onload = () => {
-        this.getInitialDimensions()
-      }
+      window.addEventListener('resize', (e) => this.resizeManager(e), false)
+      this.getDimensions()
     }
     
     componentWillUnmount(){
-      // window.removeEventListener('resize', (e) => this.resizeManager(e))
+      window.removeEventListener('resize', (e) => this.resizeManager(e), false)
     }
 
     render(){
