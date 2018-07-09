@@ -2,7 +2,7 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
-import {scrollManager, windowManager} from './scrollTest'
+import {scrollManager, windowManager} from './hocEventManager'
 
 const FooterContainer = Styled.footer`
   display: flex;
@@ -48,19 +48,19 @@ const FooterContainer = Styled.footer`
   }
 `
 
-const Footer = ( {scrollYPosition, dimensions:{scrollHeight, height} } ) => (
+const Footer = ( { } ) => (
 
-      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height/2)} >
+      <FooterContainer showFooter={null} >
         <FooterSVG source={Border} />
         <ContactInfo>
           <span>info@thelumieregroup.com</span>
           <span className="_divider">|</span>
           <span>206.323.9827</span>
           <span className="_divider">|</span>
-          <span>Contact { Math.trunc(scrollYPosition) }</span>
+          <span>Contact</span>
         </ContactInfo>
       </FooterContainer>
 
 )
 
-export default windowManager(scrollManager(Footer))
+export default Footer

@@ -1,14 +1,14 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { loadManager } from './hocLoader';
 
 // Logo Component
 // animates logo on site load
 
-const Logo = ({ /*Logo Metadata*/ }) => (
+const Loader = ({ /*Logo Metadata*/ }) => (
 <div>
     logo animation. body movin? css? animate on scroll?
 </div>
 
 )
 
-export default Logo
+export default loadManager(Loader)

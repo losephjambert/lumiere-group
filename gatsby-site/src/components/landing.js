@@ -8,7 +8,7 @@ const LogoSVGContainer = Styled(SVGContainer)`
   justify-content: center;
   align-items: center;
   position: fixed;
-  z-index: ${props=>props.show ? 1 : -10};
+  z-index: 1;
   top: ${props=>props.theme.headerSpaceBig};
   right: 0;
   left: 0;
@@ -23,11 +23,8 @@ const LogoSVGContainer = Styled(SVGContainer)`
   }
 `
 
-const Landing = ({ show }) => (
-<div>
-  <LogoSVGContainer source={LandingLogo} className='landing-logo' show={!show}/>
-</div>
-
+const Landing = ({}) => (
+  <LogoSVGContainer source={LandingLogo} className='landing-logo'/>
 )
 
 export default Landing

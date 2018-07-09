@@ -4,9 +4,8 @@ import Hamburger from '../icons/hamburger'
 import Menu from '../components/menu'
 import Contact from '../components/contact'
 import SVGContainer from '../components/svg-loader'
-import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
-import {scrollManager, windowManager} from './scrollTest'
+import {scrollManager, windowManager} from './hocEventManager'
 
 const StyledHeader = Styled.header`
   height: ${props=>props.theme.headerSpaceBig};
@@ -50,18 +49,17 @@ const StyledHeader = Styled.header`
 `
 
 
-const Header = ( { active, toggleMenu, showContactOverlay, toggleContactOverlay, showModal, scrollYPosition, dimensions:{height} } ) => (
+const Header = ( { active, toggleMenu, showContactOverlay, toggleContactOverlay, showModal } ) => (
   <StyledHeader
     showModal={showModal}
-    showHeaderLogo={scrollYPosition >= height}
-    Y= {scrollYPosition}
-    height={height}
+    showHeaderLogo={null}
+    Y= {null}
+    height={null}
     active={active}>
       <Hamburger
         active={active}
         clickHandler={toggleMenu}
         showContactOverlay={showContactOverlay}/>
-    <SVGContainer source={Logo} className='header-logo' />
     <span  onClick={(e)=>toggleContactOverlay(e)}>
       <SVGContainer
         source={MailIcon}
@@ -73,4 +71,4 @@ const Header = ( { active, toggleMenu, showContactOverlay, toggleContactOverlay,
 
 )
 
-export default windowManager(scrollManager(Header))
+export default Header

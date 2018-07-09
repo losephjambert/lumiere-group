@@ -3,8 +3,6 @@ import Styled, {ThemeProvider} from 'styled-components'
 import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
-import Footer from '../components/footer'
-import Landing from '../components/landing'
 import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
@@ -12,7 +10,9 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import {scrollManager} from '../components/scrollTest'
+import Loader from '../components/loader';
+import FixedContentContainer from '../components/fixedContentContainer';
+
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -85,6 +85,7 @@ class IndexPage extends React.Component{
     return(
       <ThemeProvider theme={GlobalTheme}>
         <AppContainer>
+          <FixedContentContainer />
           {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />}
           <Header
             showModal={showModal}
@@ -92,7 +93,6 @@ class IndexPage extends React.Component{
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
             toggleContactOverlay={this.toggleContactOverlay} />
-          <Landing />
           <ContentContainer>
             <About />
             <Carousel
@@ -114,7 +114,6 @@ class IndexPage extends React.Component{
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
           </ContentContainer>
-          <Footer />
         </AppContainer>
       </ThemeProvider>
     )

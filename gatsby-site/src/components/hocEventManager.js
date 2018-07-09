@@ -66,7 +66,7 @@ export const windowManager = (Component) => {
     }
 
     getDimensions = () => {
-
+      console.log(document.body.scrollHeight - document.body.offsetHeight - window.innerHeight)
       let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
       let calcWidth = window.innerWidth
       let calcHeight = window.innerHeight

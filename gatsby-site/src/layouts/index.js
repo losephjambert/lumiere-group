@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
 import Styled, {injectGlobal, ThemeProvider} from 'styled-components'
-import Dimensions from '../styles/styleVariables'
 
 import Regular from '../fonts/EuropaRegular.otf'
 import Bold from '../fonts/EuropaBold.otf'
