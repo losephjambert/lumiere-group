@@ -12,7 +12,6 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import Loader from '../components/loader'
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -81,12 +80,10 @@ class IndexPage extends React.Component{
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node
     const {showMenu, showContactOverlay, showModal, modalContent} = this.state
-    const {showLoader} = this.props
   
     return(
       <ThemeProvider theme={GlobalTheme}>
         <AppContainer>
-          <Loader show={showLoader}/>
           {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />}
           <Header
             showModal={showModal}
