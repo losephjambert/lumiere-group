@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import {loadManager} from '../components/hoc-loader'
 
 import Styled, {injectGlobal, ThemeProvider} from 'styled-components'
 
@@ -59,7 +58,7 @@ Layout.propTypes = {
   children: PropTypes.func,
 }
 
-export default loadManager(Layout)
+export default Layout
 
 export const query = graphql`
   query MetadataQuery {

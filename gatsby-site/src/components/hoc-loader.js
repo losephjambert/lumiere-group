@@ -1,5 +1,4 @@
 import React from 'react'
-import Loader from './loader'
 
 export const loadManager = (Component) => {
   return class LoadManager extends React.Component{
@@ -26,12 +25,8 @@ export const loadManager = (Component) => {
     }
 
     render(){
-      const {showLoader} = this.state
       return(
-        <div>
-          {showLoader && <Loader/>}
-          <Component {...this.state} {...this.props} {...this.newProps} />
-        </div>
+        <Component {...this.state} {...this.props} {...this.newProps} />
       )
     }
   }
