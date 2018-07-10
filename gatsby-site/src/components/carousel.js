@@ -4,38 +4,56 @@ import Styled, {css} from 'styled-components'
 import '../styles/slick-carousel/slick.css'
 // import '../styles/slick-carousel/slick-theme.css'
 
-const buttonHeight = 5
+const buttonHeight = 2.5
 
 const StyledCarousel = Styled(Slider)`
 position: relative;
   .slick-arrow{
     border: none;
     position: absolute;
-    top: calc(50% - ${buttonHeight/2}rem);
     z-index: 1;
     cursor: pointer;
     font-size: 0;
-    width: 0;
-    height: 0;
     padding: 0;
     background: transparent;
+    height: 100%;
+    width: 100px;
+    top: 0;
+    opacity: 1;
+    cursor: auto;
+    &::after{
+      content: '';
+      top: calc(50% - ${buttonHeight/2}rem);
+      opacity: 0;
+      transition: 250ms;
+    }
+    &:hover{
+      &::after{
+        opacity: 1;
+        cursor: pointer;
+      }
+    }
     &:focus{
       outline: none;
     }
   }
   .slick-prev{
     left: 0;
-    border-top: ${buttonHeight}rem solid transparent;
-    border-bottom: ${buttonHeight}rem solid transparent; 
-    
-    border-right: ${buttonHeight}rem solid blue; 
+    &::after{
+      border-top: ${buttonHeight}rem solid transparent;
+      border-bottom: ${buttonHeight}rem solid transparent; 
+      
+      border-right: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+    }
   }
   .slick-next{
     right: 0;
-    border-top: ${buttonHeight}rem solid transparent;
-    border-bottom: ${buttonHeight}rem solid transparent;
-    
-    border-left: ${buttonHeight}rem solid green;
+    &::after{
+      border-top: ${buttonHeight}rem solid transparent;
+      border-bottom: ${buttonHeight}rem solid transparent;
+      
+      border-left: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+    }
   }
   .slick-list{
     margin-bottom: -0.4rem;
@@ -49,6 +67,7 @@ let settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   fade: true,
+  autoplay: true,
   className: 'carousel-component'
 }
 
