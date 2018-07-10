@@ -3,7 +3,8 @@ import Styled, {css} from 'styled-components'
 import CloseButtonSVG from '../assets/close-button.svg'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/header-logo.svg'
-import LogoSVGContainer from '../styles/logoSVGContainer';
+import LogoSVGContainer from '../styles/logoSVGContainer'
+
 import {
   ModalContainer,
   ContentContainer,
