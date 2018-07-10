@@ -67,14 +67,13 @@ let settings = {
   slidesToShow: 1,
   slidesToScroll: 1,
   fade: true,
-  autoplay: true,
-  className: 'carousel-component'
+  autoplay: true
 }
 
 const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
   <StyledCarousel {...settings}>
     {images.map((image, i) =>
-      <div><img src={image.image} key={i} alt={image.altText} /> </div>
+      <img src={image.image} key={i} alt={image.altText} />
     )}
   </StyledCarousel>
 )
