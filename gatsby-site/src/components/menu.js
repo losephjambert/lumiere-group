@@ -75,11 +75,13 @@ const Item = Styled.li`
   padding: 1em 0;
   margin: 0 auto;
   font-family: Europa Regular;
+  transition: 150ms;
   &:nth-last-of-type(1){
     border-bottom: .1em solid ${props=>props.theme.white};
   }
   &:hover{
     cursor: pointer;
+    color: ${props =>props.theme.hoverColor};
   }
   ${props=>props.theme.forMediumPhonesUp`
     padding: 1.4em 0;    

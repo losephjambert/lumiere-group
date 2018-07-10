@@ -2,7 +2,6 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 import Hamburger from '../icons/hamburger'
 import Menu from '../components/menu'
-import Contact from '../components/contact'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
@@ -41,10 +40,15 @@ const StyledHeader = Styled.header`
       width: 3.4rem;
       position: relative;
       top: 2px;
+      &:hover{
+        .mail-icon{
+          stroke: ${props=>props.theme.hoverColor};
+        }
+      }
     }
   }
   ${props =>
-    props.showModal && css`
+    props.hide && css`
       transform: translate3d(0,-${props=>props.theme.headerSpaceBig},0);
   `}
 `
@@ -52,7 +56,8 @@ const StyledHeader = Styled.header`
 
 const Header = ( { active, toggleMenu, showContactOverlay, toggleContactOverlay, showModal, scrollYPosition, dimensions:{height} } ) => (
   <StyledHeader
-    showModal={showModal}
+    hide={showModal || showContactOverlay}
+    showContactOverlay={showContactOverlay}
     showHeaderLogo={scrollYPosition >= height}
     Y= {scrollYPosition}
     height={height}
@@ -68,7 +73,6 @@ const Header = ( { active, toggleMenu, showContactOverlay, toggleContactOverlay,
         className='header-mail-icon' />
     </span>
     <Menu active={active}/>
-    <Contact active={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>
   </StyledHeader>
 
 )

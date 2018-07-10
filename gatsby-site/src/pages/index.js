@@ -12,7 +12,7 @@ import Modal from '../components/modal'
 import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
-import {scrollManager} from '../components/scrollTest'
+import Contact from '../components/contact'
 
 const AppContainer = Styled.div`
   padding-top: 100vh;
@@ -92,6 +92,7 @@ class IndexPage extends React.Component{
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
             toggleContactOverlay={this.toggleContactOverlay} />
+          <Contact active={showContactOverlay} toggleContactOverlay={this.toggleContactOverlay}/>          
           <Landing />
           <ContentContainer>
             <About />
