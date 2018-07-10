@@ -1,62 +1,61 @@
 import React from 'react'
-import Carousel from 'nuka-carousel'
+import Slider from 'react-slick'
 import Styled, {css} from 'styled-components'
+import '../styles/slick-carousel/slick.css'
+// import '../styles/slick-carousel/slick-theme.css'
 
-const ControlSize = 2.5
-const ControlPadding = 1
+const buttonHeight = 5
 
-const SharedSliderControlStyles = `
-  display: block;
-  width: 0; 
-  height: 0; 
-  border-top: ${ControlSize}rem solid transparent;
-  border-bottom: ${ControlSize}rem solid transparent;
-  transition: 250ms;
-  opacity: 0;
-  cursor: pointer;
-`
-
-const PreviousSlideControl = Styled.span`
-  ${SharedSliderControlStyles}
-  border-right: ${ControlSize*2}rem solid ${props => props.theme.white};
-  transform: translate3d(${ControlPadding}rem,0,0);
-`
-
-const NextSlideControl = Styled.span`
-  ${SharedSliderControlStyles}
-  border-left: ${ControlSize*2}rem solid ${props => props.theme.white};
-  transform: translate3d(-${ControlPadding}rem,0,0);
-`
-
-const StyledCarousel = Styled(Carousel)`
-  ${props=>
-    props.showMenu || props.showContactOverlay && css`
-      z-index: -10;
-    `}
-  &:hover ${PreviousSlideControl},
-  &:hover ${NextSlideControl}  {
-    opacity: 1;
+const StyledCarousel = Styled(Slider)`
+position: relative;
+  .slick-arrow{
+    border: none;
+    position: absolute;
+    top: calc(50% - ${buttonHeight/2}rem);
+    z-index: 1;
+    cursor: pointer;
+    font-size: 0;
+    width: 0;
+    height: 0;
+    padding: 0;
+    background: transparent;
+    &:focus{
+      outline: none;
+    }
+  }
+  .slick-prev{
+    left: 0;
+    border-top: ${buttonHeight}rem solid transparent;
+    border-bottom: ${buttonHeight}rem solid transparent; 
+    
+    border-right: ${buttonHeight}rem solid blue; 
+  }
+  .slick-next{
+    right: 0;
+    border-top: ${buttonHeight}rem solid transparent;
+    border-bottom: ${buttonHeight}rem solid transparent;
+    
+    border-left: ${buttonHeight}rem solid green;
+  }
+  .slick-list{
+    margin-bottom: -0.4rem;
   }
 `
 
+let settings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  fade: true,
+  className: 'carousel-component'
+}
+
 const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
-  <StyledCarousel
-    showContactOverlay={showContactOverlay}
-    showMenu={showMenu}
-    wrapAround={true}
-    autoplay={true}
-    autoplayInterval={5000}
-    speed={500}
-    heightMode={'first'}
-    renderBottomCenterControls={ () => false }
-    renderCenterLeftControls={({ previousSlide }) => (
-      <PreviousSlideControl onClick={previousSlide} />
-    )}
-    renderCenterRightControls={({ nextSlide }) => (
-      <NextSlideControl onClick={nextSlide} />
-    )}>
+  <StyledCarousel {...settings}>
     {images.map((image, i) =>
-      <img src={image.image} key={i} alt={image.altText} />
+      <div><img src={image.image} key={i} alt={image.altText} /> </div>
     )}
   </StyledCarousel>
 )
