@@ -6,7 +6,7 @@ import {hideMenu, showMenu} from '../styles/animations'
 
 const Container = Styled.div`
   position: fixed;
-  z-index: 98;
+  z-index: 30;
   top: 0;
   right: 0;
   bottom: 0;

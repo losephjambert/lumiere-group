@@ -49,6 +49,10 @@ injectGlobal`
     color: ${Colors.white}; 
     background: ${Colors.black};
   }
+
+  body{
+    background-color: ${Colors.white};
+  }
 `
 
 const Layout = ({ children, data }) => (

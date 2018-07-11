@@ -2,18 +2,16 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 
 const HamburgerStyle = Styled.div`
-top: 0;
+position: fixed;
+top: 3rem;
+left: 3rem;
 width: 2.7rem;
 height: 2.1rem;
-z-index: 99;
+z-index: 40;
 display: inline-flex;
 transform: rotate(0deg);
 transition: ${props => props.theme.transition};
 cursor: pointer;
-${props =>
-  props.showContactOverlay && css`
-    opacity: 0;
-  `}
 &:hover > span{
   background-color: ${props => props.theme.hoverColor};
 }
@@ -65,11 +63,10 @@ ${props =>
   `}
 `
 
-const Hamburger = ({ active, clickHandler, showContactOverlay }) => (
+const Hamburger = ({ active, clickHandler }) => (
   <HamburgerStyle
     onClick={(e)=>clickHandler(e)}
-    active={active}
-    showContactOverlay={showContactOverlay}>
+    active={active}>
     <span></span>
     <span></span>
     <span></span>

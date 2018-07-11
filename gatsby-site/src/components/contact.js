@@ -7,7 +7,7 @@ import ContactHeader from '../assets/contact.svg'
 
 const StyleContainer = Styled.div`
 	position: fixed;
-	z-index: 99;
+	z-index: 30;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -36,11 +36,9 @@ const StyledSVGContainer = Styled(SVGContainer)`
 	width: 2.4rem;
 	position: absolute;
 	z-index: 9999;
-	right: 2.25rem;
-	top: 3.3rem;
+	right: 3.6rem;
+	top: 3rem;
 	cursor: pointer;
-	// background-color: ${props => props.theme.white};
-	// box-shadow: 0 0 0 1rem ${props => props.theme.white};
 	&:hover{
 		svg > g > g > .close-button-elements{
 			stroke: ${props => props.theme.hoverColor};

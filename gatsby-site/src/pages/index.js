@@ -44,16 +44,30 @@ class IndexPage extends React.Component{
   }
 
   // State Controllers
-  toggleMenu = () => {
-    this.setState(prevState => ({
-      showMenu: !prevState.showMenu
-    }))
+  toggleMenu = (prevState) => {
+    if (!this.state.showContactOverlay) {
+      this.setState(prevState => ({
+        showMenu: !prevState.showMenu
+      }))
+    } else {
+      this.setState(prevState => ({
+        showMenu: !prevState.showMenu,
+        showContactOverlay: !prevState.showContactOverlay
+      }))
+    }
   }
 
-  toggleContactOverlay = () => {
-    this.setState(prevState => ({
+  toggleContactOverlay = (prevState) => {
+    if (!this.state.showMenu) {
+      this.setState(prevState => ({
       showContactOverlay: !prevState.showContactOverlay
-    }))
+      }))
+    } else {
+      this.setState(prevState => ({
+        showContactOverlay: !prevState.showContactOverlay,
+        showMenu: !prevState.showMenu
+      }))
+    }
   }
 
   toggleHeaderLogo = () => {
@@ -88,7 +102,7 @@ class IndexPage extends React.Component{
           {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />}
           <Header
             showModal={showModal}
-            active={showMenu}
+            showMenu={showMenu}
             showContactOverlay={showContactOverlay}
             toggleMenu={this.toggleMenu}
             toggleContactOverlay={this.toggleContactOverlay} />
