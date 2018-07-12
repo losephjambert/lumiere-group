@@ -9,12 +9,12 @@ import {scrollManager, windowManager} from './eventManager'
 import Contact from './contact'
 
 const ContactTrigger = Styled.span`
-  ${props=>props.showModal && css`opacity: 0;`}
+  ${props=>props.showModal || props.showContactOverlay && css`opacity: 0;`}
   .header-mail-icon{
     position: fixed;
     top: 2rem;
     right: 2rem;
-    z-index: 30;
+    z-index: 50;
     cursor: pointer;
     ${props=>props.theme.forTabletLandscapeUp`
       top: 3rem;
@@ -44,9 +44,9 @@ const ContactTrigger = Styled.span`
 const HeaderLogoContainer = Styled.div`
   height: ${props=>props.theme.headerSpaceSmall};
   width: 100%;
-  background-color: ${props=>props.theme.white};
+  background-color: ${props=>props.showMenu ? 'transparent' : props.theme.white};
   position: fixed;
-  z-index: 20;
+  z-index: 40;
   top: 0;
   left: 0;
   display: flex;
@@ -62,7 +62,7 @@ const HeaderLogoContainer = Styled.div`
     transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     & > svg > g > g > .header-logo-svg{
-      fill: ${props=>props.theme.black};
+      fill: ${props=>props.showMenu ? props.theme.white : props.theme.black};
     }
     svg{
       width: 3.6rem;
@@ -98,7 +98,8 @@ const Header = ( {
     <ContactTrigger
       onClick={(e)=>toggleContactOverlay(e)}
       showMenu={showMenu}
-      showModal={showModal}>
+      showModal={showModal}
+      showContactOverlay={showContactOverlay}>
       <SVGContainer
         source={MailIcon}
         className='header-mail-icon' />
@@ -109,7 +110,7 @@ const Header = ( {
       showHeaderLogo={scrollYPosition >= height}
       Y= {scrollYPosition}
       height={height}
-      active={showMenu}>
+      showMenu={showMenu}>
       <SVGContainer source={Logo} className='header-logo' />
     </HeaderLogoContainer>
     <Contact showContactOverlay={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>

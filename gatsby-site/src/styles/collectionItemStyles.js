@@ -2,11 +2,14 @@ import Styled, {css} from 'styled-components'
 
 export const CollectionContainer = Styled.div`
   min-height: 100vh;
-  padding: 13.6rem 0;
+  padding: 7.6rem 0;
   display: flex;
   flex-flow: column wrap;
   align-items: center;
   background-color: ${props => props.theme.main};
+  ${props=>props.theme.forTabletLandscapeUp`
+    padding: 13.6rem 0;
+  `}
 `
 
 export const CollectionList = Styled.ul`

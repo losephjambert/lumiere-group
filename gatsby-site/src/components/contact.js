@@ -9,7 +9,7 @@ import SVGContainer from './svg-loader'
 
 const StyleContainer = Styled.div`
 	position: fixed;
-	z-index: 40;
+	z-index: 30;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -49,17 +49,23 @@ const LogoSVGContainer = Styled(SVGContainer)`
 `
 
 const StyledSVGContainer = Styled(SVGContainer)`
-	width: 2.4rem;
-	position: absolute;
-	z-index: 9999;
-	right: 3.6rem;
-	top: 3rem;
+	width: 2rem;
+	position: fixed;
+	z-index: 60;
+	right: 2.2rem;
+	top: 1.9rem;
 	cursor: pointer;
+	${props=>props.showContactOverlay ? 'opacity: 1' : 'opacity: 0'};
 	&:hover{
 		svg > g > g > .close-button-elements{
 			stroke: ${props => props.theme.hoverColor};
 		}
 	}
+	${props=>props.theme.forTabletLandscapeUp`
+		width: 2.4rem;
+		right: 3.6rem;
+		top: 3rem;
+	`}
 `
 
 const Label = Styled.label`
@@ -115,10 +121,11 @@ const Form = Styled.form`
 `
 
 const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
-<StyleContainer active={showContactOverlay}>
+	<span>
 	<span onClick={(e)=>toggleContactOverlay(e)}>
-		<StyledSVGContainer source={CloseButton} className='close-button' /> 
+		<StyledSVGContainer source={CloseButton} className='close-button' showContactOverlay={showContactOverlay}/> 
   </span>
+	<StyleContainer active={showContactOverlay}>
 		{/* <LogoSVGContainer source={Logo} className='contact-logo' /> */}
 		<ContactSVGHeader source={ContactHeader} className='contact-header' /> 
 		<Form
@@ -140,8 +147,8 @@ const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
 				<Submit type="submit" name="submit" value="Send"/>
 			</InputContainer>
     </Form>
-</StyleContainer>
-
+	</StyleContainer>
+	</span>
 )
 
 export default Contact

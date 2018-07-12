@@ -26,26 +26,49 @@ const FooterContainer = Styled.footer`
   
   const FooterSVG = Styled(SVGContainer)`
   max-width: 70rem;
-  height: 42.5rem;
-  margin: 0 0 5.4rem;
+  height: 20.5rem;
+  margin: auto 0 5.4rem;
   opacity: 0;
   svg{
     max-width: 70rem;
     height: 100%;
   }
-`
+  ${props=>props.theme.forTabletLandscapeUp`
+    height: 42.5rem;
+    margin: 0 0 5.4rem;
+  `}
+  `
   
   const ContactInfo = Styled.p`
   opacity: 0;
   color: ${props=>props.theme.black};
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: space-around;
   font-family: Europa Bold Italic;
+  text-align: center;
+  margin-top: auto;
+  span{
+    margin-bottom: 1.4rem;
+  }
   ._divider{
+    display: none;
     margin: 0 1rem;
     font-family: Europa Regular;
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+    flex-flow: row wrap;
+    text-align: initial;
+    font-size: 1.8rem;
+    margin-top: 0;
+    span{
+      margin-bottom: 0;
+    }
+    ._divider{
+      display: inline-flex;
+    }
+  `}
 `
 
 const Footer = ( {scrollYPosition, dimensions:{scrollHeight, height} } ) => (
@@ -57,7 +80,7 @@ const Footer = ( {scrollYPosition, dimensions:{scrollHeight, height} } ) => (
           <span className="_divider">|</span>
           <span>206.323.9827</span>
           <span className="_divider">|</span>
-          <span>Contact { Math.trunc(scrollYPosition) }</span>
+          {/* <span>Contact { Math.trunc(scrollYPosition) }</span> */}
         </ContactInfo>
       </FooterContainer>
 

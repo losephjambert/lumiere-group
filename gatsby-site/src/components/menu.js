@@ -27,17 +27,24 @@ const Container = Styled.div`
   }
 
   .menu-logo{
+    position: relative;
+    top: -.7rem;
     svg{
       min-width: 17rem;
       margin: 1.8em 0 7.5em;
-      ${props=>props.theme.forMediumPhonesUp`
-      min-width: 19.2rem;      
-      `}
     }
+    ${props=>props.theme.forTabletLandscapeUp`
+      position: initial;
+      top: auto;
+      svg{
+        min-width: 19.2rem;
+      }
+    `}
     g{
       stroke: ${props=>props.theme.white};
     }
     .logo-shapes{
+      display: none;
       stroke: none;
       fill: ${props=>props.theme.white};
     }
@@ -60,19 +67,22 @@ const Container = Styled.div`
 `
 
 const MenuItems = Styled.ul`
-  width: 90%;
+  width: 80%;
   max-width: 57.2rem;
   margin-bottom: 7.5em;
+  ${props=>props.theme.forTabletLandscapeUp`
+    width: 90%;
+  `}
 `
 
 const Item = Styled.li`
   color: ${props=>props.theme.white};
-  font-size: 2.8rem;
+  font-size: 2.2rem;
   list-style-type: none;
   border-top: .1em solid ${props=>props.theme.white};
   width: 100%;
   text-align: center;
-  padding: 1em 0;
+  padding: 2.4rem 0;
   margin: 0 auto;
   font-family: Europa Regular;
   transition: 150ms;
@@ -83,23 +93,39 @@ const Item = Styled.li`
     cursor: pointer;
     color: ${props =>props.theme.hoverColor};
   }
-  ${props=>props.theme.forMediumPhonesUp`
-    padding: 1.4em 0;    
+  ${props=>props.theme.forTabletLandscapeUp`
+    font-size: 2.8rem;
   `}
 `
 
 const ContactInfo = Styled.p`
   color: ${props=>props.theme.white};
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: space-around;
-  width: 90%;
-  max-width: 38.4rem;
-  font-family: Europa Regular Italic;
-  
+  font-family: Europa Bold Italic;
+  text-align: center;
+  margin-top: auto;
+  span{
+    margin-bottom: 1.4rem;
+  }
   ._divider{
+    display: none;
+    margin: 0 1rem;
     font-family: Europa Regular;
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+  flex-flow: row wrap;
+  margin-top: 0;
+  font-size: 1.8rem;
+  span{
+    margin-bottom: 0;
+  }
+  ._divider{
+      display: inline-flex;
+    }
+  `}
 `
 
 const Menu = ({ active }) => (

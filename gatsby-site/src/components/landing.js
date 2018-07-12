@@ -9,18 +9,26 @@ const LogoSVGContainer = Styled(SVGContainer)`
   align-items: center;
   position: fixed;
   z-index: ${props=>props.show ? 1 : -10};
-  top: ${props=>props.theme.headerSpaceBig};
+  top: ${props=>props.theme.headerSpaceSmall};
   right: 0;
   left: 0;
   height: 100vh;
   svg{
-    width: 31.4rem;
+    width: 18.4rem;
     position: relative;
-    top: -4.5rem;
+    top: -6.5rem;
     .landing-logo-svg{
       fill: ${props=>props.theme.black};
     }
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: ${props=>props.theme.headerSpaceBig};
+    svg{
+      width: 31.4rem;
+      position: relative;
+      top: -4.5rem;
+    }
+  `}
 `
 
 const Landing = ({ show }) => (
