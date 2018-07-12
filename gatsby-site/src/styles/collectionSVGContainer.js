@@ -7,8 +7,13 @@ const CollectionSVGContainer = Styled(SVGContainer)`
   align-items: center;
   margin: 0 0 8.4rem;
   svg{
-    height: 4.6rem;
-  }  
+    height: 3.5rem;
+  }
+  ${props=>props.theme.forTabletLandscapeUp`
+    svg{
+      height: 4.6rem;
+    }
+  `}
 `
 
 export default CollectionSVGContainer

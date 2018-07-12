@@ -65,7 +65,8 @@ export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
   columns: 3,
-  size: '30rem'
+  smallPhoneSize: '22.5rem',
+  defaultSize: '30rem'
 }
 
 export const ServicesCollectionTheme = {
@@ -73,7 +74,9 @@ export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,
   columns: 4,
-  size: '13.5rem'
+  smallPhoneSize: '13.5rem',
+  mediumPhoneSize: '10.5rem',
+  defaultSize: '13.5rem'
 }
 
 export const CarouselImages = [

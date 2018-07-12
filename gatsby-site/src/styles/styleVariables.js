@@ -3,7 +3,7 @@ import {css} from 'styled-components'
 // Media Queries
 const sizes = {
   forMediumPhonesUp: 360,
-  forBigPhonesUp: 414,
+  forBigPhonesUp: 411,
   forTabletPortraitUp: 600,
   forTabletLandscapeUp: 900,
   forDesktopUp: 1200,

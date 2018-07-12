@@ -7,14 +7,23 @@ const LogoSVGContainer = Styled(SVGContainer)`
     justify-content: center;
     width: 100%;
     position: fixed;
-    top: 2rem;
+    top: 1.4rem;
     svg{
-      width: ${props.size};
-      height: ${props.size};
+      width: ${props.size.small};
+      height: ${props.size.small};
+      g > g > .header-logo-svg{
+        fill: ${props.localTheme.main};
+      }
+    }
+    ${props=>props.theme.forTabletLandscapeUp`
+    svg{
+      width: ${props.size.large};
+      height: ${props.size.large};
       g > g > .header-logo-svg{
         fill: ${props.theme.main};
       }
     }
+    `}
   `}
 `
 

@@ -8,7 +8,7 @@ export const ModalContainer = Styled.div`
   bottom:0;
   left: 0;
   z-index: 9999;
-  color: ${props => props.theme.main};
+  color: ${props => props.localTheme.main};
   &::before,
   &::after{
     content: '';
@@ -20,10 +20,9 @@ export const ModalContainer = Styled.div`
     opacity: .9;
   }
   &::before{
-    background-color: ${props => props.theme.inverse};
+    background-color: ${props => props.localTheme.inverse};
     z-index: -1;
   }
-
   ${props =>
       !props.active ?
       `animation: ${hideMenu} 300ms ease-in-out forwards;`
@@ -34,33 +33,50 @@ export const ModalContainer = Styled.div`
 
 export const ContentContainer = Styled.ul`
   display: flex;
-  justify-content: flex-start;
+  flex-flow: column nowrap;
   align-items: center;
+  justify-content: space-around;
   height: 100%;
-`
-
-export const ModalItem = Styled.li`
-  width: 50%;
-  height: 100%;
-  flex: 0 1 auto;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  align-items: flex-start;
-  padding: 0 6.4rem;
-  &:nth-of-type(1){
-    position: relative;
-    &::after{
-      content: '';
-      position: absolute;
-      z-index: 9999;
-      top: 25%;
-      bottom: 15%;
-      right: -.75pt;
-      width: 1.5pt;
-      background-color: ${props => props.theme.main};
-    }
+  padding: 7rem 1.6rem 0;
+  overflow: scroll;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+    padding: 0;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+  `}
+  `
+  
+  export const ModalItem = Styled.li`
+    width: 100%;
+  ${props=>props.theme.forTabletLandscapeUp`
+    width: 50%;
+    height: 100%;
+    flex: 0 1 auto;
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 6.4rem;
+    &:nth-of-type(1){
+      position: relative;
+      &::after{
+        content: '';
+        position: absolute;
+        z-index: 9999;
+        top: 25%;
+        bottom: 15%;
+        right: -.75pt;
+        width: 1.5pt;
+        background-color: ${props => props.theme.main};
+      }
+    }
+  `}
 `
 
 export const ModalTextList = Styled.ul`
@@ -89,13 +105,18 @@ export const ModalImage = Styled.div`
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  margin-left: auto;
-  width: 40rem;
-  height: 40rem;
+  margin: auto;
   flex: 0 1 auto;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  padding: 0 5rem;
+  width: 15rem;
+  height: 15rem;
+  ${props=>props.theme.forTabletLandscapeUp`
+    margin-left: auto;
+    width: 40rem;
+    height: 40rem;
+    padding: 0 5rem;
+  `}
 `

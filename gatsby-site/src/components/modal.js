@@ -17,18 +17,25 @@ import {
 } from '../styles/modalStyles'
 
 const CloseButton = Styled(SVGContainer)`
-  width: 2.4rem;
+  width: 1.8rem;
   position: absolute;
   z-index: 9999;
-  top: 3rem;
-  right: 5.8rem;
+  top: 2.2rem;
+  right: 2.2rem;
   cursor: pointer;
   svg > g > g > line.close-button-elements{stroke: ${props => props.theme.main};}
+  ${props=>props.theme.forTabletLandscapeUp`
+    width: 2.4rem;
+    top: 3rem;
+    right: 5.8rem;
+  `}
 `
 
 const ServicesModalImage = Styled(ModalImage)`
   mix-blend-mode: difference;
-  background-size: 30rem;
+  ${props=>props.theme.forTabletLandscapeUp`
+    background-size: 30rem;
+  `}
 `
 
 const TeamMemberModalImage = Styled(ModalImage)`
@@ -39,8 +46,8 @@ const TeamMemberModalImage = Styled(ModalImage)`
 const Modal = ({
   active,
   toggleModal,
+  data,
   data: {
-    theme,
     content: {
       image,
       title,
@@ -50,15 +57,15 @@ const Modal = ({
   }
 }) => (
 
-<ModalContainer active={active} theme={theme} onKeyUp={(e)=>handleKeyPress(e)}>
-  <LogoSVGContainer source={Logo} theme={theme} size={'5.6rem'}/>
+<ModalContainer active={active} localTheme={data.theme} onKeyUp={(e)=>handleKeyPress(e)}>
+  <LogoSVGContainer source={Logo} localTheme={data.theme} size={{small:'3.6rem', large: '5.6rem'}}/>
   <span onClick={()=>toggleModal()}>
-    <CloseButton source={CloseButtonSVG} className='close-button' theme={theme}/> 
+    <CloseButton source={CloseButtonSVG} className='close-button' localTheme={data.theme}/> 
   </span>
   <ContentContainer>
-    <ModalItem theme={theme}>
-      {theme.type === 'team' &&  <TeamMemberModalImage image={image} />}
-      {theme.type === 'services' &&  <ServicesModalImage image={image} />}
+    <ModalItem localTheme={data.theme}>
+      {data.theme.type === 'team' &&  <TeamMemberModalImage image={image} />}
+      {data.theme.type === 'services' &&  <ServicesModalImage image={image} />}
     </ModalItem>
     <ModalItem>
       <ModalTextList>
