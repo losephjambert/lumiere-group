@@ -7,7 +7,7 @@ top: 3rem;
 left: 3rem;
 width: 2.7rem;
 height: 2.1rem;
-z-index: 40;
+z-index: 50;
 display: inline-flex;
 transform: rotate(0deg);
 transition: ${props => props.theme.transition};
