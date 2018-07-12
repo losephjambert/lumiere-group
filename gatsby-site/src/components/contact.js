@@ -2,12 +2,14 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 import {hideMenu, showMenu} from '../styles/animations'
 import CloseButton from '../assets/close-button.svg'
-import SVGContainer from '../components/svg-loader'
 import ContactHeader from '../assets/contact.svg'
+import Logo from '../assets/header-logo.svg'
+import SVGContainer from './svg-loader'
+
 
 const StyleContainer = Styled.div`
 	position: fixed;
-	z-index: 30;
+	z-index: 40;
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -30,6 +32,20 @@ const StyleContainer = Styled.div`
 const ContactSVGHeader = Styled(SVGContainer)`
 	width: 30rem;
 	margin-top: ${props=>props.theme.headerSpaceBig};
+`
+
+const LogoSVGContainer = Styled(SVGContainer)`
+  margin-top: ${props=>props.theme.headerSpaceBig/2};
+  width: 15rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg{
+    width: 5.6rem;
+    g > g > .header-logo-svg{
+    fill: ${props => props.theme.black};
+    }
+  }
 `
 
 const StyledSVGContainer = Styled(SVGContainer)`
@@ -98,11 +114,12 @@ const Form = Styled.form`
 	&:nth-last-of-type(1){ margin-bottom: 0; }
 `
 
-const Contact = ({ active, toggleContactOverlay }) => (
-<StyleContainer active={active}>
+const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
+<StyleContainer active={showContactOverlay}>
 	<span onClick={(e)=>toggleContactOverlay(e)}>
 		<StyledSVGContainer source={CloseButton} className='close-button' /> 
   </span>
+		{/* <LogoSVGContainer source={Logo} className='contact-logo' /> */}
 		<ContactSVGHeader source={ContactHeader} className='contact-header' /> 
 		<Form
 			action="https://formspree.io/josephc.lambert@gmail.com"

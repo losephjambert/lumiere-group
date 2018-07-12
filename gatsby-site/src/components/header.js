@@ -1,11 +1,12 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
 import Hamburger from '../icons/hamburger'
-import Menu from '../components/menu'
-import SVGContainer from '../components/svg-loader'
+import Menu from './menu'
+import SVGContainer from './svg-loader'
 import Logo from '../assets/header-logo.svg'
 import MailIcon from '../assets/mail-icon.svg'
 import {scrollManager, windowManager} from './eventManager'
+import Contact from './contact'
 
 const ContactTrigger = Styled.span`
   .header-mail-icon{
@@ -63,13 +64,22 @@ const HeaderLogoContainer = Styled.div`
 `
 
 
-const Header = ( { showMenu, toggleMenu, showContactOverlay, toggleContactOverlay, showModal, scrollYPosition, dimensions:{height} } ) => (
+const Header = ( {
+  showMenu,
+  toggleMenu,
+  showContactOverlay,
+  toggleContactOverlay,
+  showModal,
+  scrollYPosition,
+  dimensions: {
+    height}
+  } ) => (
   <header>
+    <Menu active={showMenu}/>
     <Hamburger
       active={showMenu}
       clickHandler={toggleMenu}
       showContactOverlay={showContactOverlay}/>
-    <Menu active={showMenu}/>
     <ContactTrigger
       onClick={(e)=>toggleContactOverlay(e)}
       showMenu={showMenu}>
@@ -86,6 +96,7 @@ const Header = ( { showMenu, toggleMenu, showContactOverlay, toggleContactOverla
       active={showMenu}>
       <SVGContainer source={Logo} className='header-logo' />
     </HeaderLogoContainer>
+    <Contact showContactOverlay={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>
   </header>
 
 )
