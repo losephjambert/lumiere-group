@@ -2,19 +2,26 @@ import React from 'react'
 import Styled, {css} from 'styled-components'
 
 const HamburgerStyle = Styled.div`
-position: fixed;
-top: 3rem;
-left: 3rem;
-width: 2.7rem;
-height: 2.1rem;
-z-index: 50;
-display: inline-flex;
-transform: rotate(0deg);
-transition: ${props => props.theme.transition};
-cursor: pointer;
-&:hover > span{
-  background-color: ${props => props.theme.hoverColor};
-}
+  position: fixed;
+  top: 2rem;
+  left: 2rem;
+  width: 2.5rem;
+  height: 1.7rem;
+  z-index: 50;
+  display: inline-flex;
+  transform: rotate(0deg);
+  transition: ${props => props.theme.transition};
+  cursor: pointer;
+  &:hover > span{
+    background-color: ${props => props.theme.hoverColor};
+  }
+  ${props=>props.showModal && css`opacity: 0;`}
+  ${props=>props.theme.forTabletLandscapeUp`
+    width: 2.7rem;
+    height: 2.1rem;
+    top: 3rem;
+    left: 3rem;
+  `}
 
 span{
   display: block;
@@ -34,11 +41,14 @@ span:nth-child(1) {
 }
 
 span:nth-child(2),span:nth-child(3) {
-  top: .85rem;
+  top: .7rem;
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: .85rem;
+  `}
 }
 
 span:nth-child(4) {
-  bottom: 0rem;
+  bottom: -.1rem;
 }
 
 ${props =>
@@ -63,10 +73,11 @@ ${props =>
   `}
 `
 
-const Hamburger = ({ active, clickHandler }) => (
+const Hamburger = ({ active, clickHandler, showModal }) => (
   <HamburgerStyle
     onClick={(e)=>clickHandler(e)}
-    active={active}>
+    active={active}
+    showModal={showModal}>
     <span></span>
     <span></span>
     <span></span>

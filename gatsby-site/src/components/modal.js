@@ -23,7 +23,7 @@ const CloseButton = Styled(SVGContainer)`
   top: 2.2rem;
   right: 2.2rem;
   cursor: pointer;
-  svg > g > g > line.close-button-elements{stroke: ${props => props.theme.main};}
+  svg > g > g > line.close-button-elements{stroke: ${props => props.localTheme.main};}
   ${props=>props.theme.forTabletLandscapeUp`
     width: 2.4rem;
     top: 3rem;

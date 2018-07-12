@@ -7,7 +7,7 @@ const LogoSVGContainer = Styled(SVGContainer)`
     justify-content: center;
     width: 100%;
     position: fixed;
-    top: 1.4rem;
+    top: 1.1rem;
     svg{
       width: ${props.size.small};
       height: ${props.size.small};

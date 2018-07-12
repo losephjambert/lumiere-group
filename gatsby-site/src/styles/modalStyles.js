@@ -39,11 +39,7 @@ export const ContentContainer = Styled.ul`
   height: 100%;
   padding: 7rem 1.6rem 0;
   overflow: scroll;
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
-  &::-webkit-scrollbar { 
-    display: none;  // Safari and Chrome
-  }
+
   ${props=>props.theme.forTabletLandscapeUp`
     padding: 0;
     flex-flow: row wrap;
@@ -87,7 +83,7 @@ export const ModalTitle = Styled.li`
   font-size: 2.4rem;
   line-height: 3.4rem;
 `
-      
+
 export const ModalSubTitle = Styled.li`
   font-size: 1.6rem;
 `
@@ -113,6 +109,10 @@ export const ModalImage = Styled.div`
   align-items: center;
   width: 15rem;
   height: 15rem;
+  ${props=>props.theme.forMediumPhonesUp`
+    width: 24rem;
+    height: 24rem;
+  `}
   ${props=>props.theme.forTabletLandscapeUp`
     margin-left: auto;
     width: 40rem;
