@@ -13,12 +13,16 @@ export const CollectionContainer = Styled.div`
 `
 
 export const CollectionList = Styled.ul`
-  grid-template-columns: repeat(1, 1fr);
   display: grid;
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto; 
-  grid-column-gap: 6rem;
   ${props=>props.theme.forTabletLandscapeUp`
+    grid-template-columns: repeat(${props => props.theme.columns%2===0 ? props.theme.columns/2 : props.theme.columns}, 1fr);
+    grid-column-gap: 2rem;
+    `}
+  ${props=>props.theme.forLaptopUp`
     grid-template-columns: repeat(${props => props.theme.columns}, 1fr);
+    grid-column-gap: 6rem;
   `}
   `
 
@@ -58,7 +62,12 @@ export const CollectionItemImage = Styled.div`
   width: ${props => props.theme.smallPhoneSize};
   margin: 0 auto 2.2rem;
   transition: inherit;
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props=>props.theme.forLaptopUp`
+    margin: 0 auto 3.2rem;
+    height: ${props => props.theme.laptopSize};
+    width: ${props => props.theme.laptopSize};
+  `}
+  ${props=>props.theme.forDesktopUp`
     margin: 0 auto 3.2rem;
     height: ${props => props.theme.defaultSize};
     width: ${props => props.theme.defaultSize};

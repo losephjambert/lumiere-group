@@ -107,8 +107,8 @@ export const ModalImage = Styled.div`
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  width: 15rem;
-  height: 15rem;
+  width: 20rem;
+  height: 20rem;
   ${props=>props.theme.forMediumPhonesUp`
     width: 24rem;
     height: 24rem;

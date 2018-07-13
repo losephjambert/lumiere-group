@@ -23,6 +23,8 @@ const StyleContainer = Styled.div`
 	transition: transform 300ms ease-in-out;
 	transform-origin: center;
 	font-family: Europa Bold;
+	overflow: scroll;
+	padding: 0 0 1.6rem;
 	${props =>
 		!props.active ?
 		`animation: ${hideMenu} 300ms ease-in-out forwards;` :`animation: ${showMenu} 300ms ease-in-out forwards;`
@@ -30,8 +32,17 @@ const StyleContainer = Styled.div`
 `
 
 const ContactSVGHeader = Styled(SVGContainer)`
-	width: 30rem;
-	margin-top: ${props=>props.theme.headerSpaceBig};
+	margin: ${props=>props.theme.headerSpaceBig} 0 3rem;
+	svg{
+		height: 3.5rem;
+		display: inherit;
+	}
+	${props=>props.theme.forTabletLandscapeUp`
+		margin: ${props=>props.theme.headerSpaceBig} 0 0;
+		svg{
+			height: 4.6rem;
+		}
+	`}
 `
 
 const LogoSVGContainer = Styled(SVGContainer)`
@@ -79,13 +90,18 @@ const SharedInputStyles = css`
 	display: block;
 	background-color: transparent;
 	border: .15rem solid ${props => props.theme.black};
+	&:focus{
+		outline: none;
+	}
 `
 
 const Input = Styled.input`
 	${SharedInputStyles}
 	width: 100%;
 	height: 0;
-	padding: 2.4rem 0;
+	padding: .4rem;
+	height: 3.4rem;
+	font-size: 1.4rem;
 `
 	
 const Submit = Styled.input`
@@ -103,21 +119,35 @@ const Submit = Styled.input`
 
 const Textarea = Styled.textarea`
 	${SharedInputStyles}
-	height: 15rem;
+	height: 12rem;
 	width: 100%;
+	font-size: 1.4rem;
+	padding: .4rem;
+	${props=>props.theme.forMediumPhonesUp`
+		height: 15rem;
+	`}
 `
 
 const InputContainer = Styled.div`
-	margin: 5rem 0;
+	margin: 2rem 0;
 	width: 100%;
 	&:nth-last-of-type(1){ margin-bottom: 0; }
+	${props=>props.theme.forMediumPhonesUp`
+		margin: 3rem 0;
+	`}
+	${props=>props.theme.forTabletLandscapeUp`
+		margin: 5rem 0;
+	`}
 `
 
 const Form = Styled.form`
-	margin: 5rem 0;
+	margin: 0;
 	width: 90%;
 	max-width: 60.8rem;
 	&:nth-last-of-type(1){ margin-bottom: 0; }
+	${props=>props.theme.forTabletLandscapeUp`
+		margin: 5rem 0;
+	`}
 `
 
 const Contact = ({ showContactOverlay, toggleContactOverlay }) => (

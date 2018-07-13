@@ -13,6 +13,7 @@ const {
   forBigPhonesUp ,
   forTabletPortraitUp ,
   forTabletLandscapeUp ,
+  forLaptopUp ,
   forDesktopUp ,
   forBigMonitorsUp
 } = Media
@@ -34,6 +35,7 @@ const GlobalTheme = {
   forBigPhonesUp ,
   forTabletPortraitUp ,
   forTabletLandscapeUp ,
+  forLaptopUp ,
   forDesktopUp ,
   forBigMonitorsUp ,
   headerSpaceSmall ,

@@ -61,6 +61,9 @@ const HeaderLogoContainer = Styled.div`
   .header-logo{
     transition: inherit;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
+    ${props=> !props.showHeaderLogo && props.showMenu && css`
+      opacity: 1;
+    `}
     & > svg > g > g > .header-logo-svg{
       fill: ${props=>props.showMenu ? props.theme.white : props.theme.black};
     }

@@ -6,6 +6,7 @@ const sizes = {
   forBigPhonesUp: 411,
   forTabletPortraitUp: 600,
   forTabletLandscapeUp: 900,
+  forLaptopUp: 1024,
   forDesktopUp: 1200,
   forBigMonitorsUp: 1800
 }
