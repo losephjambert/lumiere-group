@@ -7,7 +7,6 @@ const LogoSVGContainer = Styled(SVGContainer)`
     justify-content: center;
     width: 100%;
     position: fixed;
-    top: 1.1rem;
     svg{
       width: ${props.size.small};
       height: ${props.size.small};
@@ -16,13 +15,14 @@ const LogoSVGContainer = Styled(SVGContainer)`
       }
     }
     ${props=>props.theme.forTabletLandscapeUp`
-    svg{
-      width: ${props.size.large};
-      height: ${props.size.large};
-      g > g > .header-logo-svg{
-        fill: ${props.theme.main};
+      top: 1.6rem;
+      svg{
+        width: ${props.size.large};
+        height: ${props.size.large};
+        g > g > .header-logo-svg{
+          fill: ${props.theme.main};
+        }
       }
-    }
     `}
   `}
 `
