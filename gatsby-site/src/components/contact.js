@@ -89,6 +89,7 @@ const Label = Styled.label`
 const SharedInputStyles = css`
 	display: block;
 	background-color: transparent;
+	border-radius: 0;
 	border: .15rem solid ${props => props.theme.black};
 	&:focus{
 		outline: none;
