@@ -23,7 +23,12 @@ const StyleContainer = Styled.div`
 	transition: transform 300ms ease-in-out;
 	transform-origin: center;
 	font-family: Europa Bold;
-	overflow: scroll;
+	overflow: auto;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
+  }
 	padding: 0 0 1.6rem;
 	${props =>
 		!props.active ?

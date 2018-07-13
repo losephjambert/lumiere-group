@@ -67,7 +67,7 @@ const Modal = ({
       {data.theme.type === 'team' &&  <TeamMemberModalImage image={image} />}
       {data.theme.type === 'services' &&  <ServicesModalImage image={image} />}
     </ModalItem>
-    <ModalItem>
+    <ModalItem localTheme={data.theme}>
       <ModalTextList>
         { title && <ModalTitle>{title}</ModalTitle> }
         { subtitle && <ModalSubTitle>{subtitle}</ModalSubTitle> }

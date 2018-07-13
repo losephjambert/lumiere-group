@@ -38,8 +38,12 @@ export const ContentContainer = Styled.ul`
   justify-content: space-around;
   height: 100%;
   padding: 7rem 1.6rem 0;
-  overflow: scroll;
-
+  overflow: auto;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
+  }
   ${props=>props.theme.forTabletLandscapeUp`
     padding: 0;
     flex-flow: row wrap;
@@ -50,7 +54,7 @@ export const ContentContainer = Styled.ul`
   
   export const ModalItem = Styled.li`
     width: 100%;
-  ${props=>props.theme.forTabletLandscapeUp`
+    ${props=>props.theme.forTabletLandscapeUp`
     width: 50%;
     height: 100%;
     flex: 0 1 auto;
@@ -69,7 +73,7 @@ export const ContentContainer = Styled.ul`
         bottom: 15%;
         right: -.75pt;
         width: 1.5pt;
-        background-color: ${props => props.theme.main};
+        background-color: ${props => props.localTheme.main};
       }
     }
   `}
@@ -114,7 +118,7 @@ export const ModalImage = Styled.div`
     height: 24rem;
   `}
   ${props=>props.theme.forTabletLandscapeUp`
-    margin-left: auto;
+    margin: 0 0 0 auto;
     width: 40rem;
     height: 40rem;
     padding: 0 5rem;
