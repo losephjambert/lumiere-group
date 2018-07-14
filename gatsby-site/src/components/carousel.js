@@ -73,7 +73,17 @@ let settings = {
 const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
   <StyledCarousel {...settings}>
     {images.map((image, i) =>
-      <img src={image.image} key={i} alt={image.altText} />
+      <img
+        key={i}
+        srcSet={
+          `${image.default.path} 4487w,
+           ${image.large.path} 5616w`
+        }
+        sizes={
+          `(max-width: 900px) 400px, 901px`
+        }
+        src={image.default.path}
+        alt={image.default.altText} />
     )}
   </StyledCarousel>
 )

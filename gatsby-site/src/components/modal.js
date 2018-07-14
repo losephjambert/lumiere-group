@@ -31,7 +31,8 @@ const CloseButton = Styled(SVGContainer)`
 `
 
 const ServicesModalImage = Styled(ModalImage)`
-  mix-blend-mode: difference;
+  // mix-blend-mode: difference;
+  filter: brightness(0);
   ${props=>props.theme.forTabletLandscapeUp`
     background-size: 30rem;
   `}

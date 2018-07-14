@@ -9,7 +9,7 @@ import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
-import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
+import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages, artwork} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
 
@@ -113,7 +113,7 @@ class IndexPage extends React.Component{
             <Carousel
               showContactOverlay={showContactOverlay}
               showMenu={showMenu}
-              images={CarouselImages}/>
+              images={artwork}/>
             <ThemeProvider theme={TeamCollectionTheme}>
               <TeamMembers
                 theme={TeamCollectionTheme}

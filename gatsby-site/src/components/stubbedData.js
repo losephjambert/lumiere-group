@@ -3,6 +3,7 @@ import rinaImage from '../assets/rina.jpg'
 import leleImage from '../assets/lele.jpg'
 import erinImage from '../assets/erin.jpg'
 import CarouselImage1 from '../assets/carousel-1.jpg'
+import CarouselImageMobile from '../assets/carousel-4487.jpg'
 import engagement from '../assets/management-and-engagement.svg'
 import curation from '../assets/curatorial-services.svg'
 import collections from '../assets/collections-management-and-registration.svg'
@@ -94,3 +95,20 @@ export const CarouselImages = [
     altText: 'The Managing Partners in their Studio'
   },
 ]
+
+export const artwork = [
+  {
+    default: {
+      name: CarouselImageMobile.split("/").pop().split(".")[0],
+      path: CarouselImageMobile,
+      altText: 'alt text'
+    },
+    large: {
+      name: CarouselImage1.split("/").pop().split(".")[0],
+      path: CarouselImage1,
+      altText: 'alt text'
+    }
+  }
+]
+
+console.log(CarouselImage1)

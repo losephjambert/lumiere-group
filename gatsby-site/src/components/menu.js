@@ -16,9 +16,15 @@ const Container = Styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  padding: 0 0 0em;
+  padding: 0 0 1.6rem;
   transition: transform ${props=>props.theme};
   transform-origin: center;
+	overflow: auto;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
+  }
   ${props =>
     !props.active ?
     `animation: ${hideMenu} ${props.theme.transition} forwards;`
@@ -37,7 +43,7 @@ const Container = Styled.div`
       position: initial;
       top: auto;
       svg{
-        min-width: 19.2rem;
+        min-width: 23.2rem;
       }
     `}
     g{
@@ -95,6 +101,7 @@ const Item = Styled.li`
   }
   ${props=>props.theme.forTabletLandscapeUp`
     font-size: 2.8rem;
+    padding: 3.6rem 0;
   `}
 `
 
