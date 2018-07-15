@@ -27,7 +27,7 @@ const TeamMemberImage = Styled(CollectionItemImage)`
 
 const TeamMember = ({ toggleModal, heading, collectionItems, theme }) => (
   
-  <CollectionContainer>
+  <CollectionContainer id='team'>
     <CollectionSVGContainer source={heading} className="collection-header" />
     <CollectionList>
       {collectionItems.map((item, i) =>

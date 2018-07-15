@@ -43,7 +43,7 @@ class IndexPage extends React.Component{
   }
 
   // State Controllers
-  toggleMenu = (prevState) => {
+  toggleMenu = () => {
     if (!this.state.showContactOverlay) {
       this.setState(prevState => ({
         showMenu: !prevState.showMenu
@@ -56,7 +56,7 @@ class IndexPage extends React.Component{
     }
   }
 
-  toggleContactOverlay = (prevState) => {
+  toggleContactOverlay = () => {
     if (!this.state.showMenu) {
       this.setState(prevState => ({
       showContactOverlay: !prevState.showContactOverlay
@@ -129,7 +129,7 @@ class IndexPage extends React.Component{
                 collectionItems={ServicesCollectionItems} />
               </ThemeProvider>
           </ContentContainer>
-          <Footer />
+          <Footer toggleContactOverlay={this.toggleContactOverlay}/>
         </AppContainer>
       </ThemeProvider>
     )

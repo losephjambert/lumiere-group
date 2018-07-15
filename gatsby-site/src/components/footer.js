@@ -71,16 +71,16 @@ const FooterContainer = Styled.footer`
   `}
 `
 
-const Footer = ( {scrollYPosition, dimensions:{scrollHeight, height} } ) => (
+const Footer = ( {scrollYPosition, toggleContactOverlay, dimensions:{scrollHeight, height} } ) => (
 
       <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height+200)} >
         <FooterSVG source={Border} />
         <ContactInfo>
           <span>info@thelumieregroup.com</span>
           <span className="_divider">|</span>
-          <span>206.323.9827</span>
+          <span><a style={ {cursor: 'pointer'} } href='tel:1-206-323-9827'>206.323.9827</a></span>
           <span className="_divider">|</span>
-          {/* <span>Contact { Math.trunc(scrollYPosition) }</span> */}
+          <span style={ {cursor: 'pointer'} } onClick={()=>toggleContactOverlay()}>Contact</span>
         </ContactInfo>
       </FooterContainer>
 

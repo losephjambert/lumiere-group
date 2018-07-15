@@ -3,6 +3,8 @@ import Styled, { css } from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
+// import Link from 'react-scroll'
+import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 const Container = Styled.div`
   position: fixed;
@@ -135,22 +137,69 @@ const ContactInfo = Styled.p`
   `}
 `
 
-const Menu = ({ active }) => (
-  <Container active={active}>
-    <SVGContainer source={Logo} className="menu-logo" />
-    <MenuItems>
-      <Item>About</Item>
-      <Item>Team</Item>
-      <Item>Services</Item>
-      <Item>Contact</Item>
-    </MenuItems>
-    <ContactInfo>
-      <span>info@thelumieregroup.com</span>
-      <span className="_divider">|</span>
-      <span>206.323.9827</span>
-    </ContactInfo>
-  </Container>
+class Menu extends React.Component{
 
-)
+  constructor(props){
+    super(props)
+  }
+
+  componentDidMount() {
+
+    Events.scrollEvent.register('begin', function () {
+      console.log("begin", arguments)
+    })
+
+    Events.scrollEvent.register('end', function () {
+      console.log("end", arguments)
+    })
+
+  }
+
+  scrollTo() {
+    scroller.scrollTo('scroll-to-element', {
+      duration: 800,
+      delay: 0,
+      smooth: 'easeInOutQuart'
+    })
+  }
+
+  render() {
+    const {active, toggleContactOverlay, toggleMenu} = this.props
+    return(
+      <Container active={active}>
+        <SVGContainer source={Logo} className="menu-logo" />
+        <MenuItems>
+          <a href='#about'><Item onClick={()=>toggleMenu()}>About</Item></a>
+          <a href='#team'><Item onClick={()=>toggleMenu()}>Team</Item></a>
+          <a href='#services'><Item onClick={()=>toggleMenu()}>Services</Item></a>
+          <Item onClick={()=>toggleContactOverlay()}>Contact</Item>
+        </MenuItems>
+        <ContactInfo>
+          <span>info@thelumieregroup.com</span>
+          <span className="_divider">|</span>
+          <span>206.323.9827</span>
+        </ContactInfo>
+      </Container> 
+    )
+  }
+}
+
+// const Menu = ({ active, toggleContactOverlay }) => (
+//   <Container active={active}>
+//     <SVGContainer source={Logo} className="menu-logo" />
+//     <MenuItems>
+//       <Item>About</Item>
+//       <Item>Team</Item>
+//       <Item>Services</Item>
+//       <Item onClick={()=>toggleContactOverlay()}>Contact</Item>
+//     </MenuItems>
+//     <ContactInfo>
+//       <span>info@thelumieregroup.com</span>
+//       <span className="_divider">|</span>
+//       <span>206.323.9827</span>
+//     </ContactInfo>
+//   </Container>
+
+// )
 
 export default Menu

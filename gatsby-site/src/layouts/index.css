@@ -36,6 +36,14 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  text-decoration: none;
+  outline: none;
+  border: none;
+  box-shadow: none;
+  color: inherit;
+}
+a:visited{
+  color: initial;
 }
 a:active,
 a:hover {

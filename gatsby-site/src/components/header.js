@@ -92,7 +92,10 @@ const Header = ( {
     height}
   } ) => (
   <header>
-    <Menu active={showMenu}/>
+    <Menu
+      active={showMenu}
+      toggleContactOverlay={toggleContactOverlay}
+      toggleMenu={toggleMenu}/>
     <Hamburger
       active={showMenu}
       clickHandler={toggleMenu}

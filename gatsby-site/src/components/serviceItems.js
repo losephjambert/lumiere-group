@@ -18,7 +18,7 @@ const ServiceCollectionContainer = Styled(CollectionContainer)`
 
 const ServiceItem = ({ toggleModal, heading, collectionItems, theme }) => (
   
-  <ServiceCollectionContainer>
+  <ServiceCollectionContainer id='services'>
     <CollectionSVGContainer source={heading} className="collection-header" />
     <CollectionList>
       {collectionItems.map((item, i) =>

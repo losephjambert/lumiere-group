@@ -45,8 +45,8 @@ const HeaderSVGContainer = Styled(SVGContainer)`
 
 const About = ({ /*About Metadata*/ }) => (
 <div>
-    <StyledSection>
-      <HeaderSVGContainer source={AboutHeader} className='about-header' />
+    <StyledSection id='about'>
+      <HeaderSVGContainer source={AboutHeader} className='about-header'/>
       <BodyCopy>
         Our mission is to strive towards superior levels of efficiency and sustainability within the operational domain of Lumiere Group with respect to the changing financial environment. We introduce new management approaches supported by the unrivalled experience of our professional team. Our target is to consolidate Lumiere Group as one of the leaders in each industry we are involved in. Our focus is to maximize the Group’s capital growth by setting the highest standards of management and best practice procedures in business process flows. Our expert team is committed to creating success by making efficient investment decisions and launching new sustainable projects.
       </BodyCopy>
