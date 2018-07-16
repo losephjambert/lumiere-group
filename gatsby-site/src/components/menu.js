@@ -81,15 +81,18 @@ const MenuItems = Styled.ul`
   ${props=>props.theme.forTabletLandscapeUp`
     width: 90%;
   `}
+  li{
+    border-top: .2rem solid ${props=>props.theme.white};
+    &:last-child{
+      border-bottom: .2rem solid ${props=>props.theme.white};
+    }
+  }
 `
-//reference the Item component in the MenuItems component and target the border there !!!!
 
-const Item = Styled.li`
+const Item = Styled.div`
   color: ${props=>props.theme.white};
   font-size: 2.2rem;
   list-style-type: none;
-  border-top: .1em solid;
-  border-color: ${props=>props.theme.white};
   width: 100%;
   text-align: center;
   padding: 2.4rem 0;
@@ -136,51 +139,39 @@ const ContactInfo = Styled.p`
   `}
 `
 
-class Menu extends React.Component{
+const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
 
-  constructor(props){
-    super(props)
-  }
-
-  componentDidMount() {
-
-    Events.scrollEvent.register('begin', function () {
-      console.log("begin", arguments)
-    })
-
-    Events.scrollEvent.register('end', function () {
-      console.log("end", arguments)
-    })
-
-  }
-
-  scrollTo() {
-    scroller.scrollTo('scroll-to-element', {
-      duration: 800,
-      delay: 0,
-      smooth: 'easeInOutQuart'
-    })
-  }
-
-  render() {
-    const {active, toggleContactOverlay, toggleMenu} = this.props
-    return(
-      <Container active={active}>
-        <SVGContainer source={Logo} className="menu-logo" />
-        <MenuItems>
-          <a href='#about'><Item onClick={()=>toggleMenu()}>About</Item></a>
-          <a href='#team'><Item onClick={()=>toggleMenu()}>Team</Item></a>
-          <a href='#services'><Item onClick={()=>toggleMenu()}>Services</Item></a>
+  <Container active={active}>
+    <SVGContainer source={Logo} className="menu-logo" />
+    <MenuItems>
+      <li>
+        <a href='#about'>
+          <Item onClick={()=>toggleMenu()}>About</Item>
+        </a>
+      </li>
+      <li>
+        <a href='#team'>
+          <Item onClick={()=>toggleMenu()}>Team</Item>
+        </a>
+      </li>
+      <li>
+        <a href='#services'>
+          <Item onClick={()=>toggleMenu()}>Services</Item>
+        </a>
+      </li>
+      <li>
+        <a href='contact'>
           <Item onClick={()=>toggleContactOverlay()}>Contact</Item>
-        </MenuItems>
-        <ContactInfo>
-          <span>info@thelumieregroup.com</span>
-          <span className="_divider">|</span>
-          <span>206.323.9827</span>
-        </ContactInfo>
-      </Container> 
-    )
-  }
-}
+        </a>
+      </li>
+    </MenuItems>
+    <ContactInfo>
+      <span>info@thelumieregroup.com</span>
+      <span className="_divider">|</span>
+      <span>206.323.9827</span>
+    </ContactInfo>
+  </Container> 
+
+)
 
 export default Menu

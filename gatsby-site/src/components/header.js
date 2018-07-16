@@ -30,7 +30,7 @@ const ContactTrigger = Styled.span`
     font-size: 1.6rem;
     position: absolute;
     top: 15%;
-    left: -80%;
+    left: -90%;
     color: ${props=>props.theme.hoverColor};
     opacity: 0;
     z-index: 10;
