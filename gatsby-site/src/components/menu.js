@@ -82,21 +82,20 @@ const MenuItems = Styled.ul`
     width: 90%;
   `}
 `
+//reference the Item component in the MenuItems component and target the border there !!!!
 
 const Item = Styled.li`
   color: ${props=>props.theme.white};
   font-size: 2.2rem;
   list-style-type: none;
-  border-top: .1em solid ${props=>props.theme.white};
+  border-top: .1em solid;
+  border-color: ${props=>props.theme.white};
   width: 100%;
   text-align: center;
   padding: 2.4rem 0;
   margin: 0 auto;
   font-family: Europa Regular;
   transition: 150ms;
-  &:nth-last-of-type(1){
-    border-bottom: .1em solid ${props=>props.theme.white};
-  }
   &:hover{
     cursor: pointer;
     color: ${props =>props.theme.hoverColor};
@@ -183,23 +182,5 @@ class Menu extends React.Component{
     )
   }
 }
-
-// const Menu = ({ active, toggleContactOverlay }) => (
-//   <Container active={active}>
-//     <SVGContainer source={Logo} className="menu-logo" />
-//     <MenuItems>
-//       <Item>About</Item>
-//       <Item>Team</Item>
-//       <Item>Services</Item>
-//       <Item onClick={()=>toggleContactOverlay()}>Contact</Item>
-//     </MenuItems>
-//     <ContactInfo>
-//       <span>info@thelumieregroup.com</span>
-//       <span className="_divider">|</span>
-//       <span>206.323.9827</span>
-//     </ContactInfo>
-//   </Container>
-
-// )
 
 export default Menu

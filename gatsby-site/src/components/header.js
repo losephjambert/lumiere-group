@@ -10,33 +10,53 @@ import Contact from './contact'
 
 const ContactTrigger = Styled.span`
   ${props=>props.showModal || props.showContactOverlay && css`opacity: 0;`}
-  .header-mail-icon{
-    position: fixed;
-    top: 2rem;
-    right: 2rem;
-    z-index: 50;
-    cursor: pointer;
-    ${props=>props.theme.forTabletLandscapeUp`
-      top: 3rem;
-      right: 3rem;
-    `}
-    svg{
-      width: 3rem;
-      position: relative;
-      .mail-icon{
-        transition: 200ms;
-        stroke: ${props=>props.theme.black};
-        ${props=>props.showMenu && css`stroke: ${props=>props.theme.white};`}
-        ${props=>props.theme.forTabletLandscapeUp`
-          width: 3.4rem;
-        `}
-      }
-      &:hover{
-        .mail-icon{
-          stroke: ${props=>props.theme.hoverColor};
-        }
-      }
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: 3rem;
+    right: 3rem;
+  `}
+
+  width: 3rem;
+  height: 3rem;
+  display: block;
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 50;
+  cursor: pointer;
+
+  &::before{
+    content: 'CONTACT';
+    font-family: Europa Bold;
+    font-size: 1.6rem;
+    position: absolute;
+    top: 15%;
+    left: -80%;
+    color: ${props=>props.theme.hoverColor};
+    opacity: 0;
+    z-index: 10;
+  }
+
+  &:hover{
+    &::before{
+      opacity: 1;
     }
+    svg{
+      opacity: 0;
+    }
+  }
+
+  svg{
+    width: 3rem;
+    .mail-icon{
+      transition: 200ms;
+      stroke: ${props=>props.theme.black};
+      ${props=>props.showMenu && css`stroke: ${props=>props.theme.white};`}
+
+      ${props=>props.theme.forTabletLandscapeUp`
+        width: 3.4rem;
+      `}
+    }
+
   }
 
 `

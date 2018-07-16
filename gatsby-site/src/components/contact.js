@@ -67,11 +67,15 @@ const LogoSVGContainer = Styled(SVGContainer)`
 const StyledSVGContainer = Styled(SVGContainer)`
 	width: 2rem;
 	position: fixed;
-	z-index: 60;
 	right: 2.2rem;
 	top: 1.9rem;
 	cursor: pointer;
-	${props=>props.showContactOverlay ? 'opacity: 1' : 'opacity: 0'};
+	z-index: -100;
+	opacity: 0;
+	${props=>props.showContactOverlay && css`
+		opacity: 1;
+		z-index: 60;
+	`}
 	&:hover{
 		svg > g > g > .close-button-elements{
 			stroke: ${props => props.theme.hoverColor};
