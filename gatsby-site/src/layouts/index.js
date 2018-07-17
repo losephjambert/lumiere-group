@@ -53,6 +53,10 @@ injectGlobal`
   body{
     background-color: ${Colors.white};
   }
+
+  html{
+    overflow-y: initial;
+  }
 `
 
 const Layout = ({ children, data }) => (
