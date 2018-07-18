@@ -2,12 +2,12 @@ import React from 'react'
 import {PageLoader} from './pageLoader'
 import Styled, {css} from 'styled-components'
 import Lottie from 'react-lottie';
-import * as animationData from '../assets/data.json'
+import * as animationData from '../assets/rotating-logo-2000x2000.json'
 
 const Container = Styled.div`
   position: fixed;
   z-index: 10;
-  top: 10em;
+  top: -13em;
   left: 0;
   width: 100%;
   height: 100%;
@@ -15,6 +15,11 @@ const Container = Styled.div`
   display: flex;
   justify-content: center;
   align-items; center;
+  transform: scale(1.3);
+`
+
+const LottieContainer = Styled(Lottie)`
+  outline: 1px solid red;
 `
 
 class Loader extends React.Component {
@@ -34,7 +39,7 @@ class Loader extends React.Component {
       autoplay: true, 
       animationData: animationData,
       rendererSettings: {
-        preserveAspectRatio: 'xMidYMid meet'
+        preserveAspectRatio: 'xMidYMid slice'
       }
     }
 
@@ -42,8 +47,8 @@ class Loader extends React.Component {
 
     return (
       <Container isSiteLoaded={isSiteLoaded} >
-        <Lottie options={defaultOptions}
-                height={'70%'}
+        <LottieContainer options={defaultOptions}
+                height={'100%'}
                 width={'100%'}
                 isStopped={this.state.isStopped}
                 isPaused={this.state.isPaused}/>
