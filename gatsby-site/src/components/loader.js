@@ -1,25 +1,28 @@
 import React from 'react'
-import {PageLoader} from './pageLoader'
 import Styled, {css} from 'styled-components'
 import Lottie from 'react-lottie';
-import * as animationData from '../assets/rotating-logo-2000x2000.json'
+import * as animationData from '../assets/rotating-logo-2000x2000-smaller.json'
 
 const Container = Styled.div`
   position: fixed;
-  z-index: 10;
-  top: -13em;
+  top: -15rem;
   left: 0;
+  bottom: 0;
   width: 100%;
-  height: 100%;
   transition: 500ms;
   display: flex;
   justify-content: center;
   align-items; center;
-  transform: scale(1.3);
+  z-index: 500;
+  background-color: rgba(255,255,255,1);
+  transition: 200ms;
+  ${props=>props.isStopped && css`
+    background-color: rgba(255,255,255,0);
+    z-index: 10;
+  `}
 `
 
 const LottieContainer = Styled(Lottie)`
-  outline: 1px solid red;
 `
 
 class Loader extends React.Component {
@@ -28,8 +31,18 @@ class Loader extends React.Component {
     super(props);
     this.state = {
       isStopped: false,
-      isPaused: false
     }
+  }
+
+  handleAnimationEnd = () => {
+    console.log('the animation completed')
+    
+    if(!this.state.isStopped){
+      this.setState(prevState => ({
+        isStopped: !prevState.isStopped
+      }))
+    }
+
   }
 
   render() {
@@ -43,19 +56,23 @@ class Loader extends React.Component {
       }
     }
 
-    const {isSiteLoaded} = this.props
-
+    const eventListeners = [
+      {
+        eventName: 'complete',
+        callback: () => this.handleAnimationEnd(),
+      },
+    ]
+    
     return (
-      <Container isSiteLoaded={isSiteLoaded} >
+      <Container isStopped={this.state.isStopped} >
         <LottieContainer options={defaultOptions}
-                height={'100%'}
-                width={'100%'}
-                isStopped={this.state.isStopped}
-                isPaused={this.state.isPaused}/>
+                eventListeners={eventListeners}
+                height={'105%'}
+                width={'100%'}/>
       </Container>
     )
   }
 
 }
 
-export default (Loader)
+export default Loader
