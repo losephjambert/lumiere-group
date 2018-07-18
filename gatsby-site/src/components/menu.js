@@ -3,8 +3,6 @@ import Styled, { css } from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
-// import Link from 'react-scroll'
-import { Link, DirectLink, Element, Events, animateScroll as scroll, scrollSpy, scroller } from 'react-scroll'
 
 const Container = Styled.div`
   position: fixed;
@@ -160,7 +158,7 @@ const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
         </a>
       </li>
       <li>
-        <a href='contact'>
+        <a href='#'>
           <Item onClick={()=>toggleContactOverlay()}>Contact</Item>
         </a>
       </li>
