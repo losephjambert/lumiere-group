@@ -1,7 +1,7 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
 import Lottie from 'react-lottie';
-import * as animationData from '../assets/rotating-logo-2000x2000-smaller-centered.json'
+import * as animationData from '../assets/rotating-logo-2000x2000-smaller-low-center.json'
 
 const Container = Styled.div`
   position: fixed;
@@ -25,7 +25,6 @@ const Container = Styled.div`
 const LottieContainer = Styled.div`
   width: 100%;
   height: 100%;
-  // transform: translate3d(0,-15rem,0);
 `
 
 class Loader extends React.Component {
@@ -71,7 +70,7 @@ class Loader extends React.Component {
         <LottieContainer>
           <Lottie options={defaultOptions}
                   eventListeners={eventListeners}
-                  height={'110%'}
+                  height={'100%'}
                   width={'100%'}/>
         </LottieContainer>
       </Container>
