@@ -1,7 +1,7 @@
 import React from 'react'
 
-export const PageLoader = (Component) => {
-  return class ScrollManager extends React.Component{
+export const pageLoader = (Component) => {
+  return class PageLoader extends React.Component{
     constructor(props){
       super(props)
       this.state={

@@ -36,6 +36,7 @@ template {
 a {
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
+  -webkit-tap-highlight-color: transparent;
   text-decoration: none;
   outline: none;
   border: none;
@@ -54,6 +55,9 @@ abbr[title] {
   border-bottom: none;
   text-decoration: underline;
   text-decoration: underline dotted;
+}
+button{
+  -webkit-tap-highlight-color: transparent;
 }
 b,
 strong {

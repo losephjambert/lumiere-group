@@ -47,6 +47,14 @@ class Loader extends React.Component {
 
   }
 
+  shouldComponentUpdate(nextProps, nextState){
+    if(this.state.isStopped === nextState.isStopped){
+      return false
+    }else{
+      return true
+    }
+  }
+
   render() {
  
     const defaultOptions = {

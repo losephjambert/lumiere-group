@@ -109,7 +109,6 @@ class IndexPage extends React.Component{
             toggleContactOverlay={this.toggleContactOverlay}
             showContactOverlay={showContactOverlay}
             toggleContactOverlay={this.toggleContactOverlay}/>
-          {/* <Landing /> */}
           <ContentContainer>
             <About />
             <Carousel
