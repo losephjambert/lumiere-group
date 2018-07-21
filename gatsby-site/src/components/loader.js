@@ -37,7 +37,6 @@ class Loader extends React.Component {
   }
 
   handleAnimationEnd = () => {
-    console.log('the animation completed')
     
     if(!this.state.isStopped){
       this.setState(prevState => ({
@@ -48,11 +47,7 @@ class Loader extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    if(this.state.isStopped === nextState.isStopped){
-      return false
-    }else{
-      return true
-    }
+    return this.state.isStopped === nextState.isStopped ? false : true
   }
 
   render() {
