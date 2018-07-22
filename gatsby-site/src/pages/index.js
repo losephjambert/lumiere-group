@@ -4,7 +4,6 @@ import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
 import Footer from '../components/footer'
-import Landing from '../components/landing'
 import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
@@ -31,7 +30,6 @@ class IndexPage extends React.Component{
   
   constructor(props) {
     super(props)
-    this.windowHeight
     this.state = {
       showMenu: false,
       showContactOverlay: false,
@@ -43,7 +41,6 @@ class IndexPage extends React.Component{
     }
   }
 
-  // State Controllers
   toggleMenu = () => {
     if (!this.state.showContactOverlay) {
       this.setState(prevState => ({

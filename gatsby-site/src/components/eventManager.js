@@ -65,13 +65,15 @@ export const windowManager = (Component) => {
     }
 
     getDimensions = () => {
+      
 
-      let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
+      let calcScrollHeight = 0
+      if (document) { calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight }
       let calcWidth = window.innerWidth
       let calcHeight = window.innerHeight
       let calcLandscape = calcWidth > calcHeight
       let calcPortrait = !calcLandscape
-
+      
       this.setState(prevState => ({
         dimensions:{
           width: calcWidth,
@@ -81,15 +83,15 @@ export const windowManager = (Component) => {
           scrollHeight: calcScrollHeight
         }
       }))
-
+      
     }
-
+    
     componentWillMount(){
-      typeof window !== undefined && this.getDimensions()
-    }
-
-    componentDidMount(){
       window.addEventListener('resize', (e) => this.resizeManager(e), false)
+      this.getDimensions()
+    }
+    
+    componentDidMount(){
       this.getDimensions()
     }
     
