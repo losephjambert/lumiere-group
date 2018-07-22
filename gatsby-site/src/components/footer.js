@@ -72,8 +72,8 @@ const FooterContainer = Styled.footer`
 `
 
 const Footer = ( {scrollYPosition, toggleContactOverlay, dimensions:{scrollHeight, height} } ) => (
-
-      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (height+200)} >
+  
+      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (200)} >
         <FooterSVG source={Border} />
         <ContactInfo>
           <span>info@thelumieregroup.com</span>
