@@ -9,41 +9,17 @@ import {scrollManager, windowManager} from './eventManager'
 import Contact from './contact'
 
 const ContactTrigger = Styled.span`
-  ${props=>props.showModal || props.showContactOverlay && css`opacity: 0;`}
-  ${props=>props.theme.forTabletLandscapeUp`
-    top: 3rem;
-    right: 3rem;
-  `}
 
-  width: 3rem;
-  height: 3rem;
-  display: block;
+  ${props=>props.showModal || props.showContactOverlay && css`opacity: 0;`}
+
+  // Set the position and size of the containing element
   position: fixed;
   top: 2rem;
   right: 2rem;
   z-index: 50;
+  width: 3rem;
+  height: 3rem;
   cursor: pointer;
-
-  &::before{
-    content: 'CONTACT';
-    font-family: Europa Bold;
-    font-size: 1.6rem;
-    position: absolute;
-    top: 15%;
-    left: -90%;
-    color: ${props=>props.theme.hoverColor};
-    opacity: 0;
-    z-index: 10;
-  }
-
-  &:hover{
-    &::before{
-      opacity: 1;
-    }
-    svg{
-      opacity: 0;
-    }
-  }
 
   svg{
     width: 3rem;
@@ -51,13 +27,38 @@ const ContactTrigger = Styled.span`
       transition: 200ms;
       stroke: ${props=>props.theme.black};
       ${props=>props.showMenu && css`stroke: ${props=>props.theme.white};`}
-
-      ${props=>props.theme.forTabletLandscapeUp`
-        width: 3.4rem;
-      `}
     }
-
+    
   }
+
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: 3rem;
+    right: 3rem;
+  `}
+
+  //Show 'CONTACT' on hover for larger screens
+  ${props=>props.theme.forLaptopUp`
+    // Set the hover state
+    &::before{
+      content: 'CONTACT';
+      font-family: Europa Bold;
+      font-size: 1.6rem;
+      position: absolute;
+      top: 15%;
+      left: -90%;
+      color: ${props=>props.theme.hoverColor};
+      opacity: 0;
+      z-index: 10;
+    }
+    &:hover{
+      &::before{
+        opacity: 1;
+      }
+      svg{
+        opacity: 0;
+      }
+    }
+  `}
 
 `
 
@@ -111,16 +112,15 @@ const Header = ( {
   dimensions: {
     height}
   } ) => (
+
   <header>
-    <Menu
-      active={showMenu}
-      toggleContactOverlay={toggleContactOverlay}
-      toggleMenu={toggleMenu}/>
+
     <Hamburger
       active={showMenu}
       clickHandler={toggleMenu}
       showContactOverlay={showContactOverlay}
       showModal={showModal}/>
+    
     <ContactTrigger
       onClick={(e)=>toggleContactOverlay(e)}
       showMenu={showMenu}
@@ -130,6 +130,7 @@ const Header = ( {
         source={MailIcon}
         className='header-mail-icon' />
     </ContactTrigger>
+    
     <HeaderLogoContainer
       hide={showModal || showContactOverlay}
       showContactOverlay={showContactOverlay}
@@ -139,7 +140,15 @@ const Header = ( {
       showMenu={showMenu}>
       <SVGContainer source={Logo} className='header-logo' />
     </HeaderLogoContainer>
-    <Contact showContactOverlay={showContactOverlay} toggleContactOverlay={toggleContactOverlay}/>
+
+    <Menu
+      active={showMenu}
+      toggleContactOverlay={toggleContactOverlay}
+      toggleMenu={toggleMenu}/>
+    <Contact
+      showContactOverlay={showContactOverlay}
+      toggleContactOverlay={toggleContactOverlay}/>
+
   </header>
 
 )
