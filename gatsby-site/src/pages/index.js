@@ -14,7 +14,6 @@ import GlobalTheme from '../styles/globalTheme'
 import Loader from '../components/loader'
 
 const AppContainer = Styled.div`
-  padding-top: 100vh;
   position: relative;
   top: ${props=>props.theme.headerSpaceBig};
   background-color: ${props=>props.theme.white};
@@ -50,7 +49,7 @@ class IndexPage extends React.Component{
       this.setState(prevState => ({
         showMenu: !prevState.showMenu,
         showContactOverlay: !prevState.showContactOverlay
-      }))
+       }))
     }
   }
 

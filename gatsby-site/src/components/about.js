@@ -2,6 +2,7 @@ import React from 'react'
 import SVGContainer from '../components/svg-loader'
 import AboutHeader from '../assets/about.svg'
 import Styled from 'styled-components'
+import {windowManager} from './eventManager'
 
 const HeaderSVGContainer = Styled(SVGContainer)`
   margin: 0 0 4.2rem 0;
@@ -20,6 +21,7 @@ const HeaderSVGContainer = Styled(SVGContainer)`
   
   const StyledSection = Styled.section`
   padding: 7.6rem 1.6rem;
+  margin: ${props=>props.spacer}px 0 0 0;
   background-color: ${props => props.theme.blueBackground};
   display: flex;
   flex-flow: column wrap;
@@ -43,9 +45,9 @@ const HeaderSVGContainer = Styled(SVGContainer)`
   `}
 `
 
-const About = ({ /*About Metadata*/ }) => (
+const About = ({initialHeight}) => (
 <div>
-    <StyledSection id='about'>
+    <StyledSection id='about' spacer={initialHeight}>
       <HeaderSVGContainer source={AboutHeader} className='about-header'/>
       <BodyCopy>
         Our mission is to strive towards superior levels of efficiency and sustainability within the operational domain of Lumiere Group with respect to the changing financial environment. We introduce new management approaches supported by the unrivalled experience of our professional team. Our target is to consolidate Lumiere Group as one of the leaders in each industry we are involved in. Our focus is to maximize the Group’s capital growth by setting the highest standards of management and best practice procedures in business process flows. Our expert team is committed to creating success by making efficient investment decisions and launching new sustainable projects.
@@ -55,4 +57,4 @@ const About = ({ /*About Metadata*/ }) => (
 
 )
 
-export default About
+export default windowManager(About)
