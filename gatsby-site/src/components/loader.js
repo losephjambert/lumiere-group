@@ -9,6 +9,7 @@ const Container = Styled.div`
   top: 0;
   left: 0;
   width: 100%;
+  height: ${props=>props.height}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,9 +69,9 @@ class Loader extends React.Component {
     ]
     
     return (
-      <Container 
-        isStopped={this.state.isStopped}
-        style={{height: this.props.dimensions.height}}>
+      <Container
+        height={this.props.dimensions.height}
+        isStopped={this.state.isStopped}>
         <LottieContainer>
           <Lottie options={defaultOptions}
                   eventListeners={eventListeners}

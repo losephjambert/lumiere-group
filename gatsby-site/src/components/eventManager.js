@@ -84,6 +84,10 @@ export const windowManager = (Component) => {
 
     }
 
+    componentWillMount(){
+      typeof window !== undefined && this.getDimensions()
+    }
+
     componentDidMount(){
       window.addEventListener('resize', (e) => this.resizeManager(e), false)
       this.getDimensions()
