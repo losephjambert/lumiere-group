@@ -8,7 +8,6 @@ const Container = Styled.div`
   position: fixed;
   top: 0;
   left: 0;
-  min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: center;

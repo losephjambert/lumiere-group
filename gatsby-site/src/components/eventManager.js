@@ -66,6 +66,7 @@ export const windowManager = (Component) => {
 
     getDimensions = () => {
 
+      let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
       let calcWidth = window.innerWidth
       let calcHeight = window.innerHeight
       let calcLandscape = calcWidth > calcHeight
@@ -77,21 +78,15 @@ export const windowManager = (Component) => {
           height: calcHeight,
           landscape: calcLandscape,
           portrait: calcPortrait,
+          scrollHeight: calcScrollHeight
         }
       }))
 
     }
 
-    componentWillMount(){
+    componentDidMount(){
       window.addEventListener('resize', (e) => this.resizeManager(e), false)
       this.getDimensions()
-    }
-    
-    componentDidMount(){
-      let calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight
-      this.setState(({
-        scrollHeight: calcScrollHeight
-      }))
     }
     
     componentWillUnmount(){
