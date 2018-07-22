@@ -45,8 +45,10 @@ export const windowManager = (Component) => {
           height: 0,
           scrollHeight: 0,
           landscape: false,
-          portrait: false
-        }
+          portrait: false,
+        },
+        padding: null,
+        initialHeight: null
       }
     }
 
@@ -68,13 +70,13 @@ export const windowManager = (Component) => {
       
 
       let calcScrollHeight = 0
-      if (document) { calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight }
+      if (typeof document !== 'undefined') { calcScrollHeight = document.body.scrollHeight - document.body.offsetHeight - window.innerHeight + document.body.offsetHeight }
       let calcWidth = window.innerWidth
       let calcHeight = window.innerHeight
       let calcLandscape = calcWidth > calcHeight
       let calcPortrait = !calcLandscape
       
-      this.setState(prevState => ({
+      this.setState(({
         dimensions:{
           width: calcWidth,
           height: calcHeight,
@@ -85,18 +87,30 @@ export const windowManager = (Component) => {
       }))
       
     }
+
+    setInitialHeight = () => {
+    
+      this.setState( ({
+        initialHeight: window.innerHeight
+      }))
+    }
     
     componentWillMount(){
-      window.addEventListener('resize', (e) => this.resizeManager(e), false)
-      this.getDimensions()
+      if(typeof window !== 'undefined') { this.getDimensions() }
     }
     
     componentDidMount(){
+      window.addEventListener('resize', (e) => this.resizeManager(e), false)
       this.getDimensions()
+      this.setInitialHeight()
     }
     
     componentWillUnmount(){
       window.removeEventListener('resize', (e) => this.resizeManager(e), false)
+    }
+
+    componentDidUpdate(prevProps,prevState){
+      console.log('prev state: ', prevState)
     }
 
     render(){

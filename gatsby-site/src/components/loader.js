@@ -37,6 +37,8 @@ class Loader extends React.Component {
   }
 
   handleAnimationEnd = () => {
+
+    console.log('loader component re-render')
     
     if(!this.state.isStopped){
       this.setState(prevState => ({
@@ -47,7 +49,17 @@ class Loader extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    return this.state.isStopped === nextState.isStopped ? false : true
+
+    if (this.props.dimensions !== nextProps.dimensions) {
+      return true
+    }
+    if ( this.state.isStopped === nextState.isStopped) {
+      return false
+    }
+    else{
+      return true
+    }
+
   }
 
   render() {
@@ -70,7 +82,7 @@ class Loader extends React.Component {
     
     return (
       <Container
-        height={this.props.dimensions.height}
+        height={this.props.initialHeight}
         isStopped={this.state.isStopped}>
         <LottieContainer>
           <Lottie options={defaultOptions}
