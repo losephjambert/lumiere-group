@@ -110,7 +110,6 @@ export const windowManager = (Component) => {
     }
 
     componentDidUpdate(prevProps,prevState){
-      console.log('prev state: ', prevState)
     }
 
     render(){

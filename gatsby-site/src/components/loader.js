@@ -1,7 +1,8 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
 import Lottie from 'react-lottie'
-import * as animationData from '../assets/rotating-logo-2000x2000-smaller-low-center.json'
+import * as phoneAnimation from '../assets/logo-animation-phone.json'
+import * as desktopAnimation from '../assets/logo-animation-desktop.json'
 import {windowManager} from './eventManager'
 
 const Container = Styled.div`
@@ -32,13 +33,11 @@ class Loader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isStopped: false,
+      isStopped: false
     }
   }
 
   handleAnimationEnd = () => {
-
-    console.log('loader component re-render')
     
     if(!this.state.isStopped){
       this.setState(prevState => ({
@@ -49,20 +48,20 @@ class Loader extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-
     if (this.props.dimensions !== nextProps.dimensions) {
       return true
     }
-    if ( this.state.isStopped === nextState.isStopped) {
+    else if ( this.state.isStopped === nextState.isStopped) {
       return false
     }
     else{
       return true
     }
-
   }
 
   render() {
+
+    let animationData = this.props.dimensions.width > 1100 ? desktopAnimation : phoneAnimation
  
     const defaultOptions = {
       loop: false,
