@@ -30,6 +30,11 @@ const Container = Styled.div`
 const LottieContainer = Styled.div`
   width: 100%;
   height: 100%;
+
+  div > svg > g{
+    transform: scale(.7);
+    transform-origin: center;
+  }
 `
 
 class Loader extends React.Component {
