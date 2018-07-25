@@ -14,7 +14,7 @@ const ContactTrigger = Styled.span`
 
   // Set the position and size of the containing element
   position: fixed;
-  top: 2rem;
+  top: 2.1rem;
   right: 2rem;
   z-index: 50;
   width: 3rem;

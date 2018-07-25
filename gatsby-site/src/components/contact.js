@@ -1,10 +1,11 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
 import {hideMenu, showMenu} from '../styles/animations'
-import CloseButton from '../assets/close-button.svg'
+// import CloseButton from '../assets/close-button.svg'
 import ContactHeader from '../assets/contact.svg'
 import Logo from '../assets/header-logo.svg'
 import SVGContainer from './svg-loader'
+import CloseButton from './closeButton'
 
 
 const StyleContainer = Styled.div`
@@ -100,6 +101,7 @@ const SharedInputStyles = css`
 	background-color: transparent;
 	border-radius: 0;
 	border: .15rem solid ${props => props.theme.black};
+	box-shadow: 0 0 0 0 transparent;
 	&:focus{
 		outline: none;
 	}
@@ -162,12 +164,11 @@ const Form = Styled.form`
 
 const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
 	<span>
-	<span onClick={(e)=>toggleContactOverlay(e)}>
-		<StyledSVGContainer source={CloseButton} className='close-button' showContactOverlay={showContactOverlay}/> 
-  </span>
+	
+	{showContactOverlay && <span onClick={ (e) => toggleContactOverlay(e) }> <CloseButton/> </span>}
+	
 	<StyleContainer active={showContactOverlay}>
-		{/* <LogoSVGContainer source={Logo} className='contact-logo' /> */}
-		<ContactSVGHeader source={ContactHeader} className='contact-header' /> 
+		<ContactSVGHeader source={ContactHeader} className='contact-header' />
 		<Form
 			action="https://formspree.io/josephc.lambert@gmail.com"
       method="POST">
@@ -188,6 +189,7 @@ const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
 			</InputContainer>
     </Form>
 	</StyleContainer>
+	
 	</span>
 )
 
