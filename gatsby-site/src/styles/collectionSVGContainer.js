@@ -10,6 +10,7 @@ const CollectionSVGContainer = Styled(SVGContainer)`
     height: 3.5rem;
   }
   ${props=>props.theme.forTabletLandscapeUp`
+    margin-bottom: 10.4rem;
     svg{
       height: 4.6rem;
     }

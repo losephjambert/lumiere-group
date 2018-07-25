@@ -10,7 +10,7 @@ const Container = Styled.div`
   top: 0;
   left: 0;
   width: 100%;
-  height: ${props=>props.height}px;
+  height: ${props=>props.defaultHeight}px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -19,7 +19,10 @@ const Container = Styled.div`
   transition: 200ms;
   ${props=>props.isStopped && css`
     background-color: rgba(255,255,255,0);
-    z-index: 10;
+    z-index: 7;
+  `}
+  ${props=>props.theme.forTabletLandscapeUp`
+    height: ${props=>props.dynamicHeight}px;
   `}
 `
   
@@ -62,6 +65,7 @@ class Loader extends React.Component {
   render() {
 
     let animationData = this.props.dimensions.width > 1100 ? desktopAnimation : phoneAnimation
+    let animation = this.props.dimensions.width > 1100 ? 'desktopAnimation' : 'phoneAnimation'
  
     const defaultOptions = {
       loop: false,
@@ -81,7 +85,8 @@ class Loader extends React.Component {
     
     return (
       <Container
-        height={this.props.initialHeight}
+        defaultHeight={this.props.initialHeight}
+        dynamicHeight={this.props.dimensions.height}
         isStopped={this.state.isStopped}>
         <LottieContainer>
           <Lottie options={defaultOptions}

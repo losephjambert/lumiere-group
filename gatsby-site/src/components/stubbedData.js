@@ -66,7 +66,7 @@ export const TeamCollectionTheme = {
   main: yellowBackground,
   inverse: black,
   columns: 3,
-  smallPhoneSize: '22.5rem',
+  smallPhoneSize: '20.5rem',
   laptopSize: '25rem',
   defaultSize: '25rem'
 }
@@ -76,7 +76,7 @@ export const ServicesCollectionTheme = {
   main: black,
   inverse: yellowBackground,
   columns: 4,
-  smallPhoneSize: '17.5rem',
+  smallPhoneSize: '15.5rem',
   laptopSize: '17.5rem',
   defaultSize: '17.5rem'
 }

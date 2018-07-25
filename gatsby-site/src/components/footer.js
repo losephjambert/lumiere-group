@@ -10,7 +10,7 @@ const FooterContainer = Styled.footer`
   align-items: center;
   flex-flow: column nowrap;
   position: fixed;
-  z-index: ${props => props.showFooter ? 2 : 0};
+  z-index: ${props => props.showFooter ? 8 : 0};
   top: ${props=>props.theme.headerSpaceBig};
   bottom: 0;
   transition: .5s;
@@ -25,15 +25,16 @@ const FooterContainer = Styled.footer`
 `
   
   const FooterSVG = Styled(SVGContainer)`
-  max-width: 70rem;
+  max-width: 55rem;
   height: 20.5rem;
   margin: auto 0 5.4rem;
   opacity: 0;
+  transition: 200ms;
   svg{
-    max-width: 70rem;
+    max-width: inherit;
     height: 100%;
   }
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props=>props.theme.forTabletPortraitUp`
     height: 42.5rem;
     margin: 0 0 5.4rem;
   `}
@@ -57,7 +58,7 @@ const FooterContainer = Styled.footer`
     margin: 0 1rem;
     font-family: Europa Regular;
   }
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props=>props.theme.forTabletPortraitUp`
     flex-flow: row wrap;
     text-align: initial;
     font-size: 1.8rem;
