@@ -14,12 +14,16 @@ const ServiceCollectionContainer = Styled(CollectionContainer)`
   margin-bottom: 100vh;
 `
 
+const ServiceCollectionList = Styled(CollectionList)`
+  grid-column-gap: 6rem;
+`
+
 
 const ServiceItem = ({ toggleModal, heading, collectionItems, theme }) => (
   
   <ServiceCollectionContainer id='services'>
     <CollectionSVGContainer source={heading} className="collection-header" />
-    <CollectionList>
+    <ServiceCollectionList>
       {collectionItems.map((item, i) =>
         <CollectionItem key={i} id={i}>
           <CollectionItemButton onClick={()=>toggleModal(item, theme)}>
@@ -29,7 +33,7 @@ const ServiceItem = ({ toggleModal, heading, collectionItems, theme }) => (
           </CollectionItemButton>
         </CollectionItem>
       )}
-    </CollectionList>
+    </ServiceCollectionList>
   </ServiceCollectionContainer>
 
 )

@@ -85,6 +85,9 @@ const HamburgerStyle = Styled.div`
   flex-flow: column wrap;
   justify-content: space-between;
   transition: 200ms;
+  &:hover > span{
+    background-color:${props=>props.theme.hoverColor};
+  }
 `
 
 const Span = Styled.span`

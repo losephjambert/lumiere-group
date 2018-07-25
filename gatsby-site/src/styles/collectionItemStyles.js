@@ -44,6 +44,7 @@ export const CollectionItemButton = Styled.button`
   background-color: transparent;
   cursor: pointer;
   color: inherit;
+  padding: 0;
   transition: ${props => props.theme.transition};
   &:focus{
     outline: none;

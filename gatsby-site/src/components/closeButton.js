@@ -12,6 +12,7 @@ const Container = Styled.div`
   flex-flow: column wrap;
   justify-content: space-between;
   transition: 200ms;
+  cursor: pointer;
 `
 
 const Span = Styled.span`
