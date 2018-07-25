@@ -3,7 +3,7 @@ import Styled, {css} from 'styled-components'
 import Lottie from 'react-lottie'
 import * as phoneAnimation from '../assets/logo-animation-phone.json'
 import * as desktopAnimation from '../assets/logo-animation-desktop.json'
-import {windowManager} from './eventManager'
+import {scrollManager,windowManager} from './eventManager'
 
 const Container = Styled.div`
   position: fixed;
@@ -17,6 +17,7 @@ const Container = Styled.div`
   z-index: 500;
   background-color: rgba(255,255,255,1);
   transition: 200ms;
+  opacity: ${props=>props.scrolledPastHeight ? 0 : 1};
   ${props=>props.isStopped && css`
     background-color: rgba(255,255,255,0);
     z-index: 7;
@@ -51,7 +52,7 @@ class Loader extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState){
-    if (this.props.dimensions !== nextProps.dimensions) {
+    if (this.props.dimensions !== nextProps.dimensions || this.props.scrolledPastHeight !== nextProps.scrolledPastHeight) {
       return true
     }
     else if ( this.state.isStopped === nextState.isStopped) {
@@ -85,6 +86,7 @@ class Loader extends React.Component {
     
     return (
       <Container
+        scrolledPastHeight={this.props.scrolledPastHeight}
         defaultHeight={this.props.initialHeight}
         dynamicHeight={this.props.dimensions.height}
         isStopped={this.state.isStopped}>
@@ -100,4 +102,4 @@ class Loader extends React.Component {
 
 }
 
-export default windowManager(Loader)
+export default scrollManager(windowManager(Loader))

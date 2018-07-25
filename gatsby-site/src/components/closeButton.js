@@ -35,6 +35,15 @@ const Span = Styled.span`
     transform-origin: left;
     transform: translate3d(3px,0,0) rotate(-45deg);
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+    height: 4px;
+    &:nth-child(1){
+      transform: translate3d(4px,-1px,0) rotate(45deg);
+    }
+    &:nth-child(3) {
+      transform: translate3d(4px,0,0) rotate(-45deg);
+    }
+  `}
 `
 
 const CloseButton = ({localTheme}) => (

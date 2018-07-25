@@ -31,10 +31,10 @@ const Span = Styled.span`
   transform-origin: center;
   ${props=>props.active && css`
     background-color: ${props=>props.theme.white};
-      &:nth-child(2),
-      &:nth-child(2) {
-        opacity: 0;
-      }
+    &:nth-child(2),
+    &:nth-child(2) {
+      opacity: 0;
+    }
       &:nth-child(1){
         transform-origin: left;
         transform: translate3d(3px,0,0) rotate(45deg);
@@ -43,6 +43,17 @@ const Span = Styled.span`
         transform-origin: left;
         transform: translate3d(3px,0,0) rotate(-45deg);
       }
+  `}
+  ${props=>props.theme.forTabletLandscapeUp`
+    height: 4px;
+    ${props=>props.active && css`
+      &:nth-child(1){
+        transform: translate3d(4px,-1px,0) rotate(45deg);
+      }
+      &:nth-child(3) {
+        transform: translate3d(4px,0,0) rotate(-45deg);
+      }
+    `}
   `}
 
 `

@@ -27,6 +27,9 @@ const ContactTrigger = Styled.span`
       transition: 200ms;
       stroke: ${props=>props.theme.black};
       ${props=>props.showMenu && css`stroke: ${props=>props.theme.white};`}
+      ${props=>props.theme.forLaptopUp`
+        stroke-width: 3px;
+      `}
     }
     
   }

@@ -4,83 +4,75 @@ import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
 import {scrollManager, windowManager} from './eventManager'
 
-const FooterContainer = Styled.footer`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-flow: column nowrap;
+const FooterContainer = Styled.div`
   position: fixed;
-  z-index: ${props => props.showFooter ? 8 : 0};
-  top: ${props=>props.theme.headerSpaceBig};
+  top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
-  background-color: ${props=>props.theme.white};
-  ${props => props.showFooter && css`
-    ${FooterSVG},
-    ${ContactInfo}{
-      opacity: 1 !important;
-    }
-  `}
-`
-  
-  const FooterSVG = Styled(SVGContainer)`
-  width: 100%;
-  max-width: 55rem;
-  height: 20.5rem;
-  margin: auto auto 5.4rem;
-  opacity: 0;
-  transition: 200ms;
-  svg{
-    max-width: inherit;
-    height: 100%;
-    margin: auto;
-    display: block;
-  }
-  ${props=>props.theme.forTabletPortraitUp`
-    height: 42.5rem;
-    margin: 0 auto 5.4rem;
-  `}
-  `
-  
-  const ContactInfo = Styled.p`
-  opacity: 0;
-  color: ${props=>props.theme.black};
-  font-size: 1.4rem;
   display: flex;
-  flex-flow: column nowrap;
-  justify-content: space-around;
-  font-family: Europa Bold Italic;
-  text-align: center;
-  margin-top: auto;
-  span{
-    margin-bottom: 1.4rem;
-  }
-  ._divider{
-    display: none;
-    margin: 0 1rem;
-    font-family: Europa Regular;
-  }
-  .hoverable:hover{
-    color: ${props=>props.theme.hoverColor};
-  }
+  flex-flow: column wrap;
+  justify-content: center;
+  padding: 30% 10% 0;
+  z-index: 8;
+  opacity: ${props => props.showFooter ? 1 : 0};
   ${props=>props.theme.forTabletPortraitUp`
-    flex-flow: row wrap;
-    text-align: initial;
-    font-size: 1.8rem;
-    margin-top: 0;
-    span{
-      margin-bottom: 0;
-    }
-    ._divider{
-      display: inline-flex;
-    }
+    padding: 12% 10% 0;
+    transform: translate3d(-5px,0,0);
   `}
 `
 
-const Footer = ( {scrollYPosition, toggleContactOverlay, dimensions:{scrollHeight, height} } ) => (
+const FooterSVG = Styled(SVGContainer)`
+  width: 100%;
+  max-width: 55rem;
+  display: block;
+  margin: auto;
+  svg{
+    width: inherit;
+    margin: auto;
+  }
+`
+
+const ContactInfo = Styled.p`
+max-width: 55rem;
+color: ${props=>props.theme.black};
+font-size: 1.4rem;
+display: flex;
+flex-flow: column nowrap;
+justify-content: space-around;
+font-family: Europa Bold Italic;
+text-align: center;
+margin: auto;
+transform: translate3d(0,-9rem,0);
+span{
+  margin-bottom: 1.4rem;
+}
+._divider{
+  display: none;
+  margin: 0 1rem;
+  font-family: Europa Regular;
+}
+.hoverable:hover{
+  color: ${props=>props.theme.hoverColor};
+}
+${props=>props.theme.forTabletPortraitUp`
+  flex-flow: row wrap;
+  text-align: initial;
+  font-size: 1.8rem;
+  margin-top: 0;
+  span{
+    margin-bottom: 0;
+  }
+  ._divider{
+    display: inline-flex;
+  }
+`}
+`
+
+
+const Footer = ( {scrolledPastHeight, toggleContactOverlay, dimensions:{scrollHeight, height} } ) => (
   
-      <FooterContainer showFooter={scrollYPosition >= scrollHeight - (200)} >
+      <FooterContainer showFooter={scrolledPastHeight} >
         <FooterSVG source={Border} />
         <ContactInfo>
           <span>info@thelumieregroup.com</span>

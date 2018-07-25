@@ -5,7 +5,8 @@ export const scrollManager = (Component) => {
     constructor(props){
       super(props)
       this.state={
-        scrollYPosition: 0
+        scrollYPosition: 0 ,
+        scrolledPastHeight: false
       }
     }
 
@@ -14,6 +15,17 @@ export const scrollManager = (Component) => {
     }
 
     handleScroll = (e) => {
+      let scrollYPosition = Math.trunc(window.scrollY)
+      if (scrollYPosition > window.innerHeight + 200 && !this.state.scrolledPastHeight) {
+        this.setState(prevState => ({
+          scrolledPastHeight: true
+        }))
+      } else if (scrollYPosition < window.innerHeight + 200 && this.state.scrolledPastHeight) {
+        this.setState(prevState => ({
+          scrolledPastHeight: false
+        }))
+      }
+
       this.setState(prevState => ({
         scrollYPosition: Math.trunc(window.scrollY)
       }))
