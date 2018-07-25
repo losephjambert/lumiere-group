@@ -1,7 +1,5 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
-// import CloseButtonSVG from '../assets/close-button.svg'
-import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/header-logo.svg'
 import LogoSVGContainer from '../styles/logoSVGContainer'
 import CloseButton from './closeButton'
@@ -16,25 +14,11 @@ import {
   ModalImage
 } from '../styles/modalStyles'
 
-// const CloseButton = Styled(SVGContainer)`
-//   width: 1.8rem;
-//   position: absolute;
-//   z-index: 9999;
-//   top: 2.2rem;
-//   right: 2.2rem;
-//   cursor: pointer;
-//   svg > g > g > line.close-button-elements{stroke: ${props => props.localTheme.main};}
-//   ${props=>props.theme.forTabletLandscapeUp`
-//     width: 2.4rem;
-//     top: 3rem;
-//     right: 5.8rem;
-//   `}
-// `
-
 const ServicesModalImage = Styled(ModalImage)`
   filter: brightness(0);
+  background-size: 21rem;
   ${props=>props.theme.forTabletLandscapeUp`
-    background-size: 30rem;
+    background-size: 32rem;
   `}
 `
 

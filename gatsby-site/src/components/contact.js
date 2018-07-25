@@ -1,9 +1,7 @@
 import React from 'react'
 import Styled, {css} from 'styled-components'
 import {hideMenu, showMenu} from '../styles/animations'
-// import CloseButton from '../assets/close-button.svg'
 import ContactHeader from '../assets/contact.svg'
-import Logo from '../assets/header-logo.svg'
 import SVGContainer from './svg-loader'
 import CloseButton from './closeButton'
 
@@ -48,44 +46,6 @@ const ContactSVGHeader = Styled(SVGContainer)`
 		svg{
 			height: 4.6rem;
 		}
-	`}
-`
-
-const LogoSVGContainer = Styled(SVGContainer)`
-  margin-top: ${props=>props.theme.headerSpaceBig/2};
-  width: 15rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  svg{
-    width: 5.6rem;
-    g > g > .header-logo-svg{
-    fill: ${props => props.theme.black};
-    }
-  }
-`
-
-const StyledSVGContainer = Styled(SVGContainer)`
-	width: 2rem;
-	position: fixed;
-	right: 2.2rem;
-	top: 1.9rem;
-	cursor: pointer;
-	z-index: -100;
-	opacity: 0;
-	${props=>props.showContactOverlay && css`
-		opacity: 1;
-		z-index: 60;
-	`}
-	&:hover{
-		svg > g > g > .close-button-elements{
-			stroke: ${props => props.theme.hoverColor};
-		}
-	}
-	${props=>props.theme.forTabletLandscapeUp`
-		width: 2.4rem;
-		right: 3.6rem;
-		top: 3rem;
 	`}
 `
 

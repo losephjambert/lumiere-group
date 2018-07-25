@@ -36,14 +36,15 @@ const Container = Styled.div`
     position: relative;
     top: -.7rem;
     svg{
-      min-width: 17rem;
+      min-width: 15rem;
       margin: 1.8em 0 7.5em;
     }
     ${props=>props.theme.forTabletLandscapeUp`
       position: initial;
       top: auto;
       svg{
-        min-width: 23.2rem;
+        min-width: 21.2rem;
+        margin-bottom: 10.5rem;
       }
     `}
     g{

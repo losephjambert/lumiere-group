@@ -17,7 +17,7 @@ export const ModalContainer = Styled.div`
     right: 0;
     bottom: 0;
     left: 0;
-    opacity: .9;
+    opacity: .95;
   }
   &::before{
     background-color: ${props => props.localTheme.inverse};
@@ -69,7 +69,7 @@ export const ContentContainer = Styled.ul`
         content: '';
         position: absolute;
         z-index: 9999;
-        top: 25%;
+        top: 20%;
         bottom: 15%;
         right: -.75pt;
         width: 1.5pt;
