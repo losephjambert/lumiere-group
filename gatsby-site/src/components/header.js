@@ -22,7 +22,7 @@ const ContactTrigger = Styled.span`
   cursor: pointer;
 
   svg{
-    width: 3rem;
+    width: 30px;
     .mail-icon{
       transition: 200ms;
       stroke: ${props=>props.theme.black};
@@ -32,8 +32,11 @@ const ContactTrigger = Styled.span`
   }
 
   ${props=>props.theme.forTabletLandscapeUp`
-    top: 3rem;
-    right: 3rem;
+    top: 33px;
+    right: 30px;
+    svg{
+      width: 36px;
+    }
   `}
 
   //Show 'CONTACT' on hover for larger screens

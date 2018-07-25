@@ -13,8 +13,8 @@ const FooterContainer = Styled.footer`
   z-index: ${props => props.showFooter ? 8 : 0};
   top: ${props=>props.theme.headerSpaceBig};
   bottom: 0;
-  transition: .5s;
-  width: 100%;
+  left: 0;
+  right: 0;
   background-color: ${props=>props.theme.white};
   ${props => props.showFooter && css`
     ${FooterSVG},
@@ -25,18 +25,21 @@ const FooterContainer = Styled.footer`
 `
   
   const FooterSVG = Styled(SVGContainer)`
+  width: 100%;
   max-width: 55rem;
   height: 20.5rem;
-  margin: auto 0 5.4rem;
+  margin: auto auto 5.4rem;
   opacity: 0;
   transition: 200ms;
   svg{
     max-width: inherit;
     height: 100%;
+    margin: auto;
+    display: block;
   }
   ${props=>props.theme.forTabletPortraitUp`
     height: 42.5rem;
-    margin: 0 0 5.4rem;
+    margin: 0 auto 5.4rem;
   `}
   `
   
@@ -57,6 +60,9 @@ const FooterContainer = Styled.footer`
     display: none;
     margin: 0 1rem;
     font-family: Europa Regular;
+  }
+  .hoverable:hover{
+    color: ${props=>props.theme.hoverColor};
   }
   ${props=>props.theme.forTabletPortraitUp`
     flex-flow: row wrap;
@@ -79,9 +85,9 @@ const Footer = ( {scrollYPosition, toggleContactOverlay, dimensions:{scrollHeigh
         <ContactInfo>
           <span>info@thelumieregroup.com</span>
           <span className="_divider">|</span>
-          <span><a style={ {cursor: 'pointer'} } href='tel:1-206-323-9827'>206.323.9827</a></span>
+          <span className="hoverable"><a style={ {cursor: 'pointer'} } href='tel:1-206-323-9827'>206.323.9827</a></span>
           <span className="_divider">|</span>
-          <span style={ {cursor: 'pointer'} } onClick={()=>toggleContactOverlay()}>Contact</span>
+          <span className="hoverable" style={ {cursor: 'pointer'} } onClick={()=>toggleContactOverlay()}>Contact</span>
         </ContactInfo>
       </FooterContainer>
 

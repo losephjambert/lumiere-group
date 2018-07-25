@@ -13,22 +13,27 @@ const Container = Styled.div`
   justify-content: space-between;
   transition: 200ms;
   cursor: pointer;
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: 31.5px;
+    right: 28px;
+    width: 32px;
+  `}
 `
 
 const Span = Styled.span`
   width: 100%;
-  height: 4px;
+  height: 3px;
   background-color: ${props=>props.localTheme ? props.localTheme.main : props.theme.black};
   &:nth-child(2) {
     opacity: 0;
   }
   &:nth-child(1){
     transform-origin: left;
-    transform: translate3d(4px,0,0) rotate(45deg);
+    transform: translate3d(3px,0,0) rotate(45deg);
   }
   &:nth-child(3) {
     transform-origin: left;
-    transform: translate3d(4px,0,0) rotate(-45deg);
+    transform: translate3d(3px,0,0) rotate(-45deg);
   }
 `
 

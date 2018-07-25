@@ -17,12 +17,16 @@ const HamburgerStyle = Styled.div`
   &:hover > span{
     background-color:${props=>props.theme.hoverColor};
   }
+  ${props=>props.theme.forTabletLandscapeUp`
+    top: 31.5px;
+    width: 32px;
+  `}
 `
 
 const Span = Styled.span`
   width: 100%;
   background-color: ${props=>props.theme.black};
-  height: 4px;
+  height: 3px;
   transition: 200ms;
   transform-origin: center;
   ${props=>props.active && css`
@@ -33,13 +37,14 @@ const Span = Styled.span`
       }
       &:nth-child(1){
         transform-origin: left;
-        transform: translate3d(4px,0,0) rotate(45deg);
+        transform: translate3d(3px,0,0) rotate(45deg);
       }
       &:nth-child(3) {
         transform-origin: left;
-        transform: translate3d(4px,0,0) rotate(-45deg);
+        transform: translate3d(3px,0,0) rotate(-45deg);
       }
   `}
+
 `
 
 const Hamburger = ({ active, clickHandler, showModal }) => (
