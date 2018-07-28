@@ -31,9 +31,20 @@ const LottieContainer = Styled.div`
   width: 100%;
   height: 100%;
 
-  div > svg > g{
-    transform: scale(.7);
+  div{
+    transform: scale(.7, .7);
     transform-origin: center;
+  }
+  
+  @supports (display: flex) {
+    div{
+      transform: scale(1, 1);
+      transform-origin: center;
+    }
+    div > svg > g{
+      transform-origin: center;
+      transform: scale(.7, .7);
+    }
   }
 `
 
