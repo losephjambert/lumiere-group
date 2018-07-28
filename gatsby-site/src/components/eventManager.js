@@ -16,7 +16,10 @@ export const scrollManager = (Component) => {
     }
 
     handleScroll = (e) => {
-      let scrollYPosition = truncate(window.scrollY)
+      let doc = document.documentElement
+      let top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0)
+      let scrollYPosition = top
+      
       if (scrollYPosition > window.innerHeight + 200 && !this.state.scrolledPastHeight) {
         this.setState(prevState => ({
           scrolledPastHeight: true
@@ -28,7 +31,7 @@ export const scrollManager = (Component) => {
       }
 
       this.setState(prevState => ({
-        scrollYPosition: truncate(window.scrollY)
+        scrollYPosition: top
       }))
     }
 

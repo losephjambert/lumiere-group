@@ -4,7 +4,7 @@ import SVGContainer from '../components/svg-loader'
 import Border from '../assets/lumiere-group-with-border.svg'
 import {scrollManager, windowManager} from './eventManager'
 
-const FooterContainer = Styled.div`
+const FooterContainer = Styled.footer`
   position: fixed;
   top: 0;
   right: 0;
