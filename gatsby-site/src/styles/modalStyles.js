@@ -1,4 +1,4 @@
-import Styled from 'styled-components'
+import Styled, {css} from 'styled-components'
 import {hideMenu, showMenu} from './animations'
 
 export const ModalContainer = Styled.div`
@@ -23,12 +23,14 @@ export const ModalContainer = Styled.div`
     background-color: ${props => props.localTheme.inverse};
     z-index: -1;
   }
-  ${props =>
-      !props.active ?
-      `animation: ${hideMenu} 300ms ease-in-out forwards;`
-      :
-      `animation: ${showMenu} 300ms ease-in-out forwards;`
-    }
+  transition: translate 0ms linear, opacity 200ms linear;
+  transition-delay: 0ms, 300ms;
+	transform: translateY(-100vh);
+	opacity: 0;
+	${props => props.active && css`
+		transform: translateY(0vh);
+		opacity: 1;
+	`}
 `
 
 export const ContentContainer = Styled.ul`

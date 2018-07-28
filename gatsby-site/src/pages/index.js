@@ -96,7 +96,7 @@ class IndexPage extends React.Component{
       <ThemeProvider theme={GlobalTheme}>
         <AppContainer>
           <Loader />
-          {showModal && <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />}
+          <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />
           <Header
             showModal={showModal}
             showMenu={showMenu}

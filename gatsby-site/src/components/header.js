@@ -80,13 +80,14 @@ const HeaderLogoContainer = Styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 1.8rem;
-  transition: 200ms;
+  transition: opacity 0ms;
+  transition-delay: 300ms;
   ${props =>
     props.hide && css`
       opacity: 0;
   `}
   .header-logo{
-    transition: inherit;
+    transition: 200ms;
     opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
     ${props=> !props.showHeaderLogo && props.showMenu && css`
       opacity: 1;
@@ -96,7 +97,7 @@ const HeaderLogoContainer = Styled.div`
     }
     svg{
       width: 3.6rem;
-      transition: inherit;
+      transition: 200ms;
       ${props=>props.theme.forTabletLandscapeUp`
         width: 5.6rem;
       `}
