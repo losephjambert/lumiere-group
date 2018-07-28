@@ -32,7 +32,7 @@ export const Dimensions = {
 export const Colors = {
   blueBackground:    '#dfecf7' ,
   yellowBackground:  '#f9f3d9' ,
-  hoverColor:        '#012FA7' ,
+  hoverColor:        'rgba(0,46,220,1)' ,
   white:             '#FCFCFC' ,
   black:             '#010101' ,
 }
