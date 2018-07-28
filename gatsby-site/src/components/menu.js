@@ -17,20 +17,19 @@ const Container = Styled.div`
   align-items: center;
   justify-content: flex-start;
   padding: 0 0 1.6rem;
-  transition: transform ${props=>props.theme};
-  transform-origin: center;
 	overflow: auto;
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
   &::-webkit-scrollbar { 
     display: none;  // Safari and Chrome
   }
-  ${props =>
-    !props.active ?
-    `animation: ${hideMenu} ${props.theme.transition} forwards;`
-    :
-    `animation: ${showMenu} ${props.theme.transition} forwards;`
-  }
+	transition: translate 300ms opacity 1000ms;
+	transform: translateY(-100vh);
+	opacity: 0;
+	${props => props.active && css`
+		transform: translateY(0vh);
+		opacity: 1;
+	`}
 
   .menu-logo{
     position: relative;

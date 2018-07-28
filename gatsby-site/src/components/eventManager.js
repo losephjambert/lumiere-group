@@ -1,4 +1,5 @@
 import React from 'react'
+import {truncate} from '../scripts/polyfills'
 
 export const scrollManager = (Component) => {
   return class ScrollManager extends React.Component{
@@ -15,7 +16,7 @@ export const scrollManager = (Component) => {
     }
 
     handleScroll = (e) => {
-      let scrollYPosition = Math.trunc(window.scrollY)
+      let scrollYPosition = truncate(window.scrollY)
       if (scrollYPosition > window.innerHeight + 200 && !this.state.scrolledPastHeight) {
         this.setState(prevState => ({
           scrolledPastHeight: true
@@ -27,7 +28,7 @@ export const scrollManager = (Component) => {
       }
 
       this.setState(prevState => ({
-        scrollYPosition: Math.trunc(window.scrollY)
+        scrollYPosition: truncate(window.scrollY)
       }))
     }
 

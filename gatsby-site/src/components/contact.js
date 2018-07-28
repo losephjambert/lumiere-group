@@ -5,34 +5,34 @@ import ContactHeader from '../assets/contact.svg'
 import SVGContainer from './svg-loader'
 import CloseButton from './closeButton'
 
-
 const StyleContainer = Styled.div`
 	position: fixed;
 	z-index: 30;
 	top: 0;
-	right: 0;
-	bottom: 0;
 	left: 0;
+	right: 0;
+	height: 100%;
+	padding: 0 0 1.6rem;
 	background-color: ${props => props.theme.blueBackground};
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	justify-content: flex-start;
-	padding: 0 0 0em;
-	transition: transform 300ms ease-in-out;
-	transform-origin: center;
 	font-family: Europa Bold;
 	overflow: auto;
   -ms-overflow-style: none;  // IE 10+
   overflow: -moz-scrollbars-none;  // Firefox
   &::-webkit-scrollbar { 
-    display: none;  // Safari and Chrome
-  }
-	padding: 0 0 1.6rem;
-	${props =>
-		!props.active ?
-		`animation: ${hideMenu} 300ms ease-in-out forwards;` :`animation: ${showMenu} 300ms ease-in-out forwards;`
+		display: none;  // Safari and Chrome
 	}
+	transition: translate 300ms opacity 1000ms;
+	transform: translateY(-100vh);
+	opacity: 0;
+	${props => props.active && css`
+		transform: translateY(0vh);
+		opacity: 1;
+	`}
+	
 `
 
 const ContactSVGHeader = Styled(SVGContainer)`

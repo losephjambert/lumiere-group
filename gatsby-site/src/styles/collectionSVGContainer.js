@@ -5,6 +5,7 @@ const CollectionSVGContainer = Styled(SVGContainer)`
   display: flex;
   justify-content: center;
   align-items: center;
+  display: block;
   margin: 0 0 8.4rem;
   svg{
     height: 3.5rem;
