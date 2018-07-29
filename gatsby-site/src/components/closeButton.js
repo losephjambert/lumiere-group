@@ -5,7 +5,7 @@ const Container = Styled.div`
   position: fixed;
   top: 18px;
   right: 18px;
-  z-index: 50;
+  z-index: 60;
   width: 30px;
   height: 25px;
   display: flex;

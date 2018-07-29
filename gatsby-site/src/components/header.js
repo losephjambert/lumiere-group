@@ -10,7 +10,6 @@ import Contact from './contact'
 
 const ContactTrigger = Styled.span`
 
-  ${props=>props.showModal || props.showContactOverlay && css`opacity: 0;`}
 
   // Set the position and size of the containing element
   position: fixed;
@@ -20,6 +19,8 @@ const ContactTrigger = Styled.span`
   width: 3rem;
   height: 3rem;
   cursor: pointer;
+  transition: 300ms;
+  ${props=>props.hide && css`opacity: 0;`}
 
   svg{
     width: 30px;
@@ -71,7 +72,8 @@ const ContactTrigger = Styled.span`
 const HeaderLogoContainer = Styled.div`
   height: ${props=>props.theme.headerSpaceSmall};
   width: 100%;
-  background-color: ${props=>props.showMenu ? 'transparent' : props.theme.white};
+  background-color: ${props=>props.showMenu ? props.theme.black : props.theme.white};
+  transform: ${props=>props.hide ? 'translateY(-300px)' : 'translateY(0px)'};
   position: fixed;
   z-index: 40;
   top: 0;
@@ -80,24 +82,15 @@ const HeaderLogoContainer = Styled.div`
   align-items: center;
   justify-content: center;
   padding: 0 1.8rem;
-  transition: opacity 0ms;
-  transition-delay: 300ms;
-  ${props =>
-    props.hide && css`
-      opacity: 0;
-  `}
+  transition: 300ms ease-out;
   .header-logo{
-    transition: 200ms;
-    opacity: ${props => props.showHeaderLogo ? '1;' : '0;'}
-    ${props=> !props.showHeaderLogo && props.showMenu && css`
-      opacity: 1;
-    `}
+    transition: inherit;
     & > svg > g > g > .header-logo-svg{
       fill: ${props=>props.showMenu ? props.theme.white : props.theme.black};
     }
     svg{
       width: 3.6rem;
-      transition: 200ms;
+      transition: inherit;
       ${props=>props.theme.forTabletLandscapeUp`
         width: 5.6rem;
       `}
@@ -130,6 +123,7 @@ const Header = ( {
     
     <ContactTrigger
       onClick={(e)=>toggleContactOverlay(e)}
+      hide={showModal}
       showMenu={showMenu}
       showModal={showModal}
       showContactOverlay={showContactOverlay}>
@@ -139,7 +133,7 @@ const Header = ( {
     </ContactTrigger>
     
     <HeaderLogoContainer
-      hide={showModal || showContactOverlay}
+      hide={showContactOverlay || showModal}
       showContactOverlay={showContactOverlay}
       showHeaderLogo={scrollYPosition >= height}
       Y= {scrollYPosition}
@@ -147,14 +141,18 @@ const Header = ( {
       showMenu={showMenu}>
       <SVGContainer source={Logo} className='header-logo' />
     </HeaderLogoContainer>
-
-    <Menu
+    
+    {showMenu &&
+      <Menu
       active={showMenu}
       toggleContactOverlay={toggleContactOverlay}
       toggleMenu={toggleMenu}/>
-    <Contact
-      showContactOverlay={showContactOverlay}
-      toggleContactOverlay={toggleContactOverlay}/>
+    }
+    {showContactOverlay &&
+      <Contact
+        showContactOverlay={showContactOverlay}
+        toggleContactOverlay={toggleContactOverlay}/>
+    }
 
   </header>
 

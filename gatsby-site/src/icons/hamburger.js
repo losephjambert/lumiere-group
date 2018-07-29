@@ -12,7 +12,7 @@ const HamburgerStyle = Styled.div`
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  transition: 200ms;
+  transition: 300ms linear;
   cursor: pointer;
   &:hover > span{
     background-color:${props=>props.theme.hoverColor};
@@ -27,7 +27,7 @@ const Span = Styled.span`
   width: 100%;
   background-color: ${props=>props.theme.black};
   height: 3px;
-  transition: 200ms;
+  transition: 300ms linear;
   transform-origin: center;
   ${props=>props.active && css`
     background-color: ${props=>props.theme.white};

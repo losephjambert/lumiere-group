@@ -7,7 +7,7 @@ import CloseButton from './closeButton'
 
 const StyleContainer = Styled.div`
 	position: fixed;
-	z-index: 30;
+	z-index: 50;
 	top: 0;
 	left: 0;
 	right: 0;
