@@ -6,19 +6,21 @@ import {scrollManager, windowManager} from './eventManager'
 
 const FooterContainer = Styled.footer`
   position: fixed;
-  top: 0;
+  top: ${props=>props.theme.headerSpaceSmall};
   right: 0;
   bottom: 0;
   left: 0;
-  display: flex;
-  flex-flow: column wrap;
-  justify-content: center;
-  padding: 30% 10% 0;
   z-index: 8;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
   opacity: ${props => props.showFooter ? 1 : 0};
+  @media screen and (max-width: 500px) {
+   background: green;
+  }
   ${props=>props.theme.forTabletPortraitUp`
-    padding: 12% 10% 0;
     transform: translate3d(-5px,0,0);
+    top: ${props=>props.theme.headerSpaceBig};
   `}
 `
 
@@ -26,10 +28,10 @@ const FooterSVG = Styled(SVGContainer)`
   width: 100%;
   max-width: 55rem;
   display: block;
-  margin: auto;
+  margin: 0 auto 5rem;
   svg{
+    height: inherit;
     width: inherit;
-    margin: auto;
   }
 `
 
@@ -42,8 +44,7 @@ flex-flow: column nowrap;
 justify-content: space-around;
 font-family: Europa Bold Italic;
 text-align: center;
-margin: auto;
-transform: translate3d(0,-9rem,0);
+margin: 0 auto;
 span{
   margin-bottom: 1.4rem;
 }
@@ -59,7 +60,6 @@ ${props=>props.theme.forTabletPortraitUp`
   flex-flow: row wrap;
   text-align: initial;
   font-size: 1.8rem;
-  margin-top: 0;
   span{
     margin-bottom: 0;
   }

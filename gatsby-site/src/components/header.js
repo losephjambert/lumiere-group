@@ -84,6 +84,7 @@ const HeaderLogoContainer = Styled.div`
   padding: 0 1.8rem;
   transition: 300ms ease-out;
   .header-logo{
+    opacity: ${props=>props.showHeaderLogo ? 1 : 0};
     transition: inherit;
     & > svg > g > g > .header-logo-svg{
       fill: ${props=>props.showMenu ? props.theme.white : props.theme.black};
