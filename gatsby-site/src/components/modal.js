@@ -18,15 +18,18 @@ import {
 
 const ServicesModalImage = Styled(ModalImage)`
   filter: brightness(0);
-  background-size: 21rem;
+  background-size: 19rem;
   ${props=>props.theme.forTabletLandscapeUp`
-    background-size: 32rem;
+    background-size: 28rem;
   `}
 `
 
 const TeamMemberModalImage = Styled(ModalImage)`
-  background-size: cover;
+  background-size: 100%;
   border-radius: 100%;
+  &.LeleBarnett{
+    background-size: 130%;
+  }
 `
 
 const duration = 300
@@ -66,7 +69,7 @@ const Modal = ({
       {<span onClick={ (e) => toggleModal(e) }> <CloseButton localTheme={data.theme} /> </span> }
       <ContentContainer>
         <ModalItem localTheme={data.theme}>
-          {data.theme.type === 'team' &&  <TeamMemberModalImage image={image} />}
+          {data.theme.type === 'team' &&  <TeamMemberModalImage className={title.split(' ').join('')} image={image} />}
           {data.theme.type === 'services' &&  <ServicesModalImage image={image} />}
         </ModalItem>
         <ModalItem localTheme={data.theme}>

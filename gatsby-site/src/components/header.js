@@ -84,6 +84,7 @@ const HeaderLogoContainer = Styled.div`
   padding: 0 1.8rem;
   transition: 300ms ease-out;
   .header-logo{
+    transform: ${props=>props.showHeaderLogo ? 'translateX(-1px)' : 'translateX(0px)'};
     opacity: ${props=>props.showHeaderLogo ? 1 : 0};
     transition: inherit;
     & > svg > g > g > .header-logo-svg{
@@ -136,7 +137,7 @@ const Header = ( {
     <HeaderLogoContainer
       hide={showContactOverlay || showModal}
       showContactOverlay={showContactOverlay}
-      showHeaderLogo={scrollYPosition >= height}
+      showHeaderLogo={scrollYPosition >= height || showMenu}
       Y= {scrollYPosition}
       height={height}
       showMenu={showMenu}>

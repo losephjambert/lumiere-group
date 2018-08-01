@@ -33,11 +33,17 @@ export const CollectionItem = Styled.li`
   &:not(:last-of-type){
     margin-bottom: 7rem;
   }
+  &.ErinWeible{
+    order: -1;
+  }
   color: ${props => props.theme.inverse};
   ${props=>props.theme.forTabletLandscapeUp`
     margin-bottom: 0;
+    &.ErinWeible{
+      order: initial;
+    }
   `}
-  `
+`
   
 export const CollectionItemButton = Styled.button`
   border: none;

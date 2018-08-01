@@ -37,7 +37,7 @@ const Span = Styled.span`
     }
       &:nth-child(1){
         transform-origin: left;
-        transform: translate3d(3px,1px,0) rotate(45deg);
+        transform: translate3d(3px,2px,0) rotate(45deg);
       }
       &:nth-child(3) {
         transform-origin: left;

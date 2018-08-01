@@ -29,7 +29,7 @@ export const ContentContainer = Styled.ul`
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  justify-content: space-around;
+  justify-content: flex-start;
   height: 100%;
   padding: 7rem 1.6rem 0;
   overflow: auto;
@@ -75,6 +75,7 @@ export const ContentContainer = Styled.ul`
 
 export const ModalTextList = Styled.ul`
   font-family: Europa Bold;
+  margin-top: 2rem;
 `
 
 export const ModalTitle = Styled.li`
@@ -99,22 +100,22 @@ export const ModalImage = Styled.div`
   background-size: contain;
   background-position: center center;
   background-repeat: no-repeat;
-  margin: auto;
+  margin: 3rem auto;
   flex: 0 1 auto;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  width: 20rem;
-  height: 20rem;
+  width: 17rem;
+  height: 17rem;
   ${props=>props.theme.forMediumPhonesUp`
-    width: 24rem;
-    height: 24rem;
+    width: 22rem;
+    height: 22rem;
   `}
   ${props=>props.theme.forTabletLandscapeUp`
     margin: 0 0 0 auto;
-    width: 40rem;
-    height: 40rem;
+    width: 38rem;
+    height: 38rem;
     padding: 0 5rem;
   `}
 `

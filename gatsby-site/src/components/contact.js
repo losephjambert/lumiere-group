@@ -61,7 +61,8 @@ const SharedInputStyles = css`
 	background-color: transparent;
 	border-radius: 0;
 	border: .15rem solid ${props => props.theme.black};
-	box-shadow: 0 0 0 0 transparent;
+	box-shadow: none;
+	outline: none;
 	&:focus{
 		outline: none;
 	}

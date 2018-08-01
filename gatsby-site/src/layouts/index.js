@@ -25,6 +25,7 @@ const Layout = ({ children, data }) => (
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
+        { name: 'format-detection', content: 'telephone=no' }
       ]}
     />
     {children()}

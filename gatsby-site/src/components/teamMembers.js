@@ -23,6 +23,9 @@ const TeamMemberImage = Styled(CollectionItemImage)`
   mix-blend-mode: multiply;
   background-size: cover;
   filter: grayscale(1);
+  &.LeleBarnett{
+    background-size: 130%;
+  }
 `
 
 const TeamMember = ({ toggleModal, heading, collectionItems, theme }) => (
@@ -31,9 +34,9 @@ const TeamMember = ({ toggleModal, heading, collectionItems, theme }) => (
     <CollectionSVGContainer source={heading} className="collection-header" />
     <CollectionList>
       {collectionItems.map((item, i) =>
-        <CollectionItem key={i} id={i}>
+        <CollectionItem key={i} id={i} className={item.title.split(' ').join('')}>
           <TeamMemberCollectionItemButton onClick={()=>toggleModal(item, theme)}>
-            <TeamMemberImage image={item.image}/>
+            <TeamMemberImage className={item.title.split(' ').join('')} image={item.image}/>
             <CollectionItemTitle>{item.title}</CollectionItemTitle>
             <CollectionItemSubtitle>{item.subtitle}</CollectionItemSubtitle>
           </TeamMemberCollectionItemButton>

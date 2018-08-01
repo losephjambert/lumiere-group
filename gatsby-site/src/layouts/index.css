@@ -42,7 +42,6 @@ a {
   border: none;
   box-shadow: none;
   color: inherit;
-  display: block;
 }
 a:visited{
   color: initial;
