@@ -9,13 +9,13 @@ const buttonHeight = 2.5
 const StyledCarousel = Styled(Slider)`
 position: relative;
   .slick-arrow{
+    background: transparent;
     border: none;
     position: absolute;
     z-index: 1;
     cursor: pointer;
     font-size: 0;
     padding: 0;
-    background: transparent;
     height: 100%;
     width: 100px;
     top: 0;
@@ -40,11 +40,14 @@ position: relative;
   .slick-prev{
     left: 0;
     &::after{
+      margin-left: -50px;
+      transform: translateX(-50px);
       border-top: ${buttonHeight}rem solid transparent;
       border-bottom: ${buttonHeight}rem solid transparent; 
       
       border-right: ${buttonHeight}rem solid ${props=>props.theme.white};
       ${props=>props.theme.forTabletLandscapeUp`
+        margin-left: 0px;
         border-right: ${buttonHeight*2}rem solid ${props=>props.theme.white};
       `}
     }
@@ -52,11 +55,13 @@ position: relative;
   .slick-next{
     right: 0;
     &::after{
+      margin-right: -50px;
       border-top: ${buttonHeight}rem solid transparent;
       border-bottom: ${buttonHeight}rem solid transparent;
       
       border-left: ${buttonHeight}rem solid ${props=>props.theme.white};
       ${props=>props.theme.forTabletLandscapeUp`
+        margin-right: 0px;
         border-left: ${buttonHeight*2}rem solid ${props=>props.theme.white};
       `}
     }
