@@ -65,6 +65,7 @@ class Loader extends React.Component {
       this.setState(prevState => ({
         isStopped: !prevState.isStopped
       }))
+      this.props.handleLoad()
     }
 
   }
@@ -84,7 +85,6 @@ class Loader extends React.Component {
   render() {
 
     let animationData = this.props.dimensions.width > 1100 ? desktopAnimation : phoneAnimation
-    let animation = this.props.dimensions.width > 1100 ? 'desktopAnimation' : 'phoneAnimation'
  
     const defaultOptions = {
       loop: false,

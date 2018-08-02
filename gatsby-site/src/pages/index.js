@@ -17,6 +17,8 @@ const AppContainer = Styled.div`
   position: relative;
   top: ${props=>props.theme.headerSpaceBig};
   background-color: ${props=>props.theme.white};
+  opacity: ${props=>props.loading ? 0 : 1};
+  transition: 300ms;
 `
 
 const ContentContainer = Styled.div`
@@ -36,7 +38,8 @@ class IndexPage extends React.Component{
       modalContent: {
         content: {},
         theme: {}
-      }
+      },
+      loading: true
     }
   }
 
@@ -88,46 +91,56 @@ class IndexPage extends React.Component{
     }
   }
 
+  handleLoad = () => {
+    console.log(this.state.loading)
+    this.setState(prevState => ({
+      loading: !prevState.loading
+    }))
+    console.log(this.state.loading)
+  }
+
   render(){
     const data = this.props.data.allContentfulTest.edges[0].node
     const {showMenu, showContactOverlay, showModal, modalContent} = this.state
   
     return(
       <ThemeProvider theme={GlobalTheme}>
-        <AppContainer>
-          <Loader />
-          <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />
-          <Header
-            showModal={showModal}
-            showMenu={showMenu}
-            showContactOverlay={showContactOverlay}
-            toggleMenu={this.toggleMenu}
-            toggleContactOverlay={this.toggleContactOverlay}
-            showContactOverlay={showContactOverlay}
-            toggleContactOverlay={this.toggleContactOverlay}/>
-          <ContentContainer>
-            <About />
-            <Carousel
-              showContactOverlay={showContactOverlay}
+        <div>
+          <Loader handleLoad={this.handleLoad}/>
+          <AppContainer loading={this.state.loading}>
+            <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />
+            <Header
+              showModal={showModal}
               showMenu={showMenu}
-              images={artwork}/>
-            <ThemeProvider theme={TeamCollectionTheme}>
-              <TeamMembers
-                theme={TeamCollectionTheme}
-                toggleModal={this.toggleModal}
-                heading={TeamHeading}
-                collectionItems={TeamCollectionItems} />
-            </ThemeProvider>
-            <ThemeProvider theme={ServicesCollectionTheme}>
-              <ServiceItems
-                toggleModal={this.toggleModal}
-                theme={ServicesCollectionTheme}
-                heading={ServicesHeading}
-                collectionItems={ServicesCollectionItems} />
+              showContactOverlay={showContactOverlay}
+              toggleMenu={this.toggleMenu}
+              toggleContactOverlay={this.toggleContactOverlay}
+              showContactOverlay={showContactOverlay}
+              toggleContactOverlay={this.toggleContactOverlay}/>
+            <ContentContainer>
+              <About />
+              <Carousel
+                showContactOverlay={showContactOverlay}
+                showMenu={showMenu}
+                images={artwork}/>
+              <ThemeProvider theme={TeamCollectionTheme}>
+                <TeamMembers
+                  theme={TeamCollectionTheme}
+                  toggleModal={this.toggleModal}
+                  heading={TeamHeading}
+                  collectionItems={TeamCollectionItems} />
               </ThemeProvider>
-          </ContentContainer>
-          <Footer toggleContactOverlay={this.toggleContactOverlay}/>
-        </AppContainer>
+              <ThemeProvider theme={ServicesCollectionTheme}>
+                <ServiceItems
+                  toggleModal={this.toggleModal}
+                  theme={ServicesCollectionTheme}
+                  heading={ServicesHeading}
+                  collectionItems={ServicesCollectionItems} />
+                </ThemeProvider>
+            </ContentContainer>
+            <Footer toggleContactOverlay={this.toggleContactOverlay}/>
+          </AppContainer>
+      </div>
       </ThemeProvider>
     )
 
