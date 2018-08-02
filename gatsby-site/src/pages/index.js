@@ -43,17 +43,22 @@ class IndexPage extends React.Component{
     }
   }
 
-  toggleMenu = () => {
-    if (!this.state.showContactOverlay) {
-      this.setState(prevState => ({
-        showMenu: !prevState.showMenu
-      }))
-    } else {
-      this.setState(prevState => ({
-        showMenu: !prevState.showMenu,
-        showContactOverlay: !prevState.showContactOverlay
-       }))
+  toggleMenu = (delay) => {
+    let handleToggle = () => {
+      if (!this.state.showContactOverlay) {
+        this.setState(prevState => ({
+          showMenu: !prevState.showMenu
+        }))
+      } else {
+        this.setState(prevState => ({
+          showMenu: !prevState.showMenu,
+          showContactOverlay: !prevState.showContactOverlay
+        }))
+      }
     }
+
+    let timeout = setTimeout(handleToggle, delay)
+
   }
 
   toggleContactOverlay = () => {
@@ -92,11 +97,9 @@ class IndexPage extends React.Component{
   }
 
   handleLoad = () => {
-    console.log(this.state.loading)
     this.setState(prevState => ({
       loading: !prevState.loading
     }))
-    console.log(this.state.loading)
   }
 
   render(){

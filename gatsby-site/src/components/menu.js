@@ -137,6 +137,8 @@ const ContactInfo = Styled.p`
   `}
 `
 
+let delay = 75
+
 const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
 
   <Container active={active}>
@@ -144,17 +146,17 @@ const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
     <MenuItems>
       <li>
         <a href='#about'>
-          <Item onClick={()=>toggleMenu()}>About</Item>
+          <Item onClick={()=>toggleMenu(delay)}>About</Item>
         </a>
       </li>
       <li>
         <a href='#team'>
-          <Item onClick={()=>toggleMenu()}>Team</Item>
+          <Item onClick={()=>toggleMenu(delay)}>Team</Item>
         </a>
       </li>
       <li>
         <a href='#services'>
-          <Item onClick={()=>toggleMenu()}>Services</Item>
+          <Item onClick={()=>toggleMenu(delay)}>Services</Item>
         </a>
       </li>
       <li>
