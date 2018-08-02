@@ -4,10 +4,16 @@ import {hideMenu, showMenu} from './animations'
 export const ModalContainer = Styled.div`
   position: fixed;
   top: 0;
-  right: 0;
-  bottom:0;
   left: 0;
+  right: 0;
+  height: 100%;
   z-index: 9999;
+  overflow: auto;
+  -ms-overflow-style: none;  // IE 10+
+  overflow: -moz-scrollbars-none;  // Firefox
+  &::-webkit-scrollbar { 
+    display: none;  // Safari and Chrome
+  }
   color: ${props => props.localTheme.main};
   &::before,
   &::after{
@@ -32,12 +38,6 @@ export const ContentContainer = Styled.ul`
   justify-content: flex-start;
   height: 100%;
   padding: 7rem 1.6rem 0;
-  overflow: auto;
-  -ms-overflow-style: none;  // IE 10+
-  overflow: -moz-scrollbars-none;  // Firefox
-  &::-webkit-scrollbar { 
-    display: none;  // Safari and Chrome
-  }
   ${props=>props.theme.forTabletLandscapeUp`
     padding: 0;
     flex-flow: row wrap;
@@ -85,6 +85,7 @@ export const ModalTitle = Styled.li`
 
 export const ModalSubTitle = Styled.li`
   font-size: 1.6rem;
+  line-height: 1.8rem;
 `
 
 export const ModalDescription = Styled.li`
@@ -93,6 +94,7 @@ export const ModalDescription = Styled.li`
   font-family: Europa Regular;
   max-width: 45rem;
   margin: 2.1rem 0 0;
+  padding: 0 0 1.6rem;
 `
 
 export const ModalImage = Styled.div`

@@ -51,7 +51,7 @@ const About = ({initialHeight, dimensions:{height}}) => (
     <StyledSection id='about' spacer={initialHeight} height={height}>
       <HeaderSVGContainer source={AboutHeader} className='about-header'/>
       <BodyCopy>
-        Our mission is to strive towards superior levels of efficiency and sustainability within the operational domain of Lumiere Group with respect to the changing financial environment. We introduce new management approaches supported by the unrivalled experience of our professional team. Our target is to consolidate Lumiere Group as one of the leaders in each industry we are involved in. Our focus is to maximize the Group’s capital growth by setting the highest standards of management and best practice procedures in business process flows. Our expert team is committed to creating success by making efficient investment decisions and launching new sustainable projects.
+      The Lumiere Group offers consulting services including: art advising, art collection management, art lifecycle oversight, and long-term planning. Our team is up-to-date on contemporary artists and galleries throughout the United States and Canada. Additionally, we have extensive collection management and registration experience, maintaining the highest industry standards. With clients as varied as emerging private collectors to one of the largest contemporary art collections in the United States, our team of eight full-time arts professionals has gained unparalleled experience in the intricacies of art consulting. 
       </BodyCopy>
     </StyledSection>
 </div>

@@ -82,7 +82,7 @@ const Footer = ( {scrolledPastHeight, toggleContactOverlay, dimensions:{scrollHe
       <Contact>
         <Span>info@thelumieregroup.com</Span>
         <Divider>|</Divider>
-        <HoverSpan><a href='tel:1-206-323-9827'>206.323.9827</a></HoverSpan>
+        <HoverSpan><a href='tel:1-360-836-1610'>360.836.1610</a></HoverSpan>
         <Divider>|</Divider>
         <HoverSpan onClick={()=>toggleContactOverlay()}>Contact</HoverSpan>
       </Contact>

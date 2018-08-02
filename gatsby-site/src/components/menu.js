@@ -168,7 +168,7 @@ const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
     <ContactInfo>
       <span>info@thelumieregroup.com</span>
       <span className="_divider">|</span>
-      <span>206.323.9827</span>
+      <span><a href='tel:1-360-836-1610'>360.836.1610</a></span>
     </ContactInfo>
   </Container> 
 
