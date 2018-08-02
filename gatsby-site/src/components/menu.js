@@ -137,7 +137,7 @@ const ContactInfo = Styled.p`
   `}
 `
 
-let delay = 75
+let delay = 125
 
 const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
 
