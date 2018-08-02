@@ -24,7 +24,7 @@ const TeamMemberImage = Styled(CollectionItemImage)`
   background-size: cover;
   filter: grayscale(1);
   &.LeleBarnett{
-    background-size: 130%;
+    background-size: 150%;
   }
 `
 

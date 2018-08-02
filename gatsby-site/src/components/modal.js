@@ -17,7 +17,6 @@ import {
 } from '../styles/modalStyles'
 
 const ServicesModalImage = Styled(ModalImage)`
-  // filter: brightness(0);
   background-size: 19rem;
   ${props=>props.theme.forTabletLandscapeUp`
     background-size: 28rem;
@@ -25,10 +24,10 @@ const ServicesModalImage = Styled(ModalImage)`
 `
 
 const TeamMemberModalImage = Styled(ModalImage)`
-  background-size: 100%;
+  background-size: cover;
   border-radius: 100%;
   &.LeleBarnett{
-    background-size: 130%;
+    background-size: 150%;
   }
 `
 
