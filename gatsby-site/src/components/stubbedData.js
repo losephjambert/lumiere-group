@@ -2,7 +2,12 @@ import {Colors} from '../styles/styleVariables'
 import rinaImage from '../assets/rina.jpg'
 import leleImage from '../assets/lele.jpg'
 import erinImage from '../assets/erin.jpg'
-import CarouselImage1 from '../assets/carousel-1.jpg'
+import CarouselImage1 from '../assets/carousel-1-opt.jpg'
+import CarouselImage2 from '../assets/carousel-2-opt.jpg'
+import CarouselImage3 from '../assets/carousel-3-opt.jpg'
+import CarouselImage4 from '../assets/carousel-4-opt.jpg'
+import CarouselImage5 from '../assets/carousel-5-opt.jpg'
+import CarouselImage6 from '../assets/carousel-6-opt.jpg'
 import CarouselImageMobile from '../assets/carousel-4487.jpg'
 import engagement from '../assets/management-and-engagement.svg'
 import curation from '../assets/curatorial-services.svg'
@@ -91,16 +96,28 @@ export const ServicesCollectionTheme = {
 
 export const CarouselImages = [
   {
-    image: CarouselImage1,
-    altText: 'The Managing Partners in their Studio'
+    path: CarouselImage1,
+    altText: ''
   },
   {
-    image: CarouselImage1,
-    altText: 'The Managing Partners in their Studio'
+    path: CarouselImage2,
+    altText: ''
   },
   {
-    image: CarouselImage1,
-    altText: 'The Managing Partners in their Studio'
+    path: CarouselImage3,
+    altText: ''
+  },
+  {
+    path: CarouselImage4,
+    altText: ''
+  },
+  {
+    path: CarouselImage5,
+    altText: ''
+  },
+  {
+    path: CarouselImage6,
+    altText: ''
   },
 ]
 
@@ -118,5 +135,3 @@ export const artwork = [
     }
   }
 ]
-
-console.log(CarouselImage1)

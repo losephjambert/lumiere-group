@@ -43,7 +43,10 @@ position: relative;
       border-top: ${buttonHeight}rem solid transparent;
       border-bottom: ${buttonHeight}rem solid transparent; 
       
-      border-right: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+      border-right: ${buttonHeight}rem solid ${props=>props.theme.white};
+      ${props=>props.theme.forTabletLandscapeUp`
+        border-right: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+      `}
     }
   }
   .slick-next{
@@ -52,7 +55,10 @@ position: relative;
       border-top: ${buttonHeight}rem solid transparent;
       border-bottom: ${buttonHeight}rem solid transparent;
       
-      border-left: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+      border-left: ${buttonHeight}rem solid ${props=>props.theme.white};
+      ${props=>props.theme.forTabletLandscapeUp`
+        border-left: ${buttonHeight*2}rem solid ${props=>props.theme.white};
+      `}
     }
   }
   .slick-list{
@@ -76,14 +82,13 @@ const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
       <img
         key={i}
         srcSet={
-          `${image.default.path} 4487w,
-           ${image.large.path} 5616w`
+          `${image.path} 4487w`
         }
         sizes={
           `(max-width: 900px) 400px, 901px`
         }
-        src={image.default.path}
-        alt={image.default.altText} />
+        src={image.path}
+        alt={image.altText} />
     )}
   </StyledCarousel>
 )
