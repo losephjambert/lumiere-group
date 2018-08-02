@@ -131,7 +131,7 @@ const Contact = ({ showContactOverlay, toggleContactOverlay }) => (
 	<StyleContainer active={showContactOverlay}>
 		<ContactSVGHeader source={ContactHeader} className='contact-header' />
 		<Form
-			action="https://formspree.io/josephc.lambert@gmail.com"
+			action="https://formspree.io/info@thelumieregroup.com"
       method="POST">
 			<InputContainer>
 				<Label htmlFor="name">Name</Label>
