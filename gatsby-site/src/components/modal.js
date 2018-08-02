@@ -17,7 +17,7 @@ import {
 } from '../styles/modalStyles'
 
 const ServicesModalImage = Styled(ModalImage)`
-  filter: brightness(0);
+  // filter: brightness(0);
   background-size: 19rem;
   ${props=>props.theme.forTabletLandscapeUp`
     background-size: 28rem;
@@ -53,6 +53,7 @@ const Modal = ({
   data: {
     content: {
       image,
+      imageDark,
       title,
       subtitle,
       description
@@ -70,7 +71,7 @@ const Modal = ({
       <ContentContainer>
         <ModalItem localTheme={data.theme}>
           {data.theme.type === 'team' &&  <TeamMemberModalImage className={title.split(' ').join('')} image={image} />}
-          {data.theme.type === 'services' &&  <ServicesModalImage image={image} />}
+          {data.theme.type === 'services' &&  <ServicesModalImage image={imageDark} />}
         </ModalItem>
         <ModalItem localTheme={data.theme}>
           <ModalTextList>

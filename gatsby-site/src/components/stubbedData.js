@@ -8,6 +8,10 @@ import engagement from '../assets/management-and-engagement.svg'
 import curation from '../assets/curatorial-services.svg'
 import collections from '../assets/collections-management-and-registration.svg'
 import lifecycle from '../assets/art-lifecycle.svg'
+import engagementDark from '../assets/management-and-engagement-dark.svg'
+import curationDark from '../assets/curatorial-services-dark.svg'
+import collectionsDark from '../assets/collections-management-and-registration-dark.svg'
+import lifecycleDark from '../assets/art-lifecycle-dark.svg'
 
 const {
   blueBackground ,
@@ -41,21 +45,25 @@ export const TeamCollectionItems = [
 export const ServicesCollectionItems = [
   {
     image: engagement,
+    imageDark: engagementDark,
     title: 'Project Management and Engagement',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: curation,
+    imageDark: curationDark,
     title: 'Curatorial Services',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: collections,
+    imageDark: collectionsDark,
     title: 'Collections Management and Registration',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   },
   {
     image: lifecycle,
+    imageDark: lifecycleDark,
     title: 'Art Lifecycle',
     description: 'This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. This is the collection item description, used in the modal. '
   }
