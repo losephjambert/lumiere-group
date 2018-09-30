@@ -103,7 +103,6 @@ class IndexPage extends React.Component{
   }
 
   render(){
-    const data = this.props.data.allContentfulTest.edges[0].node
     const {showMenu, showContactOverlay, showModal, modalContent} = this.state
   
     return(
@@ -152,21 +151,24 @@ class IndexPage extends React.Component{
 
 export default IndexPage
 
-export const pageQuery = graphql`
-  query PageQuery {
+export const indexQuery = graphql`
+  query IndexQuery {
+    allContentfulSiteInformation {
+      edges {
+        node {
+          id
+          title
+          phoneNumber
+          contactEmail
+        }
+      }
+    }
+
     allContentfulTest {
       edges {
         node {
           id
           name
-          profilePhoto{
-            resolutions{
-              src
-            }
-          }
-          profileDescription{
-            profileDescription
-          }
         }
       }
     }
