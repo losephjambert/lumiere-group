@@ -163,14 +163,5 @@ export const indexQuery = graphql`
         }
       }
     }
-
-    allContentfulTest {
-      edges {
-        node {
-          id
-          name
-        }
-      }
-    }
   }
 `
