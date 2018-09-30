@@ -103,8 +103,9 @@ class IndexPage extends React.Component{
   }
 
   render(){
+    const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
     const {showMenu, showContactOverlay, showModal, modalContent} = this.state
-  
+
     return(
       <ThemeProvider theme={GlobalTheme}>
         <div>
@@ -120,7 +121,7 @@ class IndexPage extends React.Component{
               showContactOverlay={showContactOverlay}
               toggleContactOverlay={this.toggleContactOverlay}/>
             <ContentContainer>
-              <About />
+              <About about={about}/>
               <Carousel
                 showContactOverlay={showContactOverlay}
                 showMenu={showMenu}
@@ -160,6 +161,9 @@ export const indexQuery = graphql`
           title
           phoneNumber
           contactEmail
+          about{
+            about
+          }
         }
       }
     }

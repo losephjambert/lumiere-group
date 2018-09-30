@@ -46,13 +46,11 @@ const HeaderSVGContainer = Styled(SVGContainer)`
   `}
 `
 
-const About = ({initialHeight, dimensions:{height}}) => (
+const About = ({about, initialHeight, dimensions:{height}}) => (
 <div>
     <StyledSection id='about' spacer={initialHeight} height={height}>
       <HeaderSVGContainer source={AboutHeader} className='about-header'/>
-      <BodyCopy>
-      The Lumiere Group offers consulting services including: art advising, art collection management, art lifecycle oversight, and long-term planning. Our team is up-to-date on contemporary artists and galleries throughout the United States and Canada. Additionally, we have extensive collection management and registration experience, maintaining the highest industry standards. With clients as varied as emerging private collectors to one of the largest contemporary art collections in the United States, our team of eight full-time arts professionals has gained unparalleled experience in the intricacies of art consulting. 
-      </BodyCopy>
+      <BodyCopy>{about}</BodyCopy>
     </StyledSection>
 </div>
 
