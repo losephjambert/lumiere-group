@@ -2,7 +2,6 @@ import React from 'react'
 import Slider from 'react-slick'
 import Styled, {css} from 'styled-components'
 import '../styles/slick-carousel/slick.css'
-// import '../styles/slick-carousel/slick-theme.css'
 
 const buttonHeight = 2.5
 
@@ -81,19 +80,19 @@ let settings = {
   autoplay: true
 }
 
-const CarouselComponent = ({ showMenu, showContactOverlay, images }) => (
+const CarouselComponent = ({ testImages }) => (
   <StyledCarousel {...settings}>
-    {images.map((image, i) =>
+    {testImages.map((image, i) =>
       <img
         key={i}
         srcSet={
-          `${image.path} 4487w`
+          image.sizes.srcSet
         }
         sizes={
-          `(max-width: 900px) 400px, 901px`
+          image.sizes.sizes
         }
-        src={image.path}
-        alt={image.altText} />
+        src={image.sizes.src}
+        alt={image.title} />
     )}
   </StyledCarousel>
 )

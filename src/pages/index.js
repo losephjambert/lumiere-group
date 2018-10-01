@@ -104,6 +104,7 @@ class IndexPage extends React.Component{
 
   render(){
     const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
+    const {images} = this.props.data.allContentfulCarousel.edges[0].node
     const {showMenu, showContactOverlay, showModal, modalContent} = this.state
 
     return(
@@ -123,9 +124,7 @@ class IndexPage extends React.Component{
             <ContentContainer>
               <About about={about}/>
               <Carousel
-                showContactOverlay={showContactOverlay}
-                showMenu={showMenu}
-                images={CarouselImages}/>
+                testImages={images}/>
               <ThemeProvider theme={TeamCollectionTheme}>
                 <TeamMembers
                   theme={TeamCollectionTheme}
@@ -167,5 +166,23 @@ export const indexQuery = graphql`
         }
       }
     }
+
+    allContentfulCarousel {
+      edges {
+        node {
+          id
+          images{
+            id
+            title
+            sizes {
+              src
+              srcSet
+              sizes
+            }
+          }
+        }
+      }
+    }
+
   }
 `
