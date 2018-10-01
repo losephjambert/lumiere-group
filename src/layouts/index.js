@@ -18,32 +18,49 @@ injectGlobal`
   }
 `
 
-const Layout = ({ children, data }) => (
-  <div>
-    <Helmet
-      title={data.site.siteMetadata.title}
-      meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
-        { name: 'format-detection', content: 'telephone=no' }
-      ]}
-    />
-    {children()}
-  </div>
-)
+// const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
 
-Layout.propTypes = {
-  children: PropTypes.func,
+class Layout extends React.Component {
+  constructor(props){
+    super(props)
+
+  }
+
+  render(){
+    const {
+      title,
+      seo,
+      description
+    } = this.props.data.allContentfulSiteInformation.edges[0].node
+    
+    return(
+      <div>
+      <Helmet
+        title={title}
+        meta={[
+          { name: 'description', content: description },
+          { name: 'keywords', content: seo.join(' ')},
+          { name: 'format-detection', content: 'telephone=yes' }
+        ]}
+      />
+        {this.props.children()}
+      </div>
+    )
+  }
 }
 
 export default Layout
 
 export const query = graphql`
   query MetadataQuery {
-    site {
-      siteMetadata {
-        title
-        footerTitle
+    allContentfulSiteInformation {
+      edges {
+        node {
+          id
+          title
+          seo
+          description
+        }
       }
     }
   }
