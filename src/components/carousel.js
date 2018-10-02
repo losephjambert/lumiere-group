@@ -80,9 +80,9 @@ let settings = {
   autoplay: true
 }
 
-const CarouselComponent = ({ testImages }) => (
+const CarouselComponent = ({ images }) => (
   <StyledCarousel {...settings}>
-    {testImages.map((image, i) =>
+    {images.map((image, i) =>
       <img
         key={i}
         srcSet={

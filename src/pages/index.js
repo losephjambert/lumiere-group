@@ -124,7 +124,7 @@ class IndexPage extends React.Component{
             <ContentContainer>
               <About about={about}/>
               <Carousel
-                testImages={images}/>
+                images={images}/>
               <ThemeProvider theme={TeamCollectionTheme}>
                 <TeamMembers
                   theme={TeamCollectionTheme}
@@ -178,6 +178,47 @@ export const indexQuery = graphql`
               src
               srcSet
               sizes
+            }
+          }
+        }
+      }
+    }
+
+    allContentfulTeamMember{
+      edges{
+        node{
+					name
+          description{
+            description
+          }
+          image{
+            id
+            sizes{
+              src
+              sizes
+              srcSet
+            }
+          }
+          
+        }
+      }
+    }
+
+    allContentfulService{
+      edges{
+        node{
+					title
+          description{
+            description
+          }
+          darkImage{
+						file{
+              url
+          	}
+          }
+          lightImage{
+            file{
+              url
             }
           }
         }
