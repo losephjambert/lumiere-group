@@ -30,18 +30,16 @@ export const CollectionItem = Styled.li`
   display: flex;
   flex-flow: column wrap;
   align-items: center;
-  &:not(:last-of-type){
-    margin-bottom: 7rem;
-  }
+  margin-bottom: 7rem;
   &.ErinWeible{
     order: -1;
   }
   color: ${props => props.theme.inverse};
   ${props=>props.theme.forTabletLandscapeUp`
     margin-bottom: 0;
-    &.ErinWeible{
-      order: initial;
-    }
+    &.RinaLuzius { order: 1; }
+    &.ErinWeible { order: 2; }
+    &.LeleBarnett{ order: 3; }
   `}
 `
   

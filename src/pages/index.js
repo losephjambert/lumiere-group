@@ -105,8 +105,8 @@ class IndexPage extends React.Component{
   render(){
     const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
     const { images } = this.props.data.allContentfulCarousel.edges[0].node
-    const teamMemberData = this.props.data.allContentfulTeamMember.edges[0].node
-    const servicesData = this.props.data.allContentfulService.edges[0].node
+    const teamMemberData = this.props.data.allContentfulTeamMember.edges
+    const servicesData = this.props.data.allContentfulService.edges
     const { showMenu, showContactOverlay, showModal, modalContent } = this.state
 
     return(
@@ -195,6 +195,7 @@ export const indexQuery = graphql`
           description{
             description
           }
+          title
           image{
             id
             sizes{

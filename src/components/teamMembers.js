@@ -28,21 +28,23 @@ const TeamMemberImage = Styled(CollectionItemImage)`
   }
 `
 
-const TeamMember = ({ toggleModal, heading, collectionItems, theme }) => (
+const TeamMember = ({ toggleModal, heading, collectionItems, teamMemberData, theme }) => (
   
   <CollectionContainer id='team'>
+
     <CollectionSVGContainer source={heading} className="collection-header" />
     <CollectionList>
-      {collectionItems.map((item, i) =>
-        <CollectionItem key={i} id={i} className={item.title.split(' ').join('')}>
-          <TeamMemberCollectionItemButton onClick={()=>toggleModal(item, theme)}>
-            <TeamMemberImage className={item.title.split(' ').join('')} image={item.image}/>
-            <CollectionItemTitle>{item.title}</CollectionItemTitle>
-            <CollectionItemSubtitle>{item.subtitle}</CollectionItemSubtitle>
+      {teamMemberData.map((item, i) =>
+        <CollectionItem key={i} id={i} className={item.node.name.split(' ').join('')}>
+          <TeamMemberCollectionItemButton onClick={()=>toggleModal(item.node, theme)}>
+            <TeamMemberImage className={item.node.name.split(' ').join('')} image={item.node.image.sizes.src}/>
+            <CollectionItemTitle>{item.node.name}</CollectionItemTitle>
+            <CollectionItemSubtitle>{item.node.title}</CollectionItemSubtitle>
           </TeamMemberCollectionItemButton>
         </CollectionItem>
       )}
     </CollectionList>
+  
   </CollectionContainer>
 
 )
