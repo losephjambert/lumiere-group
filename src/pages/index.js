@@ -104,8 +104,10 @@ class IndexPage extends React.Component{
 
   render(){
     const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
-    const {images} = this.props.data.allContentfulCarousel.edges[0].node
-    const {showMenu, showContactOverlay, showModal, modalContent} = this.state
+    const { images } = this.props.data.allContentfulCarousel.edges[0].node
+    const teamMemberData = this.props.data.allContentfulTeamMember.edges[0].node
+    const servicesData = this.props.data.allContentfulService.edges[0].node
+    const { showMenu, showContactOverlay, showModal, modalContent } = this.state
 
     return(
       <ThemeProvider theme={GlobalTheme}>
@@ -130,6 +132,7 @@ class IndexPage extends React.Component{
                   theme={TeamCollectionTheme}
                   toggleModal={this.toggleModal}
                   heading={TeamHeading}
+                  teamMemberData={teamMemberData}
                   collectionItems={TeamCollectionItems} />
               </ThemeProvider>
               <ThemeProvider theme={ServicesCollectionTheme}>
@@ -137,6 +140,7 @@ class IndexPage extends React.Component{
                   toggleModal={this.toggleModal}
                   theme={ServicesCollectionTheme}
                   heading={ServicesHeading}
+                  servicesData={servicesData}
                   collectionItems={ServicesCollectionItems} />
                 </ThemeProvider>
             </ContentContainer>
