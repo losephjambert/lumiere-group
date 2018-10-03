@@ -19,21 +19,30 @@ const ServiceCollectionList = Styled(CollectionList)`
 `
 
 
-const ServiceItem = ({ toggleModal, heading, collectionItems, theme }) => (
+const ServiceItem = ({ toggleModal, heading, collectionItems, servicesData, theme }) => (
   
   <ServiceCollectionContainer id='services'>
+    
     <CollectionSVGContainer source={heading} className="collection-header" />
     <ServiceCollectionList>
-      {collectionItems.map((item, i) =>
+      {servicesData.map((item, i) =>
         <CollectionItem key={i} id={i}>
-          <CollectionItemButton onClick={()=>toggleModal(item, theme)}>
-            <CollectionItemImage image={item.image}/>
-            <CollectionItemTitle>{item.title}</CollectionItemTitle>
-            <CollectionItemSubtitle>{item.subtitle}</CollectionItemSubtitle>
+          <CollectionItemButton onClick={()=>toggleModal(
+              {
+                image: null,
+                imageDark: item.node.darkImage.file.url,
+                title: item.node.title,
+                subtitle: null,
+                description: item.node.description.description
+              },
+              theme)}>
+            <CollectionItemImage image={item.node.lightImage.file.url}/>
+            <CollectionItemTitle>{item.node.title}</CollectionItemTitle>
           </CollectionItemButton>
         </CollectionItem>
       )}
     </ServiceCollectionList>
+
   </ServiceCollectionContainer>
 
 )

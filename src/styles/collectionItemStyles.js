@@ -36,7 +36,6 @@ export const CollectionItem = Styled.li`
   }
   color: ${props => props.theme.inverse};
   ${props=>props.theme.forTabletLandscapeUp`
-    margin-bottom: 0;
     &.RinaLuzius { order: 1; }
     &.ErinWeible { order: 2; }
     &.LeleBarnett{ order: 3; }

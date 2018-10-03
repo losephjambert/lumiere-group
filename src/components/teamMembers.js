@@ -36,7 +36,16 @@ const TeamMember = ({ toggleModal, heading, collectionItems, teamMemberData, the
     <CollectionList>
       {teamMemberData.map((item, i) =>
         <CollectionItem key={i} id={i} className={item.node.name.split(' ').join('')}>
-          <TeamMemberCollectionItemButton onClick={()=>toggleModal(item.node, theme)}>
+          {/* <TeamMemberCollectionItemButton onClick={()=>toggleModal(item.node, theme)}> */}
+          <TeamMemberCollectionItemButton onClick={()=>toggleModal(
+              {
+                image: item.node.image.sizes.src,
+                imageDark: null,
+                title: item.node.name,
+                subtitle: item.node.subtitle,
+                description: item.node.description.description
+              },
+              theme)}>
             <TeamMemberImage className={item.node.name.split(' ').join('')} image={item.node.image.sizes.src}/>
             <CollectionItemTitle>{item.node.name}</CollectionItemTitle>
             <CollectionItemSubtitle>{item.node.title}</CollectionItemSubtitle>

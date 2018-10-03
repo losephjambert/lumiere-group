@@ -132,8 +132,7 @@ class IndexPage extends React.Component{
                   theme={TeamCollectionTheme}
                   toggleModal={this.toggleModal}
                   heading={TeamHeading}
-                  teamMemberData={teamMemberData}
-                  collectionItems={TeamCollectionItems} />
+                  teamMemberData={teamMemberData} />
               </ThemeProvider>
               <ThemeProvider theme={ServicesCollectionTheme}>
                 <ServiceItems
