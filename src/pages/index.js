@@ -104,6 +104,7 @@ class IndexPage extends React.Component{
 
   render(){
     const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
+    const { phoneNumber, contactEmail } = this.props.data.allContentfulSiteInformation.edges[0].node
     const { images } = this.props.data.allContentfulCarousel.edges[0].node
     const teamMemberData = this.props.data.allContentfulTeamMember.edges
     const servicesData = this.props.data.allContentfulService.edges
@@ -116,6 +117,7 @@ class IndexPage extends React.Component{
           <AppContainer loading={this.state.loading}>
             <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />
             <Header
+              contactInformation={{phoneNumber, contactEmail}}
               showModal={showModal}
               showMenu={showMenu}
               showContactOverlay={showContactOverlay}
@@ -143,7 +145,9 @@ class IndexPage extends React.Component{
                   collectionItems={ServicesCollectionItems} />
                 </ThemeProvider>
             </ContentContainer>
-            <Footer toggleContactOverlay={this.toggleContactOverlay}/>
+            <Footer
+              contactInformation={{phoneNumber, contactEmail}}
+              toggleContactOverlay={this.toggleContactOverlay}/>
           </AppContainer>
       </div>
       </ThemeProvider>

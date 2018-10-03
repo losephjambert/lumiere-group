@@ -3,6 +3,7 @@ import Styled, { css } from 'styled-components'
 import SVGContainer from '../components/svg-loader'
 import Logo from '../assets/menu-logo.svg'
 import {hideMenu, showMenu} from '../styles/animations'
+import formatPhoneNumber from '../scripts/formatPhoneNumber'
 
 const Container = Styled.div`
   position: fixed;
@@ -139,7 +140,7 @@ const ContactInfo = Styled.p`
 
 let delay = 125
 
-const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
+const Menu = ({active, toggleContactOverlay, toggleMenu, contactInformation:{contactEmail, phoneNumber}}) => (
 
   <Container active={active}>
     <SVGContainer source={Logo} className="menu-logo" />
@@ -166,9 +167,9 @@ const Menu = ({active, toggleContactOverlay, toggleMenu}) => (
       </li>
     </MenuItems>
     <ContactInfo>
-      <span>info@thelumieregroup.com</span>
+      <span>{contactEmail}</span>
       <span className="_divider">|</span>
-      <span><a href='tel:1-360-836-1610'>360.836.1610</a></span>
+      <span><a href={`tel:${formatPhoneNumber(phoneNumber,'TEL')}`}>{formatPhoneNumber(phoneNumber,'DOT')}</a></span>
     </ContactInfo>
   </Container> 
 

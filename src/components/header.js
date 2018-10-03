@@ -111,6 +111,7 @@ const Header = ( {
   toggleContactOverlay,
   showModal,
   scrollYPosition,
+  contactInformation,
   dimensions: {
     height}
   } ) => (
@@ -146,6 +147,7 @@ const Header = ( {
     
     {showMenu &&
       <Menu
+      contactInformation={contactInformation}
       active={showMenu}
       toggleContactOverlay={toggleContactOverlay}
       toggleMenu={toggleMenu}/>
