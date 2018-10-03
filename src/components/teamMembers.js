@@ -28,7 +28,7 @@ const TeamMemberImage = Styled(CollectionItemImage)`
   }
 `
 
-const TeamMember = ({ toggleModal, heading, collectionItems, teamMemberData, theme }) => (
+const TeamMember = ({ toggleModal, heading, teamMemberData, theme }) => (
   
   <CollectionContainer id='team'>
 

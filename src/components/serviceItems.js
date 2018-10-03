@@ -19,7 +19,7 @@ const ServiceCollectionList = Styled(CollectionList)`
 `
 
 
-const ServiceItem = ({ toggleModal, heading, collectionItems, servicesData, theme }) => (
+const ServiceItem = ({ toggleModal, heading, servicesData, theme }) => (
   
   <ServiceCollectionContainer id='services'>
     

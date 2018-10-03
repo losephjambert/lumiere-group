@@ -8,7 +8,7 @@ import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
-import {TeamCollectionItems, ServicesCollectionItems ,TeamCollectionTheme, ServicesCollectionTheme, CarouselImages} from '../components/stubbedData'
+import {TeamCollectionTheme, ServicesCollectionTheme} from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
 import Loader from '../components/loader'
@@ -141,8 +141,7 @@ class IndexPage extends React.Component{
                   toggleModal={this.toggleModal}
                   theme={ServicesCollectionTheme}
                   heading={ServicesHeading}
-                  servicesData={servicesData}
-                  collectionItems={ServicesCollectionItems} />
+                  servicesData={servicesData} />
                 </ThemeProvider>
             </ContentContainer>
             <Footer
