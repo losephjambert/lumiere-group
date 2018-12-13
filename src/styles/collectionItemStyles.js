@@ -15,14 +15,15 @@ export const CollectionContainer = Styled.div`
 export const CollectionList = Styled.ul`
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: auto; 
+  grid-template-rows: auto;
+  justify-items: center;
   ${props=>props.theme.forTabletLandscapeUp`
-    grid-template-columns: repeat(${props => props.theme.columns%2===0 ? props.theme.columns/2 : props.theme.columns}, 1fr);
     grid-column-gap: 2rem;
+    grid-template-columns: repeat(${props => props.theme.columns%2===0 ? props.theme.columns/2 : props.theme.columns}, 1fr);
     `}
-  ${props=>props.theme.forLaptopUp`
-    grid-template-columns: repeat(${props => props.theme.columns}, 1fr);
-    grid-column-gap: 6rem;
+    ${props=>props.theme.forLaptopUp`
+      grid-column-gap: 6rem;
+      grid-template-columns: repeat(${props => props.theme.columns}, 1fr);
   `}
   `
 
