@@ -78,7 +78,7 @@ export const TeamCollectionTheme = {
   type: 'team',
   main: yellowBackground,
   inverse: black,
-  columns: 2,
+  columns: 3,
   smallPhoneSize: '20.5rem',
   laptopSize: '25rem',
   defaultSize: '25rem'
