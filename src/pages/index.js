@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled, {ThemeProvider} from 'styled-components'
+import Styled, { ThemeProvider } from 'styled-components'
 import Carousel from '../components/carousel'
 import About from '../components/about'
 import Header from '../components/header'
@@ -8,27 +8,27 @@ import TeamMembers from '../components/teamMembers'
 import TeamHeading from '../assets/team.svg'
 import ServicesHeading from '../assets/services.svg'
 import Modal from '../components/modal'
-import {TeamCollectionTheme, ServicesCollectionTheme} from '../components/stubbedData'
+import { TeamCollectionTheme, ServicesCollectionTheme } from '../components/stubbedData'
 import ServiceItems from '../components/serviceItems'
 import GlobalTheme from '../styles/globalTheme'
 import Loader from '../components/loader'
 
 const AppContainer = Styled.div`
   position: relative;
-  top: ${props=>props.theme.headerSpaceBig};
-  background-color: ${props=>props.theme.white};
-  opacity: ${props=>props.loading ? 0 : 1};
+  top: ${props => props.theme.headerSpaceBig};
+  background-color: ${props => props.theme.white};
+  opacity: ${props => props.loading ? 0 : 1};
   transition: 300ms;
 `
 
 const ContentContainer = Styled.div`
   position: relative;
   z-index: 10;
-  background-color: ${props=>props.theme.white};
+  background-color: ${props => props.theme.white};
 `
 
-class IndexPage extends React.Component{
-  
+class IndexPage extends React.Component {
+
   constructor(props) {
     super(props)
     this.state = {
@@ -64,7 +64,7 @@ class IndexPage extends React.Component{
   toggleContactOverlay = () => {
     if (!this.state.showMenu) {
       this.setState(prevState => ({
-      showContactOverlay: !prevState.showContactOverlay
+        showContactOverlay: !prevState.showContactOverlay
       }))
     } else {
       this.setState(prevState => ({
@@ -81,15 +81,15 @@ class IndexPage extends React.Component{
   }
 
   toggleModal = (payload, theme) => {
-    if (payload && theme) {      
+    if (payload && theme) {
       this.setState(prevState => ({
         showModal: !prevState.showModal,
         modalContent: {
           content: payload,
           theme: theme
-        } 
+        }
       }))
-    } else{
+    } else {
       this.setState(prevState => ({
         showModal: !prevState.showModal
       }))
@@ -102,7 +102,7 @@ class IndexPage extends React.Component{
     }))
   }
 
-  render(){
+  render() {
     const about = this.props.data.allContentfulSiteInformation.edges[0].node.about.about
     const { phoneNumber, contactEmail } = this.props.data.allContentfulSiteInformation.edges[0].node
     const { images } = this.props.data.allContentfulCarousel.edges[0].node
@@ -110,25 +110,35 @@ class IndexPage extends React.Component{
     const servicesData = this.props.data.allContentfulService.edges
     const { showMenu, showContactOverlay, showModal, modalContent } = this.state
 
-    return(
+    const itemLength = teamMemberData.length
+    const isDivisibleByThree = itemLength % 3 === 0 && itemLength > 3;
+
+    if (!isDivisibleByThree) {
+      TeamCollectionTheme.columns = 2;
+    }
+    if (itemLength === 8 || itemLength === 12 || itemLength === 16) {
+      TeamCollectionTheme.columns = 4;
+    }
+
+    return (
       <ThemeProvider theme={GlobalTheme}>
         <div>
-          <Loader handleLoad={this.handleLoad}/>
+          <Loader handleLoad={this.handleLoad} />
           <AppContainer loading={this.state.loading}>
             <Modal active={showModal} data={modalContent} toggleModal={this.toggleModal} />
             <Header
-              contactInformation={{phoneNumber, contactEmail}}
+              contactInformation={{ phoneNumber, contactEmail }}
               showModal={showModal}
               showMenu={showMenu}
               showContactOverlay={showContactOverlay}
               toggleMenu={this.toggleMenu}
               toggleContactOverlay={this.toggleContactOverlay}
               showContactOverlay={showContactOverlay}
-              toggleContactOverlay={this.toggleContactOverlay}/>
+              toggleContactOverlay={this.toggleContactOverlay} />
             <ContentContainer>
-              <About about={about}/>
+              <About about={about} />
               <Carousel
-                images={images}/>
+                images={images} />
               <ThemeProvider theme={TeamCollectionTheme}>
                 <TeamMembers
                   theme={TeamCollectionTheme}
@@ -142,13 +152,13 @@ class IndexPage extends React.Component{
                   theme={ServicesCollectionTheme}
                   heading={ServicesHeading}
                   servicesData={servicesData} />
-                </ThemeProvider>
+              </ThemeProvider>
             </ContentContainer>
             <Footer
-              contactInformation={{phoneNumber, contactEmail}}
-              toggleContactOverlay={this.toggleContactOverlay}/>
+              contactInformation={{ phoneNumber, contactEmail }}
+              toggleContactOverlay={this.toggleContactOverlay} />
           </AppContainer>
-      </div>
+        </div>
       </ThemeProvider>
     )
 

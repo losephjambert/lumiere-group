@@ -1,5 +1,5 @@
 import React from 'react'
-import Styled, {css} from 'styled-components'
+import Styled from 'styled-components'
 import CollectionSVGContainer from '../styles/collectionSVGContainer'
 import {
   CollectionContainer,
@@ -8,7 +8,8 @@ import {
   CollectionItemButton,
   CollectionItemImage,
   CollectionItemTitle,
-  CollectionItemSubtitle } from '../styles/collectionItemStyles';
+  CollectionItemSubtitle
+} from '../styles/collectionItemStyles';
 
 const TeamMemberCollectionItemButton = Styled(CollectionItemButton)`
   &:hover ${CollectionItemImage}{
@@ -28,34 +29,106 @@ const TeamMemberImage = Styled(CollectionItemImage)`
   }
 `
 
-const TeamMember = ({ toggleModal, heading, teamMemberData, theme }) => (
-  
-  <CollectionContainer id='team'>
+const TeamList = Styled.div`
+  display: flex;
+  align-items: center;
+  flex-flow: column wrap;
+  ${({ theme }) => theme.forTabletLandscapeUp`
+  flex-flow: row wrap;
+    justify-content: space-around;
+  `}
+`;
 
-    <CollectionSVGContainer source={heading} className="collection-header" />
-    <CollectionList>
-      {teamMemberData.map((item, i) =>
-        <CollectionItem key={i} id={i} className={item.node.name.split(' ').join('')}>
-          {/* <TeamMemberCollectionItemButton onClick={()=>toggleModal(item.node, theme)}> */}
-          <TeamMemberCollectionItemButton onClick={()=>toggleModal(
-              {
-                image: item.node.image.sizes.src,
-                imageDark: null,
-                title: item.node.name,
-                subtitle: item.node.subtitle,
-                description: item.node.description.description
-              },
-              theme)}>
-            <TeamMemberImage className={item.node.name.split(' ').join('')} image={item.node.image.sizes.src}/>
-            <CollectionItemTitle>{item.node.name}</CollectionItemTitle>
-            <CollectionItemSubtitle>{item.node.title}</CollectionItemSubtitle>
-          </TeamMemberCollectionItemButton>
-        </CollectionItem>
-      )}
-    </CollectionList>
-  
-  </CollectionContainer>
+const TeamItem = Styled.div`
+  margin: 20px;
+  ${({ theme }) => theme.forTabletLandscapeUp`
+    margin: 30px;
+  `}
+`;
 
-)
+const TeamMember = ({ toggleModal, heading, teamMemberData, theme }) => {
+  const itemLength = teamMemberData.length
+
+  let rows = [];
+  if (itemLength === 5) {
+    const row = [[], []]
+    for (const i in teamMemberData) {
+      i < 2 ? row[0].push(teamMemberData[i]) : row[1].push(teamMemberData[i]);
+    }
+    rows = [...row];
+  }
+
+  if (itemLength === 7) {
+    const row = [[], [], []]
+    for (const i in teamMemberData) {
+      i < 2 ? row[0].push(teamMemberData[i]) : i < 5 ? row[1].push(teamMemberData[i]) : row[2].push(teamMemberData[i]);
+    }
+    rows = [...row];
+  }
+
+  let team;
+
+  if (itemLength < 3) {
+    team =
+      <CollectionList>
+        {teamMemberData.map((item, i) => {
+          return (
+            <CollectionItem key={i} id={i} className={item.node.name.split(' ').join('')}>
+              <TeamMemberCollectionItemButton onClick={() => toggleModal(
+                {
+                  image: item.node.image.sizes.src,
+                  imageDark: null,
+                  title: item.node.name,
+                  subtitle: item.node.subtitle,
+                  description: item.node.description.description
+                },
+                theme)}>
+                <TeamMemberImage className={item.node.name.split(' ').join('')} image={item.node.image.sizes.src} />
+                <CollectionItemTitle>{item.node.name}</CollectionItemTitle>
+                <CollectionItemSubtitle>{item.node.title}</CollectionItemSubtitle>
+              </TeamMemberCollectionItemButton>
+            </CollectionItem>
+          )
+        }
+        )}
+      </CollectionList>
+  } else {
+    team =
+      rows.map((subRows, i) => (
+        <TeamList key={i}>
+          {
+            subRows.map((item, i) => {
+              return (
+                <TeamItem key={i} id={i} className={item.node.name.split(' ').join('')}>
+                  <TeamMemberCollectionItemButton onClick={() => toggleModal(
+                    {
+                      image: item.node.image.sizes.src,
+                      imageDark: null,
+                      title: item.node.name,
+                      subtitle: item.node.subtitle,
+                      description: item.node.description.description
+                    },
+                    theme)}>
+                    <TeamMemberImage className={item.node.name.split(' ').join('')} image={item.node.image.sizes.src} />
+                    <CollectionItemTitle>{item.node.name}</CollectionItemTitle>
+                    <CollectionItemSubtitle>{item.node.title}</CollectionItemSubtitle>
+                  </TeamMemberCollectionItemButton>
+                </TeamItem>
+              )
+            })
+          }
+        </TeamList>
+      ))
+  }
+
+
+  return (
+    <CollectionContainer id='team'>
+      <CollectionSVGContainer source={heading} className="collection-header" />
+      {team}
+    </CollectionContainer>
+
+  )
+}
 
 export default TeamMember

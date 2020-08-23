@@ -1,4 +1,4 @@
-import {Colors} from '../styles/styleVariables'
+import { Colors } from '../styles/styleVariables'
 import rinaImage from '../assets/rina.jpg'
 import leleImage from '../assets/lele.jpg'
 import erinImage from '../assets/erin.jpg'
@@ -19,10 +19,10 @@ import collectionsDark from '../assets/collections-management-and-registration-d
 import lifecycleDark from '../assets/art-lifecycle-dark.svg'
 
 const {
-  blueBackground ,
-  yellowBackground ,
-  hoverColor ,
-  white ,
+  blueBackground,
+  yellowBackground,
+  hoverColor,
+  white,
   black
 } = Colors
 
@@ -44,7 +44,31 @@ export const TeamCollectionItems = [
     title: 'Lele Barnett',
     subtitle: 'Art Advisor',
     description: "Lele Barnett is the Curator of the Microsoft Art Collection, an Art Advisor at The Lumiere Group, and a curator for the Washington State Arts Commission. She has also curated independent art exhibitions for the Bumbershoot Festival, the Washington State Convention Center, and the Wing Luke Asian Museum. Lele has been a panelist for the Frayed Wire Festival, Jack Straw New Media Gallery, Seattle Mayor's Office of Arts & Cultural Affairs, the City of Redmond, and SoundTransit. She was the co-founder and curator for McLeod Residence: a home for extraordinary living through art, technology, and collaboration. Prior to that, she studied Interdisciplinary Art and Art History at the University of Washington and worked in galleries in Seattle, New York, and Southern California."
-  }
+  },
+  {
+    image: rinaImage,
+    title: 'Rina Luzius',
+    subtitle: 'Art Collection Consultant',
+    description: "Rina Luzius is the Senior Registrar for the Microsoft Art Collection and an Art Collection Consultant at The Lumiere Group. At Microsoft, she manages a collection containing 5,000 works of contemporary art, overseeing all physical art movement and storage for this very active collection. Rina’s additional expertise includes: researching and implementing content management systems; establishing and maintaining legal and ethical compliance; long-range collections planning; and disaster preparation and mitigation. Rina was an auxiliary faculty member of the Museology graduate program at the University of Washington for 10 years. She was previously an Assistant Collections Manager at the Burke Museum, and has worked as a paper conservation technician. Throughout her career, she has worked as an independent contractor for the Bellevue Arts Museum, the Museum of History and Industry, the Wing Luke Museum, and the Duwamish Longhouse and Cultural Center. Rina holds a BA in Anthropology, and an MA in Museology, both from the University of Washington. "
+  },
+  {
+    image: erinImage,
+    title: 'Erin Weible',
+    subtitle: 'Art Consultant, Corporate and Private Collections',
+    description: 'Erin Weible has been working with private, public, and corporate art collections for over a decade. She currently acts as the Engagement Director for the Microsoft Art Collection and is an Art Collection Consultant at The Lumiere Group. Erin’s focus is on strategies for corporate and private collection acquisition, care and management, with an emphasis on fostering excitement for the arts among employees and visitors. At Microsoft, she manages dedicated arts professionals and oversees major initiatives, including planning and policy creation, aligning the corporate vision with the art program, senior stakeholder relationships, and all collection forecasting and budgeting. A former Project Manager at Microsoft and RealNetworks, Erin left the software industry to pursue her passion for the arts, working at the Henry Art Gallery, Seattle Art Museum, and Tacoma Art Museum prior to launching The Lumiere Group. With a background in fine arts, an MA in Museology from the University of Washington, and extensive experience leading teams, Erin expertly translates the needs of artwork for a corporate audience.'
+  },
+  {
+    image: leleImage,
+    title: 'Lele Barnett',
+    subtitle: 'Art Advisor',
+    description: "Lele Barnett is the Curator of the Microsoft Art Collection, an Art Advisor at The Lumiere Group, and a curator for the Washington State Arts Commission. She has also curated independent art exhibitions for the Bumbershoot Festival, the Washington State Convention Center, and the Wing Luke Asian Museum. Lele has been a panelist for the Frayed Wire Festival, Jack Straw New Media Gallery, Seattle Mayor's Office of Arts & Cultural Affairs, the City of Redmond, and SoundTransit. She was the co-founder and curator for McLeod Residence: a home for extraordinary living through art, technology, and collaboration. Prior to that, she studied Interdisciplinary Art and Art History at the University of Washington and worked in galleries in Seattle, New York, and Southern California."
+  },
+  {
+    image: leleImage,
+    title: 'Lele Barnett',
+    subtitle: 'Art Advisor',
+    description: "Lele Barnett is the Curator of the Microsoft Art Collection, an Art Advisor at The Lumiere Group, and a curator for the Washington State Arts Commission. She has also curated independent art exhibitions for the Bumbershoot Festival, the Washington State Convention Center, and the Wing Luke Asian Museum. Lele has been a panelist for the Frayed Wire Festival, Jack Straw New Media Gallery, Seattle Mayor's Office of Arts & Cultural Affairs, the City of Redmond, and SoundTransit. She was the co-founder and curator for McLeod Residence: a home for extraordinary living through art, technology, and collaboration. Prior to that, she studied Interdisciplinary Art and Art History at the University of Washington and worked in galleries in Seattle, New York, and Southern California."
+  },
 ]
 
 export const ServicesCollectionItems = [
@@ -78,7 +102,7 @@ export const TeamCollectionTheme = {
   type: 'team',
   main: yellowBackground,
   inverse: black,
-  columns: 3,
+  columns: 2,
   smallPhoneSize: '20.5rem',
   laptopSize: '25rem',
   defaultSize: '25rem'
@@ -88,7 +112,7 @@ export const ServicesCollectionTheme = {
   type: 'services',
   main: black,
   inverse: yellowBackground,
-  columns: 4,
+  columns: 2,
   smallPhoneSize: '15.5rem',
   laptopSize: '17.5rem',
   defaultSize: '17.5rem'

@@ -1,4 +1,4 @@
-import Styled, {css} from 'styled-components'
+import Styled, { css } from 'styled-components'
 
 export const CollectionContainer = Styled.div`
   min-height: 100vh;
@@ -7,7 +7,7 @@ export const CollectionContainer = Styled.div`
   flex-flow: column wrap;
   align-items: center;
   background-color: ${props => props.theme.main};
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props => props.theme.forTabletLandscapeUp`
     padding: 13.6rem 0;
   `}
 `
@@ -17,13 +17,14 @@ export const CollectionList = Styled.ul`
   grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
   justify-items: center;
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props => props.theme.forTabletLandscapeUp`
     grid-column-gap: 2rem;
-    grid-template-columns: repeat(${props => props.theme.columns%2===0 ? props.theme.columns/2 : props.theme.columns}, 1fr);
+    grid-template-columns: repeat(${props => props.theme.columns % 2 === 0 ? props.theme.columns / 2 : props.theme.columns}, 1fr);
     `}
-    ${props=>props.theme.forLaptopUp`
+    ${props => props.theme.forLaptopUp`
       grid-column-gap: 6rem;
       grid-template-columns: repeat(${props => props.theme.columns}, 1fr);
+      grid-template-area: ${props => props.theme.area};
   `}
   `
 
@@ -36,13 +37,13 @@ export const CollectionItem = Styled.li`
     order: -1;
   }
   color: ${props => props.theme.inverse};
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props => props.theme.forTabletLandscapeUp`
     &.RinaLuzius { order: 1; }
     &.ErinWeible { order: 2; }
     &.LeleBarnett{ order: 3; }
   `}
 `
-  
+
 export const CollectionItemButton = Styled.button`
   border: none;
   background-color: transparent;
@@ -54,10 +55,10 @@ export const CollectionItemButton = Styled.button`
     outline: none;
   }
   &:hover{
-    color: ${props=>props.theme.hoverColor};
+    color: ${props => props.theme.hoverColor};
   }
   `
-  
+
 export const CollectionItemImage = Styled.div`
   background-image: ${props => `url(${props.image})`};
   background-position: center center;
@@ -67,12 +68,12 @@ export const CollectionItemImage = Styled.div`
   width: ${props => props.theme.smallPhoneSize};
   margin: 0 auto 2.2rem;
   transition: inherit;
-  ${props=>props.theme.forLaptopUp`
+  ${props => props.theme.forLaptopUp`
     margin: 0 auto 3.2rem;
     height: ${props => props.theme.laptopSize};
     width: ${props => props.theme.laptopSize};
   `}
-  ${props=>props.theme.forDesktopUp`
+  ${props => props.theme.forDesktopUp`
     margin: 0 auto 3.2rem;
     height: ${props => props.theme.defaultSize};
     width: ${props => props.theme.defaultSize};
@@ -87,7 +88,7 @@ export const CollectionItemTitle = Styled.h3`
   margin: 0 auto .75rem;
   max-width: 20rem;
   text-align: center;
-  ${props=>props.theme.forTabletLandscapeUp`
+  ${props => props.theme.forTabletLandscapeUp`
     width: auto;
     margin: intial;
     line-height: initial;
